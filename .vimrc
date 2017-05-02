@@ -13,3 +13,5 @@ set wildmenu
 " Tag jumping
 
 command! MakeTags !ctags -R -f ./.git/tags .
+set tags+=./.git/tags;
+set autochdir
