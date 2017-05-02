@@ -12,7 +12,3 @@ filetype plugin on
 
 set path+=**
 set wildmenu
-
-" Tag jumping
-
-command! MakeTags !ctags -R .
