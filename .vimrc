@@ -1,9 +1,12 @@
 " Basic setup
 
 set nocompatible
+set nobackup
+set noswapfile
+set number
+
 syntax enable
 filetype plugin on
-set number
 
 " Finding files
 
