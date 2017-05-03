@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# sudo is needed to install cask
+sudo -v
+
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
@@ -40,6 +43,7 @@ brew install dns2tcp
 brew install foremost
 brew install nmap
 brew install sqlmap
+brew cask install xquartz
 brew install xpdf
 brew install xz
 
