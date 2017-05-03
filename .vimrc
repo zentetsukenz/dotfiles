@@ -1,3 +1,5 @@
+set shell=bash
+
 " Basic setup
 
 set nocompatible
