@@ -31,6 +31,9 @@ brew install grep
 brew install openssh
 brew install screen
 
+# Install shell
+brew install fish
+
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install aircrack-ng
 brew install dns2tcp
