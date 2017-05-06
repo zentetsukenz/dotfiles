@@ -13,6 +13,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -22,6 +24,8 @@ call plug#end()
 set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
+let g:airline_powerline_fonts=1
+let g:airline_theme='light'
 
 " Make search path awesome
 set path+=**
