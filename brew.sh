@@ -29,7 +29,7 @@ brew install wget --with-iri
 brew install vim --with-override-system-vi
 brew install grep
 brew install openssh
-brew install screen
+brew install tmux
 
 # Install shell
 brew install fish
