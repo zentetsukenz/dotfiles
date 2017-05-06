@@ -63,6 +63,9 @@ else
 
     echo "Syncing the file to ~/ folder"
     doIt;
+
+    echo "Installing vim-plug, a plugin manager for vim"
+    install_vim_plug;
   fi;
 fi;
 unset doIt;
