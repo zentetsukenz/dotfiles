@@ -39,19 +39,6 @@ function install_powerline_fonts() {
   rm -rf fonts
 }
 
-# Vim plug installation functions
-
-function install_vim_plug() {
-  if [ -d "~/.vim/autoload/plug.vim" ]; then
-    echo "vim-plug had already been installed, skip this step."
-    return 0;
-  fi
-
-  # Download vim-plug into vim autoload directory
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
   doIt;
 else
@@ -63,9 +50,6 @@ else
 
     echo "Syncing the file to ~/ folder"
     doIt;
-
-    echo "Installing vim-plug, a plugin manager for vim"
-    install_vim_plug;
   fi;
 fi;
 unset doIt;
