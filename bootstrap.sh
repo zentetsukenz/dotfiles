@@ -13,6 +13,8 @@ function doIt() {
     -avh --no-perms . ~;
 }
 
+# Powerline fonts installation functions
+
 function is_powerline_fonts_exist() {
   if ls ~/Library/Fonts/*Powerline.ttf 1> /dev/null 2>&1; then
     return 0;
