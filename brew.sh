@@ -63,6 +63,7 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 brew install ctags
+brew install reattach-to-user-namespace
 
 # Remove outdated versions from the cellar.
 brew cleanup
