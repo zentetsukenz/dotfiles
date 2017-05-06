@@ -26,6 +26,7 @@ brew install gnu-sed --with-default-names
 brew install wget --with-iri
 
 # Install more recent versions of some macOS tools.
+brew cask install iterm2
 brew install vim --with-override-system-vi
 brew install grep
 brew install openssh
