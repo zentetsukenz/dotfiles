@@ -4,7 +4,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set shell=bash
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+
+call plug#end()
 
 " Use the Solarized Dark theme
 set background=dark
@@ -15,16 +19,10 @@ let g:solarized_termtrans=1
 set path+=**
 " Make Vim more useful
 set nocompatible
-" Enhance command-line completion
-set wildmenu
 " Allow cursor keys in insert mode
 set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
 " Change mapleader
 let mapleader=","
 " Don’t add empty newlines at the end of files
@@ -48,8 +46,6 @@ set exrc
 set secure
 " Enable line numbers
 set number
-" Enable syntax highlighting
-syntax on
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
@@ -59,18 +55,12 @@ set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
 " Highlight searches
 set hlsearch
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
 " Enable mouse in all modes
 set mouse=a
 " Disable error bells
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
-" Show the cursor position
-set ruler
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 " Show the current mode
@@ -84,8 +74,6 @@ if exists("&relativenumber")
   set relativenumber
   au BufReadPost * set relativenumber
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -96,13 +84,3 @@ function! StripWhitespace()
   call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-
-" Automatic commands
-if has("autocmd")
-  " Enable file type detection
-  filetype on
-  " Treat .json files as .js
-  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  " Treat .md files as Markdown
-  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
