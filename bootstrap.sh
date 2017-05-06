@@ -32,12 +32,9 @@ function install_powerline_fonts() {
     rm -rf fonts
   fi
 
-  # clone
   git clone https://github.com/powerline/fonts.git
-  # install
   cd fonts
   ./install.sh
-  # clean-up a bit
   cd ..
   rm -rf fonts
 }
