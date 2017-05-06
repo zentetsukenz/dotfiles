@@ -12,6 +12,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
