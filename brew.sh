@@ -34,6 +34,7 @@ brew install tmux
 
 # Install shell
 brew install fish
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install aircrack-ng
