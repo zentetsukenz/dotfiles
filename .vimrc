@@ -15,8 +15,18 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
+
+" Automatically build YCM core module
+if !empty(glob('~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm')) && empty(glob('~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycm_core.so'))
+  " Use install.py built-in script to install ycm core. If your machine happen
+  " unable to install using install.py . Please follow the steps describe in
+  " YouCompleteMe github README to solve the problem. The problem is highly
+  " likely to related to your machine configurations.
+  silent !~/.vim/plugged/YouCompleteMe/install.py
+endif
 
 " Start my own customization
 
