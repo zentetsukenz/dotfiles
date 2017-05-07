@@ -36,7 +36,6 @@ endif
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
-let g:solarized_termtrans=1
 
 " Airline configurations
 let g:airline#extensions#tabline#enabled=1
