@@ -16,6 +16,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -52,6 +54,9 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 let g:airline_powerline_fonts=1
 let g:airline_theme='light'
+
+" NERDTree configuration
+nmap <leader>n :NERDTreeToggle<CR>
 
 " Make search path awesome
 set path+=**
