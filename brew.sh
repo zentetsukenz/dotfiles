@@ -66,6 +66,7 @@ brew install webkit2png
 brew install zopfli
 brew install ctags
 brew install reattach-to-user-namespace
+brew install cmake
 
 # Remove outdated versions from the cellar.
 brew cleanup
