@@ -19,6 +19,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -57,6 +58,9 @@ let g:airline_theme='light'
 
 " NERDTree configuration
 nmap <leader>n :NERDTreeToggle<CR>
+
+" Tagbar configuration
+nmap <leader>t :TagbarToggle<CR>
 
 " Make search path awesome
 set path+=**
