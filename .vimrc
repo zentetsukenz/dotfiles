@@ -116,6 +116,8 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Keep at least 10 lines visible
+set scrolloff=10
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
