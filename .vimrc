@@ -14,7 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -37,6 +37,9 @@ augroup load_ycm
 augroup END
 
 " Start my own customization
+
+" Change mapleader
+let mapleader=","
 
 " Use the Solarized Dark theme
 set background=dark
@@ -74,8 +77,6 @@ set nocompatible
 set esckeys
 " Optimize for fast terminal connections
 set ttyfast
-" Change mapleader
-let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
