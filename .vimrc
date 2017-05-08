@@ -10,12 +10,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 
@@ -62,9 +61,6 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>= <Plug>AirlineSelectNextTab
 let g:airline_powerline_fonts=1
 let g:airline_theme='light'
-
-" NERDTree configuration
-nmap <leader>n :NERDTreeToggle<CR>
 
 " Tagbar configuration
 nmap <leader>t :TagbarToggle<CR>
