@@ -13,7 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
@@ -29,6 +29,12 @@ if !empty(glob('~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm')) && empt
   " likely to related to your machine configurations.
   silent !~/.vim/plugged/YouCompleteMe/install.py
 endif
+
+augroup load_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('YouCompleteMe')
+                     \| autocmd! load_ycm
+augroup END
 
 " Start my own customization
 
