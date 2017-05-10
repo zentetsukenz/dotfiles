@@ -11,7 +11,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
