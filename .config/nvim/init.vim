@@ -10,6 +10,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'wikitopian/hardmode'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -20,6 +27,9 @@ call plug#end()
 
 " Leader
 let mapleader = ","
+
+let g:airline_powerline_fonts=1
+let g:airline_theme='light'
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
