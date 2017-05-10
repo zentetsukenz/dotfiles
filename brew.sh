@@ -28,6 +28,7 @@ brew install wget --with-iri
 # Install more recent versions of some macOS tools.
 brew cask install iterm2
 brew install vim --with-override-system-vi
+brew isntall neovim/neovim/neovim
 brew install grep
 brew install openssh
 brew install tmux
