@@ -16,6 +16,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 
 call plug#end()
 
