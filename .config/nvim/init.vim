@@ -18,10 +18,6 @@ call plug#end()
 " Copied from Thoughtbot dotfiles but modified to suit my need
 "
 
-" Command mode
-nnoremap ; :
-nnoremap : ;
-
 " Leader
 let mapleader = ","
 
