@@ -97,10 +97,6 @@ nnoremap <C-l> <C-w>l
 " Always use vertical diffs
 set diffopt+=vertical
 
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-
 " Keep at least 10 lines visible
 set scrolloff=10
 
