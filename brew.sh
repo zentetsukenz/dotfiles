@@ -49,22 +49,16 @@ brew install xz
 
 # Install other useful binaries.
 brew install ag
-brew install dark-mode
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
-brew install lynx
 brew install p7zip
 brew install pigz
-brew install pv
 brew install rename
 brew install speedtest_cli
 brew install testssl
 brew install tree
-brew install vbindiff
-brew install webkit2png
-brew install zopfli
 brew install ctags
 brew install reattach-to-user-namespace
 brew install cmake
