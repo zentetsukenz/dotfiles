@@ -37,6 +37,9 @@ augroup END
 
 " Start my own customization
 
+" Change command mode key
+nnoremap ; :
+nnoremap : ;
 " Change mapleader
 let mapleader=","
 
