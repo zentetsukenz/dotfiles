@@ -67,7 +67,7 @@ set colorcolumn=+1
 
 " Numbers
 set number
-set numberwidth=5
+set relativenumber
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -103,9 +103,6 @@ set noeol
 
 " Keep at least 10 lines visible
 set scrolloff=10
-
-" Relative line number
-set relativenumber
 
 " Enable Hardmode by default
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
