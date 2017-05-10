@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-git pull origin master;
-
 function doIt() {
   rsync --exclude ".git/" \
     --exclude ".DS_Store" \
