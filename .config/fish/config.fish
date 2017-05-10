@@ -17,3 +17,7 @@ set -x -g MANPATH $__fish_prefix_coreutils/libexec/gnuman $MANPATH
 # Findutils bin and man folders
 set -x -g PATH $__fish_prefix_findutils/libexec/gnubin $PATH
 set -x -g MANPATH $__fish_prefix_findutils/libexec/gnuman $MANPATH
+
+if test -e ~/.config/fish/config.fish.local
+    source ~/.config/fish/config.fish.local
+end
