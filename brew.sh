@@ -48,7 +48,7 @@ brew install xpdf
 brew install xz
 
 # Install other useful binaries.
-brew install ack
+brew install ag
 brew install dark-mode
 brew install git
 brew install git-lfs
