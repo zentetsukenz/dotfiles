@@ -107,6 +107,10 @@ set scrolloff=10
 " Relative line number
 set relativenumber
 
+" Enable Hardmode by default
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
 " Local config
 if filereadable($HOME . "/.config/nvim/init.vim.local")
   source ~/.config/nvim/init.vim.local
