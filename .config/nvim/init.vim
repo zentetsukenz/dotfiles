@@ -8,18 +8,25 @@ endif
 " Plug install
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'
+" Practice
 Plug 'wikitopian/hardmode'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Navigation
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'christoomey/vim-tmux-navigator'
+" Theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Text manipulation
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+" Git
+Plug 'airblade/vim-gitgutter'
+" Ruby
+Plug 'tpope/vim-rails'
+" Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'tpope/vim-rails'
-Plug 'junegunn/vim-easy-align'
 Plug 'mxw/vim-jsx'
 
 call plug#end()
