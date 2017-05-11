@@ -20,6 +20,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'tpope/vim-rails'
 Plug 'junegunn/vim-easy-align'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
