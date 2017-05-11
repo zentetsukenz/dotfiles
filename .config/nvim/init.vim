@@ -26,7 +26,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rails'
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 
 call plug#end()
