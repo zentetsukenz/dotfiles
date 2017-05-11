@@ -36,6 +36,9 @@ call plug#end()
 " Copied from Thoughtbot dotfiles but modified to suit my need
 "
 
+" Use vim-jsx in js file too
+let g:jsx_ext_required=0
+
 " Leader
 let mapleader = ","
 
