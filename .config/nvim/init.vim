@@ -18,6 +18,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
