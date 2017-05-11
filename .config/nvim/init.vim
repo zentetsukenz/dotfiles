@@ -56,6 +56,9 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
+" Tagbar
+nmap <leader>t :TagbarToggle<CR>
+
 " EasyAlign key map
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
