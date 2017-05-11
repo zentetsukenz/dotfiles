@@ -51,6 +51,9 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Netrw track current directory
+let g:netrw_keepdir=0
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
