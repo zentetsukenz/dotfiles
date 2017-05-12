@@ -1,3 +1,3 @@
 function g --description 'Git'
-    git $argv
+    command git $argv
 end

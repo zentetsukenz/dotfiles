@@ -1,3 +1,3 @@
 function ga --description 'Git add'
-    git add $argv
+    command git add $argv
 end

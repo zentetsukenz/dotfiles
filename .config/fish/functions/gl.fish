@@ -1,3 +1,3 @@
 function gl --description 'Git log'
-    git log $argv
+    command git log $argv
 end

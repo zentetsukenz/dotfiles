@@ -1,3 +1,3 @@
 function gpull --description 'Git pull'
-    git pull $argv
+    command git pull $argv
 end

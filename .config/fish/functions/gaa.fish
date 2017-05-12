@@ -1,3 +1,3 @@
 function gaa --description 'Git add all'
-    git add . $argv
+    command git add . $argv
 end

@@ -1,3 +1,3 @@
 function gfap --description 'Git fetch all prune'
-    git fetch --all --prune $argv
+    command git fetch --all --prune $argv
 end

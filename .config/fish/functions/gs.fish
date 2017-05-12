@@ -1,3 +1,3 @@
 function gs --description 'Git status'
-    git status $argv
+    command git status $argv
 end
