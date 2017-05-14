@@ -27,25 +27,15 @@ brew install wget --with-iri
 
 # Install more recent versions of some macOS tools.
 brew cask install iterm2
-brew install vim --with-override-system-vi
 brew install neovim/neovim/neovim
 brew install grep
 brew install openssh
 brew install tmux
+brew install gpg
 
 # Install shell
 brew install fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew install aircrack-ng
-brew install dns2tcp
-brew install foremost
-brew install nmap
-brew install sqlmap
-brew cask install xquartz
-brew install xpdf
-brew install xz
 
 # Install other useful binaries.
 brew install ag
