@@ -3,6 +3,9 @@
 # sudo is needed to install cask
 sudo -v
 
+# Keep-alive: update existing `sudo` time stamp until `brew` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
