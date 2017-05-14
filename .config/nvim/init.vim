@@ -27,6 +27,7 @@ Plug 'tpope/vim-rails'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
 
 call plug#end()
@@ -36,8 +37,8 @@ call plug#end()
 " Copied from Thoughtbot dotfiles but modified to suit my need
 "
 
-" Use vim-jsx in js file too
-let g:jsx_ext_required=0
+" Use angularjs lib
+let g:used_javascript_libs='angularjs'
 
 " Leader
 let mapleader = ","
