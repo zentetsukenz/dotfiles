@@ -36,10 +36,9 @@ brew install gpg
 # Install shell
 brew install fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-if grep -Fxq "/usr/local/bin/fish" /etc/shells
-then
-  chsh -s /usr/local/bin/fish
+if ! grep -Fxq "/usr/local/bin/fish" /etc/shells ; then
   echo /usr/local/bin/fish | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
 fi
 
 # Install other useful binaries.
