@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Text manipulation
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 " Git
 Plug 'airblade/vim-gitgutter'
 " Ruby
