@@ -21,6 +21,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
+Plug 'kana/vim-textobj-user'
+Plug 'tek/vim-textobj-ruby'
 " Git
 Plug 'airblade/vim-gitgutter'
 " Ruby
