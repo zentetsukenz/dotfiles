@@ -97,7 +97,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 sudo systemsetup -setrestartfreeze on
 
 # Go into computer sleep mode after 10 minutes
-sudo systemsetup -setcomputersleep 60 > /dev/null
+sudo systemsetup -setcomputersleep 10 > /dev/null
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
