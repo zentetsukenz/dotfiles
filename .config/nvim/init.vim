@@ -118,7 +118,8 @@ endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
-set colorcolumn=+1
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=0 guibg=lightgray
 
 " Numbers
 set number
