@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'tek/vim-textobj-ruby'
+Plug 'bps/vim-textobj-python'
 " Git
 Plug 'airblade/vim-gitgutter'
 " Ruby
@@ -35,6 +36,9 @@ Plug 'mxw/vim-jsx'
 " Elixr
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
