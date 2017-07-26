@@ -11,7 +11,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Practice
 Plug 'wikitopian/hardmode'
 " Navigation
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 " Theme
