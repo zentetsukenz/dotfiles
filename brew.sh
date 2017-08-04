@@ -41,6 +41,9 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells ; then
   chsh -s /usr/local/bin/fish
 fi
 
+# Language specific
+brew install pyenv
+
 # Install other useful binaries.
 brew install ag
 brew install git

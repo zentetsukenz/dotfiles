@@ -10,6 +10,8 @@ set -x -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 set -x -g PATH /usr/local/opt/findutils/libexec/gnubin $PATH
 set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
 
+status --is-interactive; and source (pyenv init -|psub)
+
 if test -e ~/.config/fish/config.fish.local
     source ~/.config/fish/config.fish.local
 end
