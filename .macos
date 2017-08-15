@@ -128,12 +128,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Hibernate if power is going out but default as sleep
-sudo pmset -a hibernatemode 3
-
-# Standby mode on (This will put mac to sleep first, then after standbyDelay
-# it will go to hibernate mode)
-sudo pmset -a standby 1 > /dev/null
-sudo pmset -a standbydelay 3600 > /dev/null
+sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage
