@@ -127,6 +127,42 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
+# Display sleep to 3 minutes for security reason
+sudo pmset -a displaysleep 3
+
+# Disk sleep after a while to save battery
+sudo pmset -a disksleep 10
+
+# System sleep after disk sleep to prevent battery leak
+sudo pmset -a sleep 15
+
+# Do not wake on magic packet
+sudo pmset -a womp 0
+
+# Do not wake on modem ring
+sudo pmset -a ring 0
+
+# No power nap
+sudo pmset -a powernap 0
+
+# No auto restart
+sudo pmset -a autorestart 0
+
+# Enable lid wake
+sudo pmset -a lidwake 1
+
+# No power source wake
+sudo pmset -a acwake 0
+
+# Yeah, less brightness when on battery
+sudo pmset -a lessbright 1
+
+# Not sure what it is, off for now
+sudo pmset -a halfdim 0
+
+# Sudden Motion Sensor seems like a useful to prevent HDD break if fall
+sudo pmset -a sms 1
+
 # Hibernate if power is going out but default as sleep
 sudo pmset -a hibernatemode 0
 
