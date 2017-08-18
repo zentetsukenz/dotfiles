@@ -163,8 +163,14 @@ sudo pmset -a halfdim 0
 # Sudden Motion Sensor seems like a useful to prevent HDD break if fall
 sudo pmset -a sms 1
 
+# No tty keep awake and tcp keepalive
+sudo pmset -a ttyskeepawake 0
+
 # Hibernate if power is going out but default as sleep
-sudo pmset -a hibernatemode 0
+sudo pmset -a hibernatemode 3
+
+# Set autopoweroff delay to 6 hours
+sudo pmset -a autopoweroffdelay 21600
 
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage
