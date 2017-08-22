@@ -24,6 +24,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'kana/vim-textobj-user'
 Plug 'tek/vim-textobj-ruby'
 Plug 'bps/vim-textobj-python'
+Plug 'andyl/vim-textobj-elixir'
 " Git
 Plug 'airblade/vim-gitgutter'
 " Ruby
