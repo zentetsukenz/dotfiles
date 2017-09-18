@@ -167,7 +167,7 @@ sudo pmset -a sms 1
 sudo pmset -a ttyskeepawake 0
 
 # Hibernate if power is going out but default as sleep
-sudo pmset -a hibernatemode 3
+sudo pmset -a hibernatemode 25
 
 # Set autopoweroff delay to 6 hours
 sudo pmset -a autopoweroffdelay 21600
