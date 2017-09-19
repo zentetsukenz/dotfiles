@@ -166,11 +166,11 @@ sudo pmset -a sms 1
 # No tty keep awake and tcp keepalive
 sudo pmset -a ttyskeepawake 0
 
-# Hibernate if power is going out but default as sleep
+# Plain old sleep
 sudo pmset -a hibernatemode 0
 
-# Set autopoweroff delay to 6 hours
-sudo pmset -a autopoweroffdelay 21600
+# Set autopoweroff delay to 24 hours
+sudo pmset -a autopoweroffdelay 86400
 
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage
