@@ -127,6 +127,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
+# Longer standby time before hibernate, set to 18 hrs
+sudo pmset -a standbydelay 64800
+
+# Enable standby mode
+sudo pmset -a standby 1
+
 # Display sleep to 3 minutes for security reason
 sudo pmset -a displaysleep 3
 
