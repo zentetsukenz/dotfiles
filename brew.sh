@@ -33,6 +33,12 @@ brew install openssh
 brew install tmux
 brew install gpg
 
+# Install spacemacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+brew linkapps emacs-plus
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 # Install shell
 brew install fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
