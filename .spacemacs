@@ -312,6 +312,22 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (defun my-org-agenda-skip-all-siblings-but-first ()
+    "Skip all but the first non-done entry."
+    (let (should-skip-entry)
+      (unless (org-current-is-todo)
+        (setq should-skip-entry t))
+      (save-excursion
+        (while (and (not should-skip-entry) (org-goto-sibling t))
+          (when (org-current-is-todo)
+            (setq should-skip-entry t))))
+      (when should-skip-entry
+        (or (outline-next-heading)
+            (goto-char (point-max))))))
+
+  (defun org-current-is-todo ()
+    (string= "TODO" (org-get-todo-state)))
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -330,7 +346,42 @@ you should place your code here."
   (global-fci-mode 1)
   ;; Show 80-column marker
 
+  ;; Do not automatically add magic comment for Ruby
   (setq ruby-insert-encoding-magic-comment nil)
+  ;;
+
+  ;; GTD
+  (setq org-agenda-files '("~/gtd/inbox.org"
+                           "~/gtd/gtd.org"
+                           "~/gtd/tickler.org"))
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                 (file+headline "~/gtd/inbox.org" "Tasks") "* TODO %?")
+                                ("T" "Tickler" entry
+                                 (file+headline "~/gtd/tickler.org" "Ticker") "* %?\n  %U")))
+  (setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
+                             ("~/gtd/someday.org" :level . 1)
+                             ("~/gtd/tickler.org" :maxlevel . 2)))
+  (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+  (setq org-agenda-custom-commands '(("o" "At the office" tags-todo "@office"
+                                      ((org-agenda-overriding-header "Office")
+                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+                                     ("h" "At home" tags-todo "@home"
+                                      ((org-agenda-overriding-header "Home")
+                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+                                     ("c" "In front of my computer" tags-todo "@computer"
+                                      ((org-agenda-overriding-header "Computer")
+                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
+  (defun gtd ()
+    "Open the GTD file."
+    (interactive)
+    (find-file "~/gtd/gtd.org"))
+  (defun inbox ()
+    "Open the Inbox file."
+    (interactive)
+    (find-file "~/gtd/inbox.org"))
+  (global-set-key "\C-ci" 'inbox)
+  ;;
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs eill
@@ -340,6 +391,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/gtd/inbox.org" "~/gtd/tickler.org")))
  '(package-selected-packages
    (quote
     (org-projectile-helm org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic nginx-mode go-guru go-eldoc company-go go-mode insert-shebang fish-mode company-shell mmm-mode markdown-toc markdown-mode gh-md web-beautify livid-mode skewer-mode simple-httpd js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode ghub let-alist yaml-mode projectile-rails inflections feature-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl ob-elixir flycheck-mix flycheck-credo flycheck alchemist elixir-mode evil-unimpaired unfill mwim helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete orgit magit-gitflow evil-magit smeargle helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit magit-popup git-commit with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
