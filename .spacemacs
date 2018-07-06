@@ -31,7 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     rust
+     (rust :variables
+           rust-enable-format-on-save t
+           rust-format-on-save t)
      python
      nginx
      go
@@ -55,7 +57,6 @@ values."
      emacs-lisp
      git
      ;; markdown
-     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -313,22 +314,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (defun my-org-agenda-skip-all-siblings-but-first ()
-    "Skip all but the first non-done entry."
-    (let (should-skip-entry)
-      (unless (org-current-is-todo)
-        (setq should-skip-entry t))
-      (save-excursion
-        (while (and (not should-skip-entry) (org-goto-sibling t))
-          (when (org-current-is-todo)
-            (setq should-skip-entry t))))
-      (when should-skip-entry
-        (or (outline-next-heading)
-            (goto-char (point-max))))))
-
-  (defun org-current-is-todo ()
-    (string= "TODO" (org-get-todo-state)))
-
   )
 
 (defun dotspacemacs/user-config ()
@@ -349,38 +334,6 @@ you should place your code here."
 
   ;; Do not automatically add magic comment for Ruby
   (setq ruby-insert-encoding-magic-comment nil)
-  ;;
-
-  ;; GTD
-  (setq org-agenda-files '("~/gtd/inbox.org"
-                           "~/gtd/gtd.org"
-                           "~/gtd/tickler.org"))
-  (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file+headline "~/gtd/inbox.org" "Tasks") "* TODO %?")
-                                ("T" "Tickler" entry
-                                 (file+headline "~/gtd/tickler.org" "Ticker") "* %?\n  %U")))
-  (setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
-                             ("~/gtd/someday.org" :level . 1)
-                             ("~/gtd/tickler.org" :maxlevel . 2)))
-  (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-  (setq org-agenda-custom-commands '(("o" "At the office" tags-todo "@office"
-                                      ((org-agenda-overriding-header "Office")
-                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-                                     ("h" "At home" tags-todo "@home"
-                                      ((org-agenda-overriding-header "Home")
-                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-                                     ("c" "In front of my computer" tags-todo "@computer"
-                                      ((org-agenda-overriding-header "Computer")
-                                       (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
-  (defun gtd ()
-    "Open the GTD file."
-    (interactive)
-    (find-file "~/gtd/gtd.org"))
-  (defun inbox ()
-    "Open the Inbox file."
-    (interactive)
-    (find-file "~/gtd/inbox.org"))
-  (global-set-key "\C-ci" 'inbox)
   ;;
 
   )
