@@ -1,6 +1,10 @@
 - defaults:
     link:
       relink: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
 
 - clean: ['~']
 
@@ -14,8 +18,14 @@
 
 - shell:
     -
+      command: sh .macos
+      description: Setup MacOS
+    -
+      command: sh brew.sh
+      description: Install MacOS essential packages
+    -
+      command: sh tmux.sh
+      description: Install TMUX TPM
+    -
       command: sh install_powerline_fonts.sh
-      stdin: true
-      stdout: true
-      stderr: true
       description: Install Powerline fonts
