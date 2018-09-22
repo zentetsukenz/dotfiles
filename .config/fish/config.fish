@@ -15,3 +15,5 @@ status --is-interactive; and source (pyenv init -|psub)
 if test -e ~/.config/fish/config.fish.local
     source ~/.config/fish/config.fish.local
 end
+
+status --is-interactive; and source (rbenv init -|psub)

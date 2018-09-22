@@ -1,0 +1,21 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    "~/.vimrc": ".vimrc"
+    "~/.tmux.conf": ".tmux.conf"
+    "~/.spacemacs": ".spacemacs"
+    "~/.config/":
+      glob: true
+      path: ".config/*"
+
+- shell:
+    -
+      command: sh install_powerline_fonts.sh
+      stdin: true
+      stdout: true
+      stderr: true
+      description: Install Powerline fonts

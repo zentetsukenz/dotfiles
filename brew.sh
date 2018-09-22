@@ -28,7 +28,7 @@ brew install wget --with-iri
 # Install more recent versions of some macOS tools.
 brew cask install iterm2
 brew install neovim/neovim/neovim
-brew install grep
+brew install ripgrep
 brew install openssh
 brew install tmux
 brew install gpg
@@ -49,9 +49,9 @@ fi
 
 # Language specific
 brew install pyenv
+brew install rbenv
 
 # Install other useful binaries.
-brew install ag
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
@@ -59,10 +59,7 @@ brew install lua
 brew install p7zip
 brew install pigz
 brew install rename
-brew install speedtest_cli
-brew install testssl
 brew install tree
-brew install ctags
 brew install reattach-to-user-namespace
 brew install cmake
 
