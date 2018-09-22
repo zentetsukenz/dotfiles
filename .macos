@@ -16,9 +16,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
-# Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
-
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -127,8 +124,8 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
-# Longer standby time before hibernate, set to 18 hrs
-sudo pmset -a standbydelay 64800
+# Standby delay before hybernate, set to 1 hr
+sudo pmset -a standbydelay 3600
 
 # Enable standby mode
 sudo pmset -a standby 1
@@ -177,13 +174,6 @@ sudo pmset -a hibernatemode 0
 
 # Set autopoweroff delay to 24 hours
 sudo pmset -a autopoweroffdelay 86400
-
-# Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
-# Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
-# …and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #

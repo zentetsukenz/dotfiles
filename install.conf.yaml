@@ -1,12 +1,13 @@
 - defaults:
     link:
+      create: true
       relink: true
     shell:
       stdin: true
       stdout: true
       stderr: true
 
-- clean: ['~']
+- clean: ['~', '~/.config']
 
 - link:
     "~/.vimrc": ".vimrc"
@@ -29,3 +30,6 @@
     -
       command: sh install_powerline_fonts.sh
       description: Install Powerline fonts
+    -
+      command: git submodule sync --recursive
+      description: Sync Dotbot

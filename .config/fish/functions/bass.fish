@@ -1,0 +1,1 @@
+/Users/zentetsuken/.config/fisherman/bass/functions/bass.fish
