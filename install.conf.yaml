@@ -31,5 +31,8 @@
       command: sh install_powerline_fonts.sh
       description: Install Powerline fonts
     -
+      command: sh fisher
+      description: Bootstrap fishshell
+    -
       command: git submodule sync --recursive
       description: Sync Dotbot
