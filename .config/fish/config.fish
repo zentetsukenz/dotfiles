@@ -17,3 +17,4 @@ if test -e ~/.config/fish/config.fish.local
 end
 
 status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc

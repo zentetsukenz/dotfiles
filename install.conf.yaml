@@ -34,5 +34,8 @@
       command: sh fisher
       description: Bootstrap fishshell
     -
+      command: sh init_gcloud.sh
+      description: Initialize GCP
+    -
       command: git submodule sync --recursive
       description: Sync Dotbot
