@@ -1,1 +1,1 @@
-/Users/wiwattamongkhonchit/.config/fisherman/bobthefish/fish_title.fish
+/Users/zentetsuken/.config/fisherman/bobthefish/fish_title.fish
