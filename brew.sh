@@ -31,6 +31,7 @@ brew install wget --with-iri
 # Install more recent versions of some macOS tools.
 brew cask install iterm2
 brew cask install google-cloud-sdk
+brew install kubernetes-helm
 brew install neovim/neovim/neovim
 brew install ripgrep
 brew install openssh
