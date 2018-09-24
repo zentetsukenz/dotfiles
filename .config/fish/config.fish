@@ -10,14 +10,9 @@ set -x -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 set -x -g PATH /usr/local/opt/findutils/libexec/gnubin $PATH
 set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
 
-status --is-interactive; and source (pyenv init -|psub)
-
-if test -e ~/.config/fish/config.fish.local
-    source ~/.config/fish/config.fish.local
-end
-
-status --is-interactive; and source (rbenv init -|psub)
-status --is-interactive; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
+
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
