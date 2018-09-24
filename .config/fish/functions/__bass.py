@@ -1,1 +1,1 @@
-/Users/zentetsuken/.config/fisherman/bass/functions/__bass.py
+/Users/wiwattamongkhonchit/.config/fisherman/bass/functions/__bass.py

@@ -1,1 +1,1 @@
-/Users/zentetsuken/.config/fisherman/bass/functions/bass.fish
+/Users/wiwattamongkhonchit/.config/fisherman/bass/functions/bass.fish
