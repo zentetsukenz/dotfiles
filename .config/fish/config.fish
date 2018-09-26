@@ -12,6 +12,7 @@ set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
 
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
+set -U fisher_copy true
 
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
