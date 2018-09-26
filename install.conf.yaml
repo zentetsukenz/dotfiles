@@ -13,10 +13,9 @@
     "~/.vimrc": ".vimrc"
     "~/.tmux.conf": ".tmux.conf"
     "~/.spacemacs": ".spacemacs"
-    "~/.config/":
+    "~/.config":
       relative: true
-      glob: true
-      path: ".config/*"
+      path: ".config"
 
 - shell:
     -
