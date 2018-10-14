@@ -24,5 +24,8 @@ status --is-interactive; and source (pyenv init -|psub)
 # Ruby
 status --is-interactive; and source (rbenv init -|psub)
 
+# Elixir
+status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
+
 # GCP
 status --is-interactive; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
