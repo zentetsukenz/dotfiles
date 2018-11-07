@@ -33,4 +33,4 @@ SET fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SET fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SET fisher_active_prompt:bobthefish
 SET fisher_copy:true
-SET fisher_dependency_count:bass\x1ebobthefish
+SET fisher_dependency_count:bass\x1ebobthefish\x1emenu\x1eget_file_age\x1eawait\x1elast_job_id\x1efnm
