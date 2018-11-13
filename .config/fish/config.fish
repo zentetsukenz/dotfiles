@@ -24,7 +24,8 @@ status --is-interactive; and source (pyenv init -|psub)
 # Ruby
 status --is-interactive; and source (rbenv init -|psub)
 
-status --is-interactive; and . "$HOME/kerl/21.0/activate.fish"
+# Erlang
+status --is-interactive; and . "$HOME/kerl/21.1/activate.fish"
 
 # Elixir
 status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
