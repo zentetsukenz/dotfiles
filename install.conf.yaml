@@ -7,15 +7,22 @@
       stdout: true
       stderr: true
 
-- clean: ['~', '~/.config']
+- clean:
+    "~":
+      force: true
+    "~/.config":
+      force: true
 
 - link:
-    "~/.vimrc": ".vimrc"
     "~/.tmux.conf": ".tmux.conf"
     "~/.spacemacs": ".spacemacs"
-    "~/.config":
-      relative: true
-      path: ".config"
+    "~/.config/alacritty/alacritty.yml": "alacritty.yaml"
+    "~/.config/nvim/init.vim": "nvim_init.vim"
+    "~/.config/fish/config.fish": "fish_config.fish"
+    "~/.config/fish/fishfile": "fishfile"
+    "~/.config/fish/functions/":
+      glob: true
+      path: "fish_functions/*.fish"
 
 - shell:
     -
