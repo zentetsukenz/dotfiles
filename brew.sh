@@ -55,6 +55,10 @@ fi
 # Language specific
 brew install pyenv
 brew install rbenv
+brew install kerl
+if ! [ -e ~/.kiex ] ; then
+  curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
+fi
 
 # Install other useful binaries.
 brew install git
