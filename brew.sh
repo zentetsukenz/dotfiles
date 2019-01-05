@@ -59,6 +59,7 @@ brew install kerl
 if ! [ -e ~/.kiex ] ; then
   curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
 fi
+curl https://sh.rustup.rs -sSf | sh
 
 # Install other useful binaries.
 brew install git
