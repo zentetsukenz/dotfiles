@@ -29,7 +29,7 @@ brew install gnu-sed --with-default-names
 brew install wget --with-iri
 
 # Install more recent versions of some macOS tools.
-brew cask install iterm2
+brew cask install alacritty
 brew cask install google-cloud-sdk
 brew install kubernetes-helm
 brew install neovim/neovim/neovim
@@ -41,10 +41,10 @@ brew install gpg
 # Install spacemacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
-brew link emacs-plus
+ln -s /usr/local/Cellar/emacs-plus/26.1/Emacs.app/ /Applications/
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-# Install shell
+# Install fishshell
 brew install fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells ; then
@@ -59,11 +59,6 @@ brew install rbenv
 # Install other useful binaries.
 brew install git
 brew install git-lfs
-brew install imagemagick --with-webp
-brew install lua
-brew install p7zip
-brew install pigz
-brew install rename
 brew install tree
 brew install reattach-to-user-namespace
 brew install cmake
