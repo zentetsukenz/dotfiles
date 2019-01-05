@@ -32,7 +32,7 @@ brew install wget --with-iri
 brew cask install alacritty
 brew cask install google-cloud-sdk
 brew install kubernetes-helm
-brew install neovim/neovim/neovim
+brew install neovim
 brew install ripgrep
 brew install openssh
 brew install tmux
