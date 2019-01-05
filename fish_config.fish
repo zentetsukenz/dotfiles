@@ -10,6 +10,9 @@ set -x -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 set -x -g PATH /usr/local/opt/findutils/libexec/gnubin $PATH
 set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
 
+# Setting up TTY for GPG
+set -x -g GPG_TTY (tty)
+
 # Fish
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
