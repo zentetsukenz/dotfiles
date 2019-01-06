@@ -39,9 +39,7 @@ brew install tmux
 brew install gpg
 
 # Install spacemacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
-ln -s /usr/local/Cellar/emacs-plus/26.1/Emacs.app/ /Applications/
+brew cask install emacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Install fishshell
