@@ -32,7 +32,6 @@ status --is-interactive; and . "$HOME/kerl/21.2/activate.fish"
 
 # Elixir
 status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
-status --is-interactive; source "$HOME/.kiex/elixirs/.elixir-1.7.4.env.fish"
 
 # GCP
 status --is-interactive; and source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
