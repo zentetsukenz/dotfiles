@@ -30,23 +30,23 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(elixir
-     go
-     html
-     ruby
-     yaml
-     python
-     javascript
-     shell-scripts
-     rust
-     osx
-     docker
-     ivy
-     auto-completion
+   '(auto-completion
      better-defaults
+     docker
      emacs-lisp
      git
+     go
+     html
+     ivy
+     javascript
+     osx
+     python
+     ruby
+     rust
+     shell-scripts
      version-control
+     yaml
+     elixir
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
