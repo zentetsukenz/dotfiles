@@ -16,6 +16,8 @@
 - link:
     "~/.tmux.conf": ".tmux.conf"
     "~/.spacemacs": ".spacemacs"
+    "~/.gitconfig": "global_gitconfig"
+    "~/.gitignore_global": "global_gitignore"
     "~/.config/alacritty/alacritty.yml": "alacritty.yml"
     "~/.config/nvim/init.vim": "nvim_init.vim"
     "~/.config/fish/config.fish": "fish_config.fish"
