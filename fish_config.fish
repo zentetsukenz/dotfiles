@@ -16,6 +16,7 @@ set -x -g GPG_TTY (tty)
 # Fish
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -U fisher_copy true
 
 # Rust
