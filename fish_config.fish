@@ -19,6 +19,10 @@ set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -U fisher_copy true
 
+# Fish fzf
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -U FZF_COMPLETE 1
+
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
 

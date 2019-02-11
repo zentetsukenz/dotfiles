@@ -37,6 +37,7 @@ brew install ripgrep
 brew install openssh
 brew install tmux
 brew install gpg
+brew install fzf
 
 # Install spacemacs
 brew cask install emacs
