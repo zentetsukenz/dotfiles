@@ -44,7 +44,10 @@ This function should only modify configuration layer settings."
      javascript
      osx
      python
-     ruby
+     (ruby :variables
+           ruby-enable-enh-ruby-mode t
+           ruby-version-manager 'rbenv)
+     syntax-checking
      rust
      shell-scripts
      version-control
@@ -456,6 +459,8 @@ you should place your code here."
   (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
   (global-fci-mode 1)
 
+  ;; Ruby mode settings
+  ;;
   ;; Do not automatically add magic comment for Ruby
   (setq ruby-insert-encoding-magic-comment nil)
 
@@ -469,7 +474,7 @@ you should place your code here."
   (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
 
-  ;; Web mode setting
+  ;; Web mode settings
   (defun my-web-mode-hook ()
     "Hooks for web mode"
     (setq web-mode-markup-indent-offset 2)
