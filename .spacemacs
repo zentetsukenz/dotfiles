@@ -463,6 +463,7 @@ you should place your code here."
   ;;
   ;; Do not automatically add magic comment for Ruby
   (setq ruby-insert-encoding-magic-comment nil)
+  (setq enh-ruby-add-encoding-comment-on-save nil)
 
   ;; Enable projectile caching
   (setq projectile-enable-caching t)
