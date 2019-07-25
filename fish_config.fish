@@ -12,6 +12,8 @@ set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
 
 # Setting up TTY for GPG
 set -x -g GPG_TTY (tty)
+set -x -g SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye
 
 # Fish
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
