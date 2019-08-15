@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      version-control
      yaml
      elixir
+     protobuf
      )
 
    ;; List of additional packages that will be installed without being
