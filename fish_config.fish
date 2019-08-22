@@ -25,6 +25,9 @@ set -U fisher_copy true
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
+# Go
+set -x -g PATH $HOME/go/bin $PATH
+
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
 
