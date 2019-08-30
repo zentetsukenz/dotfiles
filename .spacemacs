@@ -464,6 +464,8 @@ you should place your code here."
   ;;
   ;; Do not automatically add magic comment for Ruby
   (setq ruby-insert-encoding-magic-comment nil)
+  (setq ruby-align-to-stmt-keywords nil)
+  (setq ruby-align-chained-calls t)
   (setq enh-ruby-add-encoding-comment-on-save nil)
 
   ;; Enable projectile caching
