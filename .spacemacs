@@ -39,6 +39,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      go
+     groovy
      html
      ivy
      javascript
