@@ -27,6 +27,7 @@ set -U FZF_COMPLETE 1
 
 # Go
 set -x -g PATH $HOME/go/bin $PATH
+set -x -U GOPATH $HOME/workspace/go
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
@@ -38,7 +39,7 @@ status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
 
 # Erlang
-status --is-interactive; and . "$HOME/kerl/22.0/activate.fish"
+status --is-interactive; and . "$HOME/kerl/22.2/activate.fish"
 
 # Elixir
 status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
