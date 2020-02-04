@@ -26,8 +26,8 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
 # Go
-set -x -g PATH $HOME/go/bin $PATH
 set -x -U GOPATH $HOME/workspace/go
+set -x -g PATH $HOME/workspace/go/bin $PATH
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH

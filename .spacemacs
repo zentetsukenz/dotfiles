@@ -39,7 +39,10 @@ This function should only modify configuration layer settings."
      docker
      emacs-lisp
      git
-     go
+     lsp
+     (go :variables
+         go-backend 'lsp
+         godoc-at-point-function 'godoc-gogetdoc)
      groovy
      html
      ivy
