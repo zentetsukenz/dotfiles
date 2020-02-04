@@ -42,6 +42,9 @@ This function should only modify configuration layer settings."
      lsp
      (go :variables
          go-backend 'lsp
+         go-format-before-save t
+         gofmt-command "goimports"
+         go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc)
      groovy
      html

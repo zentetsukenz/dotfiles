@@ -28,6 +28,7 @@ set -U FZF_COMPLETE 1
 # Go
 set -x -U GOPATH $HOME/workspace/go
 set -x -g PATH $HOME/workspace/go/bin $PATH
+set -x -g PATH "/usr/local/go/bin" $PATH
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
