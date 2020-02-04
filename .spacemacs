@@ -60,7 +60,8 @@ This function should only modify configuration layer settings."
      shell-scripts
      version-control
      yaml
-     elixir
+     (elixir :variables
+             elixir-backend 'lsp)
      protobuf
      )
 
@@ -494,13 +495,6 @@ you should place your code here."
     (setq web-mode-code-indent-offset 2)
     )
   (add-hook 'web-mode-hook 'my-web-mode-hook)
-
-  ;; Elixir mode setting
-  (defun my-elixir-mode-hook ()
-    "Hooks for elixir mode"
-    (add-hook 'before-save-hook 'elixir-format nil t)
-    )
-  (add-hook 'elixir-mode-hook 'my-elixir-mode-hook)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
