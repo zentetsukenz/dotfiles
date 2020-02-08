@@ -7,3 +7,6 @@
 
 [gpg]
 	program = gpg
+
+[user]
+	signingkey = D5766A02170C4847
