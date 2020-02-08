@@ -22,6 +22,8 @@
     "~/.config/nvim/init.vim": "nvim_init.vim"
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fishfile": "fishfile"
+    "~/.gnupg/gpg.conf": "gnupg_gpg.conf"
+    "~/.gnupg/gpg-agent.conf": "gnupg_gpg_agent.conf"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
