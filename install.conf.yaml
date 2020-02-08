@@ -12,6 +12,8 @@
       force: true
     "~/.config":
       force: true
+    "~/.gnupg":
+      force: true
 
 - link:
     "~/.tmux.conf": ".tmux.conf"
