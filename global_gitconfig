@@ -10,3 +10,7 @@
 
 [user]
 	signingkey = D5766A02170C4847
+	name = Wiwatta Mongkhonchit
+	email = zentetsukenz@gmail.com
+[pull]
+	rebase = true
