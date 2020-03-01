@@ -78,7 +78,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(alchemist)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -495,6 +495,16 @@ you should place your code here."
     (setq web-mode-code-indent-offset 2)
     )
   (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+  ;; Elixir mode settings
+  (use-package lsp-mode
+    :commands lsp
+    :ensure t
+    :diminish lsp-mode
+    :hook
+    (elixir-mode . lsp)
+    :init
+    (add-to-list 'exec-path "~/workspace/elixir-ls/release"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
