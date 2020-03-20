@@ -21,6 +21,12 @@ set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -U fisher_copy true
 
+# ncurses
+set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths
+set -gx LDFLAGS "-L/usr/local/opt/ncurses/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/ncurses/include"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/ncurses/lib/pkgconfig"
+
 # Fish fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
