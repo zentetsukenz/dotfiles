@@ -477,8 +477,10 @@ you should place your code here."
   (setq ruby-align-chained-calls t)
   (setq enh-ruby-add-encoding-comment-on-save nil)
 
-  ;; Enable projectile caching
+  ;; Projectile
   (setq projectile-enable-caching t)
+  (setq projectile-sort-order 'recently-active)
+  (setq projectile-completion-system 'ivy)
 
   ;; Using sh for fast operation
   (setq shell-file-name "/bin/sh")
@@ -505,6 +507,8 @@ you should place your code here."
     (elixir-mode . lsp)
     :init
     (add-to-list 'exec-path "~/workspace/elixir-ls/release"))
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-peek-enable t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
