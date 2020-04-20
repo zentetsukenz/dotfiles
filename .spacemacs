@@ -498,7 +498,7 @@ you should place your code here."
     )
   (add-hook 'web-mode-hook 'my-web-mode-hook)
 
-  ;; Elixir mode settings
+  ;; LSP mode settings
   (use-package lsp-mode
     :commands lsp
     :ensure t
