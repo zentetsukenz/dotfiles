@@ -63,6 +63,7 @@ This function should only modify configuration layer settings."
      (elixir :variables
              elixir-backend 'lsp)
      protobuf
+     markdown
      )
 
    ;; List of additional packages that will be installed without being
