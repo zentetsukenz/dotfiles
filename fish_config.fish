@@ -51,8 +51,5 @@ status --is-interactive; and . "$HOME/kerl/23.0/activate.fish"
 # Elixir
 status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
 
-# Load NVM
-load_nvm
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
