@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      lsp
+     kotlin
      (go :variables
          go-backend 'lsp
          go-format-before-save t
