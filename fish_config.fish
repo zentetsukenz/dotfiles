@@ -39,7 +39,6 @@ set -x -g PATH "/usr/local/go/bin" $PATH
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
 
-
 # Python
 status --is-interactive; and source (pyenv init -|psub)
 
