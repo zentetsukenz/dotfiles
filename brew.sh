@@ -31,17 +31,12 @@ brew install wget --with-iri
 # Install more recent versions of some macOS tools.
 brew cask install alacritty
 brew cask install google-cloud-sdk
-brew install kubernetes-helm
 brew install neovim
 brew install ripgrep
 brew install openssh
 brew install tmux
 brew install gpg
 brew install fzf
-
-# Install spacemacs
-brew cask install emacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 # Install fishshell
 brew install fish
