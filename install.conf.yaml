@@ -18,7 +18,6 @@
 
 - link:
     "~/.tmux.conf": ".tmux.conf"
-    "~/.spacemacs": ".spacemacs"
     "~/.gitconfig": "global_gitconfig"
     "~/.gitignore_global": "global_gitignore"
     "~/.config/alacritty/alacritty.yml": "alacritty.yml"
@@ -32,9 +31,6 @@
       path: "fish_functions/*.fish"
 
 - shell:
-    -
-      command: sh .macos
-      description: Setup MacOS
     -
       command: sh brew.sh
       description: Install MacOS essential packages
