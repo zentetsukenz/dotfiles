@@ -18,7 +18,6 @@
 
 - link:
     "~/.tmux.conf": ".tmux.conf"
-    "~/.gitconfig": "global_gitconfig"
     "~/.gitignore_global": "global_gitignore"
     "~/.config/alacritty/alacritty.yml": "alacritty.yml"
     "~/.config/nvim/init.vim": "nvim_init.vim"
@@ -31,6 +30,9 @@
       path: "fish_functions/*.fish"
 
 - shell:
+    -
+      command: cp global_gitconfig ~/.gitconfig
+      description: Copy global git config file
     -
       command: sh brew.sh
       description: Install MacOS essential packages
