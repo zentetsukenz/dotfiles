@@ -45,7 +45,6 @@ status --is-interactive; and source (pyenv init -|psub)
 # Ruby
 status --is-interactive; and source (rbenv init -|psub)
 
-
 # Erlang
 status --is-interactive; and . "$HOME/kerl/23.0/activate.fish"
 
