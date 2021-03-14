@@ -1,6 +1,6 @@
 [core]
 	editor = nvim
-  excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [commit]
 	gpgsign = true
