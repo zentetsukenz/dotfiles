@@ -52,5 +52,8 @@ status --is-interactive; and . "$HOME/kerl/23.2.4/activate.fish"
 status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
+# Kubectl Krew
+set -gx PATH $PATH $HOME/.krew/bin
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
