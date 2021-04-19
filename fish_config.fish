@@ -31,25 +31,18 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/ncurses/lib/pkgconfig"
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
-# Go
-set -x -U GOPATH $HOME/workspace/go
-set -x -g PATH $HOME/workspace/go/bin $PATH
-set -x -g PATH "/usr/local/go/bin" $PATH
+# asdf
+source /usr/local/opt/asdf/asdf.fish
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
 
-# Python
-status --is-interactive; and source (pyenv init -|psub)
-
-# Ruby
-status --is-interactive; and source (rbenv init -|psub)
-
 # Erlang
-status --is-interactive; and . "$HOME/kerl/23.2.4/activate.fish"
+# Always build Erlang documents
+set -gx KERL_BUILD_DOCS yes
 
 # Elixir
-status --is-interactive; and source "$HOME/.kiex/scripts/kiex.fish"
+# Enable iex shell history
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
 # The next line updates PATH for the Google Cloud SDK.

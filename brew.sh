@@ -37,6 +37,7 @@ brew install openssh
 brew install tmux
 brew install gpg
 brew install fzf
+brew install autoconf
 
 # Install fishshell
 brew install fish
@@ -46,21 +47,21 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells ; then
   chsh -s /usr/local/bin/fish
 fi
 
-# Language specific
-brew install pyenv
-brew install rbenv
-brew install kerl
-if ! [ -e ~/.kiex ] ; then
-  curl -sSL https://raw.githubusercontent.com/taylor/kiex/master/install | bash -s
-fi
-curl https://sh.rustup.rs -sSf | sh
-
 # Install other useful binaries.
 brew install git
 brew install git-lfs
 brew install tree
 brew install reattach-to-user-namespace
 brew install cmake
+
+# Language specific
+brew install asdf
+asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf plugin-add nodejs
+asdf plugin-add python
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Remove outdated versions from the cellar.
 brew cleanup
