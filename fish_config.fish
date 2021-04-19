@@ -45,5 +45,9 @@ set -gx KERL_BUILD_DOCS yes
 # Enable iex shell history
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
+# Bob the fish theme
+set -g theme_display_k8s_context yes
+set -g theme_display_k8s_namespace yes
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
