@@ -36,7 +36,7 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
 # asdf
-source /usr/local/opt/asdf/asdf.fish
+source /usr/local/opt/asdf/libexec/asdf.fish
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
