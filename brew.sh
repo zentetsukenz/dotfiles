@@ -53,12 +53,19 @@ brew install git-lfs
 brew install tree
 brew install reattach-to-user-namespace
 brew install cmake
+brew install bison
+brew install re2c
+brew install libgd
+brew install libiconv
+brew install oniguruma
+brew install libzip
 
 # Language specific
 brew install asdf
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf plugin-add php https://github.com/asdf-community/asdf-php.git
 asdf plugin-add nodejs
 asdf plugin-add python
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

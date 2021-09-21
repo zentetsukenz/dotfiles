@@ -27,6 +27,10 @@ set -gx LDFLAGS "-L/usr/local/opt/ncurses/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/ncurses/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/ncurses/lib/pkgconfig"
 
+# PHP Dependencies
+fish_add_path /usr/local/opt/bison/bin
+fish_add_path /usr/local/opt/libiconv/bin
+
 # Fish fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
