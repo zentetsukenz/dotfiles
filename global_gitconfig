@@ -9,10 +9,9 @@
 	program = gpg
 
 [user]
-	# Set your own signing key per device
-	# signingkey = D5766A02170C4847
-	# name = Wiwatta Mongkhonchit
-	# email = zentetsukenz@gmail.com
+	signingkey = 9243E5867A494C4F
+	name = Wiwatta Mongkhonchit
+	email = cheab@opn.ooo
 
 [pull]
 	rebase = true

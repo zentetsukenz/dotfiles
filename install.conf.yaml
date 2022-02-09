@@ -22,7 +22,7 @@
     "~/.config/alacritty/alacritty.yml": "alacritty.yml"
     "~/.config/nvim/init.vim": "nvim_init.vim"
     "~/.config/fish/config.fish": "fish_config.fish"
-    "~/.config/fish/fishfile": "fishfile"
+    "~/.config/fish/fish_plugins": "fish_plugins"
     "~/.gnupg/gpg.conf": "gnupg_gpg.conf"
     "~/.gnupg/gpg-agent.conf": "gnupg_gpg_agent.conf"
     "~/.config/fish/functions/":
@@ -30,24 +30,17 @@
       path: "fish_functions/*.fish"
 
 - shell:
-    -
-      command: cp global_gitconfig ~/.gitconfig
+    - command: cp global_gitconfig ~/.gitconfig
       description: Copy global git config file
-    -
-      command: sh brew.sh
+    - command: sh brew.sh
       description: Install MacOS essential packages
-    -
-      command: sh tmux.sh
+    - command: sh tmux.sh
       description: Install TMUX TPM
-    -
-      command: sh install_powerline_fonts.sh
+    - command: sh install_powerline_fonts.sh
       description: Install Powerline fonts
-    -
-      command: sh fisher
+    - command: sh fisher
       description: Bootstrap fishshell
-    -
-      command: sh init_gcloud.sh
+    - command: sh init_gcloud.sh
       description: Initialize GCP
-    -
-      command: git submodule sync --recursive
+    - command: git submodule sync --recursive
       description: Sync Dotbot

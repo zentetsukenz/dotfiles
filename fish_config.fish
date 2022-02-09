@@ -2,41 +2,37 @@ set -x -g LS_COLORS "di=38;5;27:fi=38;5;7:ln=38;5;51:pi=40;38;5;11:so=38;5;13:or
 
 set -x -g TERM "xterm-256color"
 
-# Coreutils bin and man folders
-set -x -g PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
-set -x -g MANPATH /usr/local/opt/coreutils/libexec/gnuman $MANPATH
-
-# Findutils bin and man folders
-set -x -g PATH /usr/local/opt/findutils/libexec/gnubin $PATH
-set -x -g MANPATH /usr/local/opt/findutils/libexec/gnuman $MANPATH
+# Explicitly set Homebrew path
+set -x -g PATH /opt/homebrew/bin $PATH
 
 # Setting up TTY for GPG
-set -x -g GPG_TTY (tty)
-set -x -g SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye
+set -x GPG_TTY (tty)
+set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 # Fish
-set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -U fisher_copy true
 
 # ncurses
-set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths
-set -gx LDFLAGS "-L/usr/local/opt/ncurses/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/ncurses/include"
-set -gx PKG_CONFIG_PATH "/usr/local/opt/ncurses/lib/pkgconfig"
+fish_add_path /opt/homebrew/opt/ncurses/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/ncurses/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/ncurses/include"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/ncurses/lib/pkgconfig"
 
 # PHP Dependencies
-fish_add_path /usr/local/opt/bison/bin
-fish_add_path /usr/local/opt/libiconv/bin
+fish_add_path /opt/homebrew/opt/bison/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/bison/lib"
+
+fish_add_path /opt/homebrew/opt/libiconv/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/libiconv/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libiconv/include"
 
 # Fish fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
 # asdf
-source /usr/local/opt/asdf/libexec/asdf.fish
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH

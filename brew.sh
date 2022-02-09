@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.profile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # sudo is needed to install cask
 sudo -v
@@ -22,15 +24,15 @@ brew install coreutils
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+# Install GNU `gsed`
+brew install gnu-sed
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
+# Install `wget`
+brew install wget
 
 # Install more recent versions of some macOS tools.
-brew cask install alacritty
-brew cask install google-cloud-sdk
+brew install --cask alacritty
+brew install --cask google-cloud-sdk
 brew install neovim
 brew install ripgrep
 brew install openssh
@@ -41,10 +43,10 @@ brew install autoconf
 
 # Install fishshell
 brew install fish
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells ; then
-  echo /usr/local/bin/fish | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+if ! grep -Fxq "/opt/homebrew/bin/fish" /etc/shells ; then
+  echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+  chsh -s /opt/homebrew/bin/fish
 fi
 
 # Install other useful binaries.
@@ -59,6 +61,7 @@ brew install libgd
 brew install libiconv
 brew install oniguruma
 brew install libzip
+brew install pinentry-mac
 
 # Language specific
 brew install asdf
