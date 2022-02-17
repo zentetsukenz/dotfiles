@@ -71,6 +71,7 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf plugin-add php https://github.com/asdf-community/asdf-php.git
 asdf plugin-add nodejs
 asdf plugin-add python
+asdf installasdf install elixir 1.12.3-otp-24asdf install elixir 1.12.3-otp-24
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Remove outdated versions from the cellar.
