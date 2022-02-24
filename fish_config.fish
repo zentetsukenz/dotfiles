@@ -49,5 +49,7 @@ set -gx ERL_AFLAGS "-kernel shell_history enabled"
 set -g theme_display_k8s_context yes
 set -g theme_display_k8s_namespace yes
 
+if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; source $HOME/.config/fish/config-extension.fish; end; end
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
