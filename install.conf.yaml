@@ -39,9 +39,11 @@
       description: Install TMUX TPM
     - command: sh install_powerline_fonts.sh
       description: Install Powerline fonts
-    - command: sh fisher
+    - command: sh fisher update
       description: Bootstrap fishshell
     - command: sh init_gcloud.sh
       description: Initialize GCP
     - command: git submodule sync --recursive
       description: Sync Dotbot
+    - command: sh fix_gpg_home_permission.sh
+      description: Fix GPG permission warnings

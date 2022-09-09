@@ -9,9 +9,9 @@
 	program = gpg
 
 [user]
-	signingkey = 9243E5867A494C4F
+	signingkey = machine-signing-key
 	name = Wiwatta Mongkhonchit
-	email = cheab@opn.ooo
+	email = zentetsukenz@gmail.com
 
 [pull]
 	rebase = true
