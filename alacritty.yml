@@ -870,12 +870,12 @@ hints:
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-debug:
+#debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
 
   # Keep the log file after quitting Alacritty.
-  persistent_logging: false
+  #persistent_logging: false
 
   # Log level
   #
@@ -886,7 +886,7 @@ debug:
   #   - Info
   #   - Debug
   #   - Trace
-  log_level: Debug
+  #log_level: Debug
 
   # Print all received window events.
   #print_events: false
