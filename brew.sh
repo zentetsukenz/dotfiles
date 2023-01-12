@@ -62,6 +62,7 @@ brew install libiconv
 brew install oniguruma
 brew install libzip
 brew install pinentry-mac
+brew install podman
 
 # Language specific
 brew install asdf
