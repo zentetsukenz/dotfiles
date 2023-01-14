@@ -63,6 +63,7 @@ brew install oniguruma
 brew install libzip
 brew install pinentry-mac
 brew install podman
+brew install pulumi/tap/pulumi
 
 # Language specific
 brew install asdf
