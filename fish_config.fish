@@ -13,6 +13,11 @@ gpgconf --launch gpg-agent
 # Fish
 set -U fisher_copy true
 
+# Shell
+set -gx LANG en_US.UTF-8
+set -gx LANGUAGE en_US
+set -gx LC_TIME en_US.UTF-8
+
 # ncurses
 fish_add_path /opt/homebrew/opt/ncurses/bin
 set -gx LDFLAGS "-L/opt/homebrew/opt/ncurses/lib"
