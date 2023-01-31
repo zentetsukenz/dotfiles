@@ -45,6 +45,9 @@ set -gx KERL_BUILD_DOCS yes
 # Enable iex shell history
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
+# Python
+set -x -g PATH $HOME/.local/bin $PATH
+
 # Bob the fish theme
 set -g theme_display_k8s_context yes
 set -g theme_display_k8s_namespace yes
