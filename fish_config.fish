@@ -52,6 +52,7 @@ set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
 # Python
 set -x -g PATH $HOME/.local/bin $PATH
+set -x -g PIPENV_VENV_IN_PROJECT 1
 
 # Bob the fish theme
 set -g theme_display_k8s_context yes
