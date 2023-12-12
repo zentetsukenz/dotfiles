@@ -36,15 +36,13 @@ set -gx CPPFLAGS "-I/opt/homebrew/opt/libiconv/include"
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -U FZF_COMPLETE 1
 
-# asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
 # Rust
 set -x -g PATH $HOME/.cargo/bin $PATH
 
 # Erlang
 # Always build Erlang documents
 set -gx KERL_BUILD_DOCS yes
+set -gx KERL_CONFIGURE_OPTIONS "--disable-jit"
 
 # Elixir
 # Enable iex shell history
@@ -62,3 +60,13 @@ if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; 
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
+
+# pnpm
+set -gx PNPM_HOME "/Users/zentetsuken/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# asdf
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
