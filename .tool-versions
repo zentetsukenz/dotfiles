@@ -2,5 +2,5 @@ elixir 1.13.3-otp-24
 erlang 24.2.1
 nodejs lts
 php 8.1.3
-python 3.11.2
+python 3.10.2
 ruby 3.1.3
