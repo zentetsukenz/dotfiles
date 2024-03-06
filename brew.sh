@@ -43,7 +43,7 @@ brew install autoconf
 
 # Install fishshell
 brew install fish
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 if ! grep -Fxq "/opt/homebrew/bin/fish" /etc/shells ; then
   echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
   chsh -s /opt/homebrew/bin/fish
@@ -61,9 +61,6 @@ brew install libgd
 brew install libiconv
 brew install oniguruma
 brew install libzip
-brew install pinentry-mac
-brew install podman
-brew install pulumi/tap/pulumi
 
 # Language specific
 brew install asdf
