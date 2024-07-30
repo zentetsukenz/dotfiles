@@ -10,36 +10,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Practice
 Plug 'wikitopian/hardmode'
-" Navigation
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
-Plug 'christoomey/vim-tmux-navigator'
 " Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Text manipulation
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
-Plug 'kana/vim-textobj-user'
-Plug 'tek/vim-textobj-ruby'
-Plug 'bps/vim-textobj-python'
-Plug 'andyl/vim-textobj-elixir'
-" Git
-Plug 'airblade/vim-gitgutter'
-" Ruby
-Plug 'tpope/vim-rails'
-" Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'mxw/vim-jsx'
-" Elixr
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
-" Rust
-Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -47,9 +22,6 @@ call plug#end()
 " Custom configurations
 " Copied from Thoughtbot dotfiles but modified to suit my need
 "
-
-" Use angularjs lib
-let g:used_javascript_libs='angularjs'
 
 " Leader
 let mapleader = ","
@@ -71,15 +43,6 @@ set autowrite     " Automatically :write before running commands
 " Toggle highlight search
 nmap <leader>k :noh<CR>
 
-" Tagbar
-nmap <leader>t :TagbarToggle<CR>
-
-" EasyAlign key map
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " Netrw configurations
 let g:netrw_keepdir=0
 let g:netrw_liststyle=4
@@ -99,23 +62,6 @@ set list listchars=tab:»\ ,trail:·,eol:¬,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
