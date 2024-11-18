@@ -52,6 +52,9 @@ set -gx ERL_AFLAGS "-kernel shell_history enabled"
 set -x -g PATH $HOME/.local/bin $PATH
 set -x -g PIPENV_VENV_IN_PROJECT 1
 
+# ASDF config
+set -gx ASDF_NODEJS_AUTO_ENABLE_COREPACK 1
+
 # Bob the fish theme
 set -g theme_display_k8s_context yes
 set -g theme_display_k8s_namespace yes
