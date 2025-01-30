@@ -19,7 +19,7 @@
 - link:
     "~/.tmux.conf": ".tmux.conf"
     "~/.gitignore_global": "global_gitignore"
-    "~/.config/alacritty/alacritty.yml": "alacritty.yml"
+    "~/.config/alacritty/alacritty.toml": "alacritty.toml"
     "~/.config/nvim/init.vim": "nvim_init.vim"
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
