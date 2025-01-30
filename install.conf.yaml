@@ -34,19 +34,27 @@
     # Require Full Disk Access for terminal used to run this script
     - command: sh .macos
       description: Apply MacOS settings
+
     - command: cp global_gitconfig ~/.gitconfig
       description: Copy global git config file
+
     - command: sh brew.sh
       description: Install MacOS essential packages
+
     - command: sh tmux.sh
       description: Install TMUX TPM
+
     - command: sh install_powerline_fonts.sh
       description: Install Powerline fonts
+
     - command: sh fisher update
       description: Bootstrap fishshell
+
     - command: sh init_gcloud.sh
       description: Initialize GCP
+
     - command: git submodule sync --recursive
       description: Sync Dotbot
+
     - command: sh fix_gpg_home_permission.sh
       description: Fix GPG permission warnings
