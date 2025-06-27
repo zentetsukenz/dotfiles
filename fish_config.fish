@@ -65,7 +65,7 @@ if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; 
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
 
 # pnpm
-set -gx PNPM_HOME "/Users/zentetsuken/Library/pnpm"
+set -gx PNPM_HOME "$HOME/.pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
@@ -73,3 +73,6 @@ end
 
 # asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+# pack
+source (pack completion --shell fish)
