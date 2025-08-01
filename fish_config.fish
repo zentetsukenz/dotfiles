@@ -24,6 +24,9 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/ncurses/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/ncurses/include"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/ncurses/lib/pkgconfig"
 
+# Podman
+set -gx CONTAINERS_MACHINE_PROVIDER "libkrun"
+
 # PHP Dependencies
 fish_add_path /opt/homebrew/opt/bison/bin
 set -gx LDFLAGS "-L/opt/homebrew/opt/bison/lib"
