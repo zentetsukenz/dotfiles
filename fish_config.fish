@@ -62,6 +62,9 @@ set -gx ASDF_NODEJS_AUTO_ENABLE_COREPACK 1
 set -g theme_display_k8s_context yes
 set -g theme_display_k8s_namespace yes
 
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
+
 if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; source $HOME/.config/fish/config-extension.fish; end; end
 
 # The next line updates PATH for the Google Cloud SDK.
