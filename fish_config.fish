@@ -92,3 +92,6 @@ if not contains $_asdf_shims $PATH
 end
 set --erase _asdf_shims
 # asdf end
+
+# opencode
+fish_add_path /Users/wiwatta/.opencode/bin

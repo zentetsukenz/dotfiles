@@ -73,5 +73,8 @@ asdf plugin-add python
 asdf install elixir 1.12.3-otp-24asdf install elixir 1.12.3-otp-24
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Opencode
+curl -fsSL https://opencode.ai/install | bash
+
 # Remove outdated versions from the cellar.
 brew cleanup
