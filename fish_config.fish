@@ -94,4 +94,7 @@ set --erase _asdf_shims
 # asdf end
 
 # opencode
-fish_add_path /Users/wiwatta/.opencode/bin
+fish_add_path $HOME/.opencode/bin
+
+# Added by Antigravity
+fish_add_path $HOME/.antigravity/antigravity/bin
