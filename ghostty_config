@@ -1,0 +1,35 @@
+# Ghostty Terminal Configuration
+# https://ghostty.org/docs/config
+
+# Font
+font-family = Hack
+font-size = 16
+font-thicken = true
+adjust-cell-height = 2
+
+# Shell
+command = /opt/homebrew/bin/fish --login
+
+# Window
+fullscreen = true
+macos-non-native-fullscreen = true
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+window-save-state = always
+confirm-close-surface = true
+
+# Shell Integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
+
+# Clipboard
+copy-on-select = clipboard
+
+# Quick Terminal (Cmd+` from anywhere — replaces macOS window cycling)
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0
+
+# Tmux keybinds (prefix: Ctrl-A = \x01)
+keybind = cmd+s=text:\x01s
+keybind = cmd+b=text:\x01z

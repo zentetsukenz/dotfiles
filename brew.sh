@@ -32,6 +32,7 @@ brew install wget
 
 # Install more recent versions of some macOS tools.
 brew install --cask alacritty
+brew install --cask ghostty
 brew install --cask google-cloud-sdk
 brew install neovim
 brew install ripgrep
