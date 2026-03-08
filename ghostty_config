@@ -30,6 +30,30 @@ keybind = global:cmd+grave_accent=toggle_quick_terminal
 quick-terminal-position = top
 quick-terminal-animation-duration = 0
 
-# Tmux keybinds (prefix: Ctrl-A = \x01)
-keybind = cmd+s=text:\x01s
-keybind = cmd+b=text:\x01z
+
+# Vim-style Split Navigation (unconsumed: lets Neovim handle these when focused)
+keybind = unconsumed:ctrl+h=goto_split:left
+keybind = unconsumed:ctrl+j=goto_split:bottom
+keybind = unconsumed:ctrl+k=goto_split:top
+keybind = unconsumed:ctrl+l=goto_split:right
+
+# Split Creation
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+
+# Split Resize
+keybind = ctrl+shift+alt+h=resize_split:left,10
+keybind = ctrl+shift+alt+j=resize_split:down,10
+keybind = ctrl+shift+alt+k=resize_split:up,10
+keybind = ctrl+shift+alt+l=resize_split:right,10
+keybind = ctrl+shift+alt+e=equalize_splits
+
+# Split Zoom (prefix behavior)
+keybind = cmd+shift+enter=toggle_split_zoom
+
+# Tabs
+keybind = shift+left=previous_tab
+keybind = shift+right=next_tab
+
+# Scrollback in Neovim (opens entire scrollback in $EDITOR)
+keybind = cmd+s=write_scrollback_file:open

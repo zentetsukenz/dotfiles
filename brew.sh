@@ -37,7 +37,6 @@ brew install --cask google-cloud-sdk
 brew install neovim
 brew install ripgrep
 brew install openssh
-brew install tmux
 brew install gpg
 brew install fzf
 brew install autoconf
@@ -54,7 +53,6 @@ fi
 brew install git
 brew install git-lfs
 brew install tree
-brew install reattach-to-user-namespace
 brew install cmake
 brew install bison
 brew install re2c
