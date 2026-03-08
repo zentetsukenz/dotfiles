@@ -26,6 +26,8 @@ dotfiles/
 ├── nvim_init.vim              # Neovim config → ~/.config/nvim/init.vim
 ├── .tmux.conf                 # Tmux config → ~/.tmux.conf
 ├── alacritty.toml             # Alacritty terminal → ~/.config/alacritty/alacritty.toml
+├── opencode_config.json           # OpenCode config → ~/.config/opencode/opencode.json
+├── opencode_oh_my_opencode.json   # Oh-My-OpenCode config → ~/.config/opencode/oh-my-opencode.json
 │
 ├── global_gitconfig           # Git config (COPIED, not linked) → ~/.gitconfig
 ├── global_gitignore           # Git ignore → ~/.gitignore_global
@@ -55,6 +57,7 @@ dotfiles/
 | Change tmux behavior | `.tmux.conf` | Prefix is Ctrl-A, uses TPM plugins |
 | Change editor config | `nvim_init.vim` | vim-plug, leader is comma |
 | Change terminal look | `alacritty.toml` | Font: Hack 16pt, fullscreen startup |
+| Change OpenCode config | `opencode_config.json`, `opencode_oh_my_opencode.json` | Symlinked to `~/.config/opencode/` |
 | Change git identity | `global_gitconfig` | NOTE: copied (not linked) by install script |
 
 ## CONVENTIONS
@@ -103,5 +106,6 @@ sh brew.sh
 - **Neovim hardmode enabled by default**: Arrow keys disabled. Toggle with `,h`
 - **ASDF runtimes**: Erlang 24.2.1, Elixir 1.13.3, Node 24.12.0, PHP 8.1.3, Python 3.12.11, Ruby 3.1.3
 - **OpenCode + Antigravity on PATH**: `~/.opencode/bin` and `~/.antigravity/antigravity/bin` added in fish_config
+- **OpenCode + OMO configs are symlinked**: Unlike git config (which is copied), these are live symlinks. Runtime artifacts (`node_modules/`, `package.json`) in `~/.config/opencode/` are managed by OMO, not dotfiles
 - **Podman uses libkrun**: `CONTAINERS_MACHINE_PROVIDER=libkrun` set in fish_config
 - **VSCode shell integration**: Auto-sourced when running inside VS Code terminal

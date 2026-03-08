@@ -27,6 +27,8 @@
     "~/.gnupg/gpg.conf": "gnupg_gpg.conf"
     "~/.gnupg/gpg-agent.conf": "gnupg_gpg_agent.conf"
     "~/.tool-versions": ".tool-versions"
+    "~/.config/opencode/opencode.json": "opencode_config.json"
+    "~/.config/opencode/oh-my-opencode.json": "opencode_oh_my_opencode.json"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
