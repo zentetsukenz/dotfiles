@@ -1,8 +1,0 @@
-PASS: GPG_TTY
-PASS: SSH_AUTH_SOCK
-PASS: config-extension
-PASS: opencode PATH
-PASS: antigravity PATH
-PASS: KERL
-PASS: ERL_AFLAGS
-PASS: EDITOR

@@ -1,6 +1,0 @@
-PASS: no asdf
-PASS: no bobthefish
-PASS: no k8s theme vars
-PASS: no bison
-PASS: no libiconv
-PASS: no corepack

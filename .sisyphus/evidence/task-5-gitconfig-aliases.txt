@@ -1,6 +1,0 @@
-=== QA Scenario 4: Git Aliases ===
-Alias count: 0
-PASS: alias count OK
-PASS: st alias
-PASS: sw alias
-PASS: l alias

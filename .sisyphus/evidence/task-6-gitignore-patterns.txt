@@ -1,6 +1,0 @@
-PASS: node_modules
-PASS: __pycache__
-PASS: _build
-PASS: .env
-PASS: .vscode
-PASS: .DS_Store

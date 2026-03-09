@@ -1,5 +1,0 @@
-PASS: no asdf
-PASS: no alacritty
-PASS: no php
-PASS: no bison
-PASS: no re2c

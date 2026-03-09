@@ -1,9 +1,0 @@
-=== QA Scenario 1: Modern Git Features ===
-PASS: delta pager
-PASS: histogram
-PASS: zdiff3
-PASS: rerere
-PASS: autoSetupRemote
-PASS: autoStash
-PASS: delta navigate
-PASS: verbose commit

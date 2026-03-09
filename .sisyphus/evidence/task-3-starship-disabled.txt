@@ -1,2 +1,0 @@
-PASS: kubernetes disabled
-PASS: docker_context disabled

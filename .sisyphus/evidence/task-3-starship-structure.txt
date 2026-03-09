@@ -1,6 +1,0 @@
-PASS: file exists
-PASS:       45 lines
-PASS: add_newline
-PASS: [character]
-PASS: [directory]
-PASS: [git_branch]
