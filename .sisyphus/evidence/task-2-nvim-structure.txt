@@ -1,0 +1,8 @@
+PASS: init.lua
+PASS: lazy.lua
+PASS: options.lua
+PASS: keymaps.lua
+PASS: colorscheme.lua
+PASS: init.lua content
+PASS: LazyVim present
+PASS: sonokai

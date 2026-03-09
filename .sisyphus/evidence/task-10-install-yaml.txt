@@ -1,0 +1,32 @@
+Task 10 — install.conf.yaml evidence
+Date: 2026-03-09
+
+New symlinks added
+- ~/.config/nvim:
+  path: nvim
+- ~/.config/starship.toml: starship.toml
+
+Symlinks removed
+- ~/.config/alacritty/alacritty.toml: alacritty.toml
+- ~/.config/nvim/init.vim: nvim_init.vim
+
+Shell command order confirmation
+1. sh .macos
+2. cp global_gitconfig ~/.gitconfig
+3. sh scripts/setup_git_local.sh
+4. /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+5. brew bundle --file=Brewfile
+6. mise install
+7. fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || true
+8. fish -c "fisher update"
+9. sh init_gcloud.sh
+10. git submodule sync --recursive
+11. sh fix_gpg_home_permission.sh
+
+YAML validation result
+- ruby -ryaml -e "YAML.load_file('install.conf.yaml', permitted_classes: [Symbol])" 2>&1
+- Result: PASS (no output, no errors)
+
+LSP diagnostics
+- File: install.conf.yaml
+- Result: No diagnostics found

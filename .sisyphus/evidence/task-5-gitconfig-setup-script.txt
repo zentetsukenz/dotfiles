@@ -1,0 +1,6 @@
+=== QA Scenario 3: Setup Script Verification ===
+PASS: script exists
+PASS: gitconfig.local in script
+PASS: signingkey in script
+PASS: GPG mentioned
+PASS: script is executable

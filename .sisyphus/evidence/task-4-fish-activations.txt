@@ -1,0 +1,6 @@
+PASS: mise guard
+PASS: mise activate
+PASS: starship guard
+PASS: starship init
+PASS: zoxide guard
+PASS: zoxide init

@@ -1,0 +1,9 @@
+=== QA Scenario 2: Identity and Signing Key ===
+PASS: email
+PASS: name
+PASS: no placeholder key
+PASS: signingkey removed from main config
+PASS: gpgsign enforced
+PASS: gpg program
+PASS: include directive
+PASS: comment about local override

@@ -1,0 +1,4 @@
+PASS: sonokai_style
+PASS: elixir extra
+PASS: python extra
+PASS: typescript extra
