@@ -11,15 +11,15 @@
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "max",
-      "fallback_models": ["github-copilot/gpt-5.2", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium",
-      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.2"]
+      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.4"]
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "github-copilot/gpt-5.4",
       "variant": "high"
     },
     "librarian": {
@@ -34,14 +34,14 @@
     "prometheus": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "max",
-      "fallback_models": ["github-copilot/gpt-5.2", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "max"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "github-copilot/gpt-5.4",
       "variant": "medium"
     },
     "atlas": {
