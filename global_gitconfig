@@ -1,20 +1,77 @@
-[core]
-	editor = nvim
-	excludesfile = ~/.gitignore_global
+# Managed by dotfiles — cp global_gitconfig ~/.gitconfig
+# See: https://github.com/your-repo/dotfiles
+
+[user]
+	name = Wiwatta Mongkhonchit
+	email = zentetsukenz@gmail.com
 
 [commit]
 	gpgsign = true
+	verbose = true
 
 [gpg]
 	program = gpg
 
-[user]
-	signingkey = machine-signing-key
-	name = Wiwatta Mongkhonchit
-	email = zentetsukenz@gmail.com
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	syntax-theme = Monokai Extended
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	renames = copies
+
+[merge]
+	conflictstyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[fetch]
+	prune = true
+	pruneTags = true
 
 [pull]
 	rebase = true
 
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+
 [init]
 	defaultBranch = main
+
+[help]
+	autocorrect = prompt
+
+[log]
+	date = auto:human
+
+[alias]
+	st = status
+	sw = switch
+	l = log --oneline -20
+	uncommit = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+
+# === Machine-Local Overrides ===
+# Per-machine settings (GPG signing key, work email, etc.) go in ~/.gitconfig.local
+# This file is NOT in the dotfiles repo — create it on each new machine:
+#   echo -e "[user]\n    signingkey = YOUR_GPG_KEY_ID" > ~/.gitconfig.local
+# The setup script (scripts/setup_git_local.sh) will prompt for this during ./install
+[include]
+	path = ~/.gitconfig.local

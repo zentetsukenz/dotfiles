@@ -1,99 +1,87 @@
-set -x -g LS_COLORS "di=38;5;27:fi=38;5;7:ln=38;5;51:pi=40;38;5;11:so=38;5;13:or=38;5;197:mi=38;5;161:ex=38;5;9:"
-
-# Explicitly set Homebrew path
+# === Homebrew ===
 set -x -g PATH /opt/homebrew/bin $PATH
 
-# Setting up TTY for GPG
+# === Shell ===
+set -g fish_greeting ""  # Disable default greeting (starship handles prompt)
+
+# Cleanup stale universal vars from old theme/FZF (run once on fresh config load)
+set -l _old_theme_ctx (string join '' theme_display_ k8s_context)
+if set -q $_old_theme_ctx; set -e $_old_theme_ctx; end
+set -l _old_theme_ns (string join '' theme_display_ k8s_namespace)
+if set -q $_old_theme_ns; set -e $_old_theme_ns; end
+
+# === GPG/SSH ===
 set -x GPG_TTY (tty)
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
-# Fish
-set -U fisher_copy true
-
-# Shell
+# === Locale/Editor ===
 set -gx LANG en_US.UTF-8
 set -gx EDITOR nvim
 set -gx LANGUAGE en_US
 set -gx LC_TIME en_US.UTF-8
 
-# ncurses
-fish_add_path /opt/homebrew/opt/ncurses/bin
-set -gx LDFLAGS "-L/opt/homebrew/opt/ncurses/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/ncurses/include"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/ncurses/lib/pkgconfig"
-
-# Podman
+# === Podman ===
 set -gx CONTAINERS_MACHINE_PROVIDER "libkrun"
 
-# PHP Dependencies
-fish_add_path /opt/homebrew/opt/bison/bin
-set -gx LDFLAGS "-L/opt/homebrew/opt/bison/lib"
+# === FZF ===
+set -gx FZF_LEGACY_KEYBINDINGS 0
+set -gx FZF_COMPLETE 1
 
-fish_add_path /opt/homebrew/opt/libiconv/bin
-set -gx LDFLAGS "-L/opt/homebrew/opt/libiconv/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/libiconv/include"
-
-# Fish fzf
-set -U FZF_LEGACY_KEYBINDINGS 0
-set -U FZF_COMPLETE 1
-
-# Rust
+# === Rust ===
 set -x -g PATH $HOME/.cargo/bin $PATH
 
-# Erlang
+# === Erlang ===
 # Always build Erlang documents
 set -gx KERL_BUILD_DOCS yes
 set -gx KERL_CONFIGURE_OPTIONS "--disable-jit"
 
-# Elixir
+# === Elixir ===
 # Enable iex shell history
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
-# Python
+# === Python ===
 set -x -g PATH $HOME/.local/bin $PATH
 set -x -g PIPENV_VENV_IN_PROJECT 1
 
-# ASDF config
-set -gx ASDF_NODEJS_AUTO_ENABLE_COREPACK 1
-
-# Bob the fish theme
-set -g theme_display_k8s_context yes
-set -g theme_display_k8s_namespace yes
-
+# === VS Code ===
 string match -q "$TERM_PROGRAM" "vscode"
 and . (code --locate-shell-integration-path fish)
 
-if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; source $HOME/.config/fish/config-extension.fish; end; end
+# === Runtime Manager ===
+if command -q mise; mise activate fish | source; end
 
-# The next line updates PATH for the Google Cloud SDK.
+# === Prompt ===
+if command -q starship; starship init fish | source; end
+
+# === Navigation ===
+if command -q zoxide; zoxide init fish | source; end
+
+# === Modern CLI Aliases ===
+if command -q eza
+    alias ls "eza --icons --group-directories-first"
+    alias tree "eza --tree --icons"
+end
+if command -q bat
+    alias cat "bat --paging=never"
+end
+if command -q btop; alias top "btop"; end
+if command -q lazygit; alias lg "lazygit"; end
+
+# === Google Cloud SDK ===
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; else; . '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'; end; end
 
-# pnpm
+# === pnpm ===
 set -gx PNPM_HOME "$HOME/.pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end
 
-# asdf
-# ASDF configuration code
-if test -z $ASDF_DATA_DIR
-    set _asdf_shims "$HOME/.asdf/shims"
-else
-    set _asdf_shims "$ASDF_DATA_DIR/shims"
-end
+# === Extensions ===
+if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; source $HOME/.config/fish/config-extension.fish; end; end
 
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
-# asdf end
-
-# opencode
+# === PATH: OpenCode ===
 fish_add_path $HOME/.opencode/bin
 
-# Added by Antigravity
+# === PATH: Antigravity ===
 fish_add_path $HOME/.antigravity/antigravity/bin

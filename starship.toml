@@ -1,0 +1,45 @@
+add_newline = true
+command_timeout = 500
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "⚡"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+modified = "!"
+untracked = "?"
+staged = "+"
+deleted = "-"
+[cmd_duration]
+min_time = 2000
+format = "took [$duration]($style) "
+[nodejs]
+format = "[$symbol($version )]($style)"
+[python]
+format = '[$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)'
+[elixir]
+format = "[$symbol($version )]($style)"
+[erlang]
+format = "[$symbol($version )]($style)"
+[ruby]
+format = "[$symbol($version )]($style)"
+[rust]
+format = "[$symbol($version )]($style)"
+[kubernetes]
+disabled = true
+[docker_context]
+disabled = true
+[gcloud]
+disabled = true
+[aws]
+disabled = true
+[battery]
+disabled = true
