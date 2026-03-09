@@ -13,14 +13,19 @@
       force: true
     "~/.config":
       force: true
+    "~/.config/nvim":
+      force: true
+    "~/.config/alacritty":
+      force: true
     "~/.gnupg":
       force: true
 
 - link:
     "~/.gitignore_global": "global_gitignore"
-    "~/.config/alacritty/alacritty.toml": "alacritty.toml"
     "~/.config/ghostty/config": "ghostty_config"
-    "~/.config/nvim/init.vim": "nvim_init.vim"
+    "~/.config/nvim":
+      path: "nvim"
+    "~/.config/starship.toml": "starship.toml"
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
     "~/.gnupg/gpg.conf": "gnupg_gpg.conf"
@@ -35,25 +40,34 @@
 - shell:
     # Require Full Disk Access for terminal used to run this script
     - command: sh .macos
-      description: Apply MacOS settings
+      description: Apply macOS defaults
 
     - command: cp global_gitconfig ~/.gitconfig
-      description: Copy global git config file
+      description: Copy git config
 
-    - command: sh brew.sh
-      description: Install MacOS essential packages
+    - command: sh scripts/setup_git_local.sh
+      description: Setup local git identity
 
-    - command: sh install_powerline_fonts.sh
-      description: Install Powerline fonts
+    - command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true'
+      description: Bootstrap Homebrew if not present
 
-    - command: sh fisher update
-      description: Bootstrap fishshell
+    - command: brew bundle --file=Brewfile
+      description: Install all Homebrew packages
+
+    - command: mise install
+      description: Install language runtimes via mise
+
+    - command: 'fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || true'
+      description: Bootstrap Fisher
+
+    - command: 'fish -c "fisher update"'
+      description: Install fish plugins from fish_plugins
 
     - command: sh init_gcloud.sh
-      description: Initialize GCP
+      description: Initialize Google Cloud SDK
 
     - command: git submodule sync --recursive
-      description: Sync Dotbot
+      description: Sync git submodules
 
     - command: sh fix_gpg_home_permission.sh
-      description: Fix GPG permission warnings
+      description: Fix GPG directory permissions

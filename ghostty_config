@@ -2,7 +2,8 @@
 # https://ghostty.org/docs/config
 
 # Font
-font-family = Hack
+theme = Sonokai
+font-family = Hack Nerd Font
 font-size = 16
 font-thicken = true
 adjust-cell-height = 2
