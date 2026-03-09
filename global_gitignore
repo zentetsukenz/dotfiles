@@ -36,7 +36,7 @@ Thumbs.db
 # AI / LLM tools
 .opencode/
 .cursor/
-.sisyphus/evidence/
+.sisyphus/
 
 # Editors / IDEs
 .vscode/
