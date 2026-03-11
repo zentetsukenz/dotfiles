@@ -40,8 +40,7 @@ dotfiles/
 ├── gnupg_gpg_agent.conf       # GPG agent → ~/.gnupg/gpg-agent.conf
 │
 ├── Brewfile                   # Declarative Homebrew packages (brew bundle)
-├── .macos                     # Original monolithic macOS defaults script (DO NOT DELETE — reference only)
-├── macos/                     # Modular macOS defaults (replaces .macos)
+├── macos/                     # Modular macOS defaults
 │   ├── _helpers.sh            # Shared helper library (set_default, set_plistbuddy, log helpers)
 │   ├── apply.sh               # Orchestrator — runs all modules, sudo keepalive, killall sweep
 │   ├── dock.sh                # Dock, Mission Control, hot corners
@@ -103,7 +102,6 @@ dotfiles/
 - **`groad` rewrites git history** — `rebase --exec` resetting commit dates. Dangerous in shared repos
 - **`gdgb` force-deletes branches** — `git branch -D` via pipeline, irreversible without reflog
 - **`gphf` ignores arguments** — Hardcoded `push --force-with-lease` with no `$argv` passthrough
-- **`.macos` must NOT be deleted** — kept as the original reference; replaced by `macos/apply.sh` in install flow
 - **`macos/apply.sh` requires Full Disk Access** — Will fail with permission errors without it
 
 ## FISH FUNCTIONS REFERENCE
