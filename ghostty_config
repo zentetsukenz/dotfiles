@@ -21,7 +21,7 @@ confirm-close-surface = true
 
 # Shell Integration
 shell-integration = detect
-shell-integration-features = sudo,title,ssh-env,ssh-terminfo
+shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo
 
 # Clipboard
 copy-on-select = clipboard
