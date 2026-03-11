@@ -7,6 +7,7 @@ font-family = Hack Nerd Font
 font-size = 16
 font-thicken = true
 adjust-cell-height = 2
+cursor-style = block
 
 # Shell
 command = /opt/homebrew/bin/fish --login
@@ -20,7 +21,7 @@ confirm-close-surface = true
 
 # Shell Integration
 shell-integration = detect
-shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
+shell-integration-features = sudo,title,ssh-env,ssh-terminfo
 
 # Clipboard
 copy-on-select = clipboard
@@ -57,3 +58,51 @@ keybind = shift+right=next_tab
 
 # Scrollback in Neovim (opens entire scrollback in $EDITOR)
 keybind = cmd+s=write_scrollback_file:open
+
+# Vim-Mode Navigation (alt+v to enter, escape/q/i to exit)
+# Note: This is fully modal. While active, cmd+ shortcuts and split navigation
+# are blocked by catch_all. Exit vim-mode first to use them.
+# Note: v/y copy whatever is currently selected (mouse or other selection).
+# Ghostty key tables don't yet support cursor-driven text selection.
+# Source: https://github.com/ghostty-org/ghostty/discussions/3708#discussioncomment-15329614
+
+# Entry point
+keybind = alt+v=activate_key_table:vim
+
+# Key table definition
+keybind = vim/
+
+# Line movement
+keybind = vim/j=scroll_page_lines:1
+keybind = vim/k=scroll_page_lines:-1
+
+# Page movement
+keybind = vim/ctrl+d=scroll_page_down
+keybind = vim/ctrl+u=scroll_page_up
+keybind = vim/ctrl+f=scroll_page_down
+keybind = vim/ctrl+b=scroll_page_up
+keybind = vim/shift+j=scroll_page_down
+keybind = vim/shift+k=scroll_page_up
+
+# Jump to top/bottom
+keybind = vim/g>g=scroll_to_top
+keybind = vim/shift+g=scroll_to_bottom
+
+# Search
+keybind = vim/slash=start_search
+keybind = vim/n=navigate_search:next
+
+# Copy
+keybind = vim/v=copy_to_clipboard
+keybind = vim/y=copy_to_clipboard
+
+# Command Palette
+keybind = vim/shift+semicolon=toggle_command_palette
+
+# Exit
+keybind = vim/escape=deactivate_key_table
+keybind = vim/q=deactivate_key_table
+keybind = vim/i=deactivate_key_table
+
+# Catch unbound keys
+keybind = vim/catch_all=ignore
