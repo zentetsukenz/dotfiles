@@ -13,8 +13,7 @@ command = /opt/homebrew/bin/fish --login
 
 # Window
 fullscreen = true
-macos-non-native-fullscreen = true
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 macos-option-as-alt = true
 window-save-state = always
 confirm-close-surface = true
