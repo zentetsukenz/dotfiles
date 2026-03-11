@@ -67,8 +67,10 @@ This creates `~/.gitconfig.local`, which is ignored by git to keep your private 
 ### 7. macOS Defaults (Optional)
 Apply system-level preferences (Dock, Finder, Keyboard, etc.):
 ```bash
-sh .macos
+sh macos/apply.sh
 ```
+Use `--dry-run` to preview changes without applying them, or `--fresh-install` to also run destructive one-time operations (Dock wipe, Spotlight reindex).
+
 **Note:** This requires granting **Full Disk Access** to your terminal in System Settings.
 
 ### 8. Restart
@@ -104,7 +106,7 @@ mise install
 | `nvim/` | LazyVim configuration directory |
 | `starship.toml` | Starship prompt theme configuration |
 | `global_gitconfig` | Base git configuration (copied to ~/.gitconfig) |
-| `.macos` | Extensive macOS system defaults script |
+| `macos/` | Modular macOS defaults — `apply.sh` orchestrator + 8 domain modules |
 
 ## Key Conventions
 

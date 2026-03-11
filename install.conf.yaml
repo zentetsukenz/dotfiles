@@ -39,7 +39,7 @@
 
 - shell:
     # Require Full Disk Access for terminal used to run this script
-    - command: sh .macos
+    - command: sh macos/apply.sh
       description: Apply macOS defaults
 
     - command: cp global_gitconfig ~/.gitconfig

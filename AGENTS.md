@@ -40,7 +40,18 @@ dotfiles/
 ├── gnupg_gpg_agent.conf       # GPG agent → ~/.gnupg/gpg-agent.conf
 │
 ├── Brewfile                   # Declarative Homebrew packages (brew bundle)
-├── .macos                     # macOS defaults script (sudo + Full Disk Access required)
+├── .macos                     # Original monolithic macOS defaults script (DO NOT DELETE — reference only)
+├── macos/                     # Modular macOS defaults (replaces .macos)
+│   ├── _helpers.sh            # Shared helper library (set_default, set_plistbuddy, log helpers)
+│   ├── apply.sh               # Orchestrator — runs all modules, sudo keepalive, killall sweep
+│   ├── dock.sh                # Dock, Mission Control, hot corners
+│   ├── finder.sh              # Finder, Desktop, file extension behaviour
+│   ├── keyboard.sh            # Keyboard, trackpad, input settings
+│   ├── screen.sh              # Screenshots, display, energy saver
+│   ├── spotlight.sh           # Spotlight search categories and privacy
+│   ├── locale.sh              # Language, region, timezone
+│   ├── software_update.sh     # App Store and software update settings
+│   └── general_ux.sh          # General UX, sounds, tiling, scroll behaviour
 ├── .tool-versions             # mise runtime versions → ~/.tool-versions
 ├── scripts/setup_git_local.sh # Interactive GPG signing key setup
 ├── init_gcloud.sh             # GCP SDK + kubectl init (interactive)
@@ -54,7 +65,7 @@ dotfiles/
 | Add new dotfile | `install.conf.yaml` → `link:` section | Create file at root, add symlink mapping |
 | Add new shell function | `fish_functions/*.fish` | Pattern: `function name --description 'desc'` + `command <tool> $argv` |
 | Add brew package | `Brewfile` | `brew "pkg"` or `cask "app"`, run `brew bundle` |
-| Change macOS defaults | `.macos` | `defaults write` — requires Full Disk Access + sudo |
+| Change macOS defaults | `macos/` | Edit the relevant domain module (`dock.sh`, `finder.sh`, etc.). Run: `DRY_RUN=1 bash macos/<module>.sh` or `sh macos/apply.sh [--dry-run] [--fresh-install]` — requires Full Disk Access + sudo |
 | Add language runtime | `.tool-versions` + `Brewfile` | Add build deps to Brewfile, version to .tool-versions, run `mise install` |
 | Change shell setup | `fish_config.fish` | PATH, env vars, tool init (mise, starship, zoxide) |
 | Add install step | `install.conf.yaml` → `shell:` section | Runs sequentially during `./install` |
@@ -92,7 +103,8 @@ dotfiles/
 - **`groad` rewrites git history** — `rebase --exec` resetting commit dates. Dangerous in shared repos
 - **`gdgb` force-deletes branches** — `git branch -D` via pipeline, irreversible without reflog
 - **`gphf` ignores arguments** — Hardcoded `push --force-with-lease` with no `$argv` passthrough
-- **`.macos` requires Full Disk Access** — Will fail with permission errors without it
+- **`.macos` must NOT be deleted** — kept as the original reference; replaced by `macos/apply.sh` in install flow
+- **`macos/apply.sh` requires Full Disk Access** — Will fail with permission errors without it
 
 ## FISH FUNCTIONS REFERENCE
 
@@ -122,7 +134,7 @@ dotfiles/
   ├── Phase 1: Clean stale symlinks (~/  ~/.config  ~/.config/nvim  ~/.gnupg)
   ├── Phase 2: Create symlinks (all configs → home directory)
   └── Phase 3: Shell commands (sequential, stops on error)
-       1. sh .macos                          # macOS defaults (sudo, Full Disk Access)
+       1. sh macos/apply.sh                    # macOS defaults (sudo, Full Disk Access)
        2. cp global_gitconfig ~/.gitconfig   # Copy git config (not symlink!)
        3. sh scripts/setup_git_local.sh      # Interactive: GPG signing key → ~/.gitconfig.local
        4. Homebrew bootstrap                 # Install Homebrew if missing
