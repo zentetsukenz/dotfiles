@@ -7,6 +7,38 @@
     "cooldown_seconds": 60,
     "notify_on_fallback": true
   },
+  "background_task": {
+    "providerConcurrency": {
+      "anthropic": 3,
+      "openai": 3,
+      "github-copilot": 5,
+      "google": 5
+    },
+    "modelConcurrency": {
+      "github-copilot/claude-opus-4.6": 2
+    }
+  },
+  "experimental": {
+    "aggressive_truncation": true,
+    "task_system": true,
+    "dynamic_context_pruning": {
+      "enabled": true,
+      "notification": "detailed",
+      "turn_protection": { "enabled": true, "turns": 3 },
+      "protected_tools": ["task", "todowrite"],
+      "strategies": {
+        "deduplication": { "enabled": true },
+        "supersede_writes": { "enabled": true, "aggressive": false },
+        "purge_errors": { "enabled": true, "turns": 5 }
+      }
+    }
+  },
+  "hashline_edit": true,
+  "tmux": { "enabled": true },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  },
   "agents": {
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.6",
@@ -20,16 +52,20 @@
     },
     "oracle": {
       "model": "github-copilot/gpt-5.4",
-      "variant": "high"
+      "variant": "high",
+      "fallback_models": ["github-copilot/claude-opus-4.6", "github-copilot/claude-sonnet-4.6"]
     },
     "librarian": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gemini-3-flash-preview",
+      "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
     },
     "explore": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "github-copilot/claude-haiku-4.5",
+      "fallback_models": ["github-copilot/gemini-3-flash-preview"]
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gemini-3-flash-preview",
+      "fallback_models": ["github-copilot/claude-haiku-4.5"]
     },
     "prometheus": {
       "model": "github-copilot/claude-opus-4.6",
@@ -38,44 +74,55 @@
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
     "momus": {
       "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
+      "variant": "high",
+      "fallback_models": ["github-copilot/claude-opus-4.6", "github-copilot/claude-sonnet-4.6"]
     },
     "atlas": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/claude-sonnet-4.6",
+      "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
     }
   },
   "categories": {
     "visual-engineering": {
       "model": "github-copilot/gemini-3.1-pro-preview",
-      "variant": "high"
+      "variant": "high",
+      "description": "Frontend, UI/UX, design, styling, animation, CSS, layout"
     },
     "ultrabrain": {
       "model": "github-copilot/gpt-5.3-codex",
-      "variant": "xhigh"
+      "variant": "xhigh",
+      "description": "Genuinely hard, logic-heavy tasks requiring deep reasoning"
     },
     "deep": {
       "model": "github-copilot/gpt-5.3-codex",
-      "variant": "medium"
+      "variant": "medium",
+      "description": "Goal-oriented autonomous problem-solving with thorough research"
     },
     "artistry": {
       "model": "github-copilot/gemini-3.1-pro-preview",
-      "variant": "high"
+      "variant": "high",
+      "description": "Complex problems requiring unconventional, creative approaches"
     },
     "quick": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "github-copilot/claude-haiku-4.5",
+      "description": "Trivial tasks — single file changes, typo fixes, simple modifications"
     },
     "unspecified-low": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/claude-sonnet-4.6",
+      "description": "Low effort tasks that don't fit other categories"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/claude-opus-4.6",
+      "description": "High effort tasks that don't fit other categories"
     },
     "writing": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gemini-3-flash-preview",
+      "description": "Documentation, prose, technical writing"
     }
   }
 }
