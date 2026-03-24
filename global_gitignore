@@ -34,7 +34,6 @@ Thumbs.db
 .localized
 
 # AI / LLM tools
-.opencode/
 .cursor/
 .sisyphus/
 

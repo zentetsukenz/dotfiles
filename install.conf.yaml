@@ -33,6 +33,7 @@
     "~/.tool-versions": ".tool-versions"
     "~/.config/opencode/opencode.json": ".opencode/opencode.json"
     "~/.config/opencode/oh-my-opencode.json": ".opencode/oh-my-opencode.json"
+    "~/.config/opencode/AGENTS.md": ".opencode/AGENTS.md"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
