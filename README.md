@@ -105,6 +105,7 @@ mise install
 | `fish_functions/` | Custom Fish functions (git aliases, utility helpers) |
 | `nvim/` | LazyVim configuration directory |
 | `starship.toml` | Starship prompt theme configuration |
+| `.opencode/` | OpenCode + OMO configuration, global AGENTS.md, and custom command templates |
 | `global_gitconfig` | Base git configuration (copied to ~/.gitconfig) |
 | `macos/` | Modular macOS defaults — `apply.sh` orchestrator + 8 domain modules |
 
