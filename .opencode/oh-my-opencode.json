@@ -34,16 +34,21 @@
     }
   },
   "hashline_edit": true,
-  "tmux": { "enabled": true },
   "git_master": {
     "commit_footer": false,
-    "include_co_authored_by": false
+    "include_co_authored_by": false,
+    "git_env_prefix": "GIT_MASTER=1"
   },
   "agents": {
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.6",
       "variant": "max",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
+    },
+    "sisyphus-junior": {
+      "model": "github-copilot/claude-sonnet-4.6",
+      "variant": "max",
+      "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.3-codex",
