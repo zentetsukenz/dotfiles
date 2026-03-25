@@ -54,7 +54,7 @@ dotfiles/
 │   ├── locale.sh              # Language, region, timezone
 │   ├── software_update.sh     # App Store and software update settings
 │   └── general_ux.sh          # General UX, sounds, tiling, scroll behaviour
-├── .tool-versions             # mise runtime versions → ~/.tool-versions
+├── mise_config.toml            # mise global config → ~/.config/mise/config.toml
 ├── scripts/setup_ssh_agent.sh # Homebrew SSH agent LaunchAgent setup (FIDO2/YubiKey)
 ├── init_gcloud.sh             # GCP SDK + kubectl init (interactive)
 ```
@@ -67,7 +67,7 @@ dotfiles/
 | Add new shell function | `fish_functions/*.fish` | Pattern: `function name --description 'desc'` + `command <tool> $argv` |
 | Add brew package | `Brewfile` | `brew "pkg"` or `cask "app"`, run `brew bundle` |
 | Change macOS defaults | `macos/` | Edit the relevant domain module (`dock.sh`, `finder.sh`, etc.). Run: `DRY_RUN=1 bash macos/<module>.sh` or `sh macos/apply.sh [--dry-run] [--fresh-install]` — requires Full Disk Access + sudo |
-| Add language runtime | `.tool-versions` + `Brewfile` | Add build deps to Brewfile, version to .tool-versions, run `mise install` |
+| Add language runtime | `mise_config.toml` + `Brewfile` | Add build deps to Brewfile, version to mise_config.toml, run `mise install` |
 | Change shell setup | `fish_config.fish` | PATH, env vars, tool init (mise, starship, zoxide) |
 | Add install step | `install.conf.yaml` → `shell:` section | Runs sequentially during `./install` |
 | Change terminal look | `ghostty_config` | Sonokai theme, Hack Nerd Font 16pt, fullscreen |

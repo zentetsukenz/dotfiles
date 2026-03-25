@@ -26,7 +26,7 @@
     "~/.config/starship.toml": "starship.toml"
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
-    "~/.tool-versions": ".tool-versions"
+    "~/.config/mise/config.toml": "mise_config.toml"
     "~/.config/opencode/opencode.json": ".opencode/opencode.json"
     "~/.config/opencode/oh-my-opencode.json": ".opencode/oh-my-opencode.json"
     "~/.config/opencode/AGENTS.md": ".opencode/AGENTS.md"

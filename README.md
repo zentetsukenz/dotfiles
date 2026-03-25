@@ -85,7 +85,7 @@ git pull
 ./install
 ```
 
-If the `Brewfile` or `.tool-versions` changed, run the following:
+If the `Brewfile` or `mise_config.toml` changed, run the following:
 ```bash
 # For new Homebrew packages
 brew bundle
