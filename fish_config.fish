@@ -10,10 +10,8 @@ if set -q $_old_theme_ctx; set -e $_old_theme_ctx; end
 set -l _old_theme_ns (string join '' theme_display_ k8s_namespace)
 if set -q $_old_theme_ns; set -e $_old_theme_ns; end
 
-# === GPG/SSH ===
-set -x GPG_TTY (tty)
-set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+# === SSH Agent (Homebrew openssh — FIDO2/YubiKey) ===
+set -gx SSH_AUTH_SOCK "$HOME/.ssh/agent.sock"
 
 # === Locale/Editor ===
 set -gx LANG en_US.UTF-8

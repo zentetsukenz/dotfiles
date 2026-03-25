@@ -10,7 +10,7 @@
 	verbose = true
 
 [gpg]
-	program = gpg
+	format = ssh
 
 [core]
 	editor = nvim
@@ -69,9 +69,9 @@
 	amend = commit --amend --no-edit
 
 # === Machine-Local Overrides ===
-# Per-machine settings (GPG signing key, work email, etc.) go in ~/.gitconfig.local
+# Per-machine settings (SSH signing key, work email, etc.) go in ~/.gitconfig.local
 # This file is NOT in the dotfiles repo — create it on each new machine:
-#   echo -e "[user]\n    signingkey = YOUR_GPG_KEY_ID" > ~/.gitconfig.local
+#   echo -e "[user]\n    signingKey = ~/.ssh/id_ed25519_sk.pub" > ~/.gitconfig.local
 # The setup script (scripts/setup_git_local.sh) will prompt for this during ./install
 [include]
 	path = ~/.gitconfig.local

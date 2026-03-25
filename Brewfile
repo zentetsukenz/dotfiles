@@ -46,10 +46,6 @@ brew "wxwidgets"
 brew "libxslt"
 brew "fop"
 
-# === Security & GPG ===
-brew "gnupg"
-brew "pinentry-mac"
-
 # === Casks (GUI Applications) ===
 cask "ghostty"
 cask "google-cloud-sdk"

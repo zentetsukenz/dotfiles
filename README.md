@@ -58,11 +58,11 @@ This script performs the following actions:
 - Runs the Google Cloud SDK initializer
 
 ### 6. Local Git Identity
-Run the helper script to set up your GPG signing key:
+Run the helper script to set up your SSH signing key:
 ```bash
 scripts/setup_git_local.sh
 ```
-This creates `~/.gitconfig.local`, which is ignored by git to keep your private signing keys out of the repository.
+This creates `~/.gitconfig.local`, which is ignored by git to keep your private SSH signing keys out of the repository.
 
 ### 7. macOS Defaults (Optional)
 Apply system-level preferences (Dock, Finder, Keyboard, etc.):
@@ -112,7 +112,7 @@ mise install
 ## Key Conventions
 
 - **Git Config**: `global_gitconfig` is **copied** to `~/.gitconfig`, not symlinked. Edits made directly to `~/.gitconfig` will not be reflected back to the repo. Use `~/.gitconfig.local` for machine-specific overrides.
-- **GPG Signing**: All commits are configured to require GPG signing. Ensure your signing key is set in `~/.gitconfig.local`.
+- **SSH Signing**: All commits are configured to require SSH signing. Ensure your SSH signing key path is set in `~/.gitconfig.local` (e.g., `signingKey = ~/.ssh/id_ed25519_sk.pub`).
 - **Fish Recursion**: Custom git functions in `fish_functions/` use `command git` instead of `git` to avoid infinite recursion.
 - **Machine Overrides**: `fish_config.fish` automatically sources `~/.config/fish/config-extension.fish` if it exists. Use this for environment variables or paths that shouldn't be committed.
 - **Submodules**: The `dotbot/` directory is a git submodule. Do not edit it directly. Update it using `git submodule update --remote dotbot`.

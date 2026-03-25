@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-Personal macOS (Apple Silicon) development environment managed by **Dotbot** (git submodule). Ghostty terminal, Fish shell, Starship prompt, LazyVim (Neovim), GPG-signed git, multi-language runtimes via mise.
+Personal macOS (Apple Silicon) development environment managed by **Dotbot** (git submodule). Ghostty terminal, Fish shell, Starship prompt, LazyVim (Neovim), SSH-signed git, multi-language runtimes via mise.
 
 ## STRUCTURE
 
@@ -41,8 +41,6 @@ dotfiles/
 │
 ├── global_gitconfig           # Git config (COPIED, not linked) → ~/.gitconfig
 ├── global_gitignore           # Git ignore → ~/.gitignore_global
-├── gnupg_gpg.conf             # GPG config → ~/.gnupg/gpg.conf
-├── gnupg_gpg_agent.conf       # GPG agent → ~/.gnupg/gpg-agent.conf
 │
 ├── Brewfile                   # Declarative Homebrew packages (brew bundle)
 ├── macos/                     # Modular macOS defaults
@@ -57,9 +55,8 @@ dotfiles/
 │   ├── software_update.sh     # App Store and software update settings
 │   └── general_ux.sh          # General UX, sounds, tiling, scroll behaviour
 ├── .tool-versions             # mise runtime versions → ~/.tool-versions
-├── scripts/setup_git_local.sh # Interactive GPG signing key setup
+├── scripts/setup_ssh_agent.sh # Homebrew SSH agent LaunchAgent setup (FIDO2/YubiKey)
 ├── init_gcloud.sh             # GCP SDK + kubectl init (interactive)
-└── fix_gpg_home_permission.sh # GPG dir permission fix
 ```
 
 ## WHERE TO LOOK
@@ -80,20 +77,22 @@ dotfiles/
 | Add editor language | `nvim/lua/config/lazy.lua` | `{ import = "lazyvim.plugins.extras.lang.<name>" }` |
 | Add editor keymap | `nvim/lua/config/keymaps.lua` | `vim.keymap.set(...)`, leader+l group for LSP |
 | Change git config | `global_gitconfig` | NOTE: COPIED by install script, not symlinked |
-| Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, NOT in repo |
+| Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
+| Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
 | Change OpenCode agents/models | `.opencode/oh-my-opencode.json` | Symlinked — changes reflect immediately |
 | Add OpenCode command | `.opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `.opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
 
 ## CONVENTIONS
 
-- **Flat file naming**: Root-level configs prefixed by tool name (`fish_config.fish`, `gnupg_gpg.conf`, `ghostty_config`)
+- **Flat file naming**: Root-level configs prefixed by tool name (`fish_config.fish`, `ghostty_config`, `starship.toml`)
 - **Dotbot manages all symlinks**: Never manually symlink — add to `install.conf.yaml` `link:` section
 - **Git config is COPIED not linked**: `cp global_gitconfig ~/.gitconfig` — edits to `~/.gitconfig` won't reflect back
 - **Fish functions use `command git`**: Not `git` directly — prevents infinite Fish recursion
 - **Fish functions follow 3-line pattern**: `function name --description 'desc'` / `command git subcmd $argv` / `end`
 - **Fish is the only interactive shell**: Automation scripts use `#!/usr/bin/env bash`
-- **GPG signs all commits**: Enforced via `global_gitconfig` → `commit.gpgsign = true`
+- **SSH signs all commits**: `gpg.format = ssh` in global_gitconfig, signing key path in ~/.gitconfig.local (per-machine)
+- **SSH agent is Homebrew openssh**: macOS built-in ssh-agent disabled — Homebrew version at /opt/homebrew/bin/ssh-agent supports FIDO2/libfido2
 - **vim always means nvim**: `fish_functions/vim.fish` redirects, `EDITOR=nvim` in fish_config
 - **Extension point**: `fish_config.fish` sources `~/.config/fish/config-extension.fish` if it exists — machine-local overrides
 - **Sonokai everywhere**: Ghostty theme, Neovim colorscheme — consistent visual identity
@@ -109,7 +108,7 @@ dotfiles/
 - **`groad` rewrites git history** — `rebase --exec` resetting commit dates. Dangerous in shared repos
 - **`gdgb` force-deletes branches** — `git branch -D` via pipeline, irreversible without reflog
 - **`gphf` ignores arguments** — Hardcoded `push --force-with-lease` with no `$argv` passthrough
-- **`macos/apply.sh` requires Full Disk Access** — Will fail with permission errors without it
+- **DO NOT use macOS built-in ssh-agent for FIDO2** — Apple disabled libfido2 support. Use Homebrew openssh only.
 
 ## FISH FUNCTIONS REFERENCE
 
@@ -136,25 +135,26 @@ dotfiles/
 
 ```
 ./install
-  ├── Phase 1: Clean stale symlinks (~/  ~/.config  ~/.config/nvim  ~/.gnupg)
+  ├── Phase 1: Clean stale symlinks (~/  ~/.config  ~/.config/nvim)
   ├── Phase 2: Create symlinks (all configs → home directory, including .opencode/ individual file symlinks)
   └── Phase 3: Shell commands (sequential, stops on error)
        1. sh macos/apply.sh                    # macOS defaults (sudo, Full Disk Access)
        2. cp global_gitconfig ~/.gitconfig   # Copy git config (not symlink!)
-       3. sh scripts/setup_git_local.sh      # Interactive: GPG signing key → ~/.gitconfig.local
+       3. sh scripts/setup_git_local.sh      # Interactive: SSH signing key → ~/.gitconfig.local
        4. Homebrew bootstrap                 # Install Homebrew if missing
-       5. brew bundle --file=Brewfile        # Install all packages
-       6. mise install                       # Install language runtimes from .tool-versions
+       5. brew bundle --file=Brewfile        # Install all packages + Homebrew openssh
+       6. sh scripts/setup_ssh_agent.sh     # Homebrew SSH agent + disable built-in + FIDO2
        7. Fisher bootstrap                   # Install Fisher plugin manager
        8. fisher update                      # Install Fish plugins from fish_plugins
        9. sh init_gcloud.sh                  # Interactive: GCP SDK init
       10. git submodule sync --recursive     # Sync submodule URLs
-      11. sh fix_gpg_home_permission.sh      # Fix GPG dir permissions
+
 ```
 
 ## CROSS-REFERENCES
 
-- **GPG chain**: `fish_config.fish` (GPG_TTY + SSH_AUTH_SOCK + agent launch) → `global_gitconfig` (gpgsign=true) → `scripts/setup_git_local.sh` (signing key) → `gnupg_gpg_agent.conf` (pinentry-mac, SSH support)
+- **SSH agent chain**: `fish_config.fish` (SSH_AUTH_SOCK) → `scripts/setup_ssh_agent.sh` (LaunchAgent + Homebrew openssh) → `~/Library/LaunchAgents/dev.dotfiles.ssh-agent.plist` (persistent agent)
+- **Signing chain**: `global_gitconfig` (gpg.format=ssh, gpgsign=true) → `scripts/setup_git_local.sh` (SSH signing key setup) → `~/.gitconfig.local` (signingKey path)
 - **Editor chain**: `fish_config.fish` (EDITOR=nvim) → `global_gitconfig` (core.editor=nvim) → `ghostty_config` (unconsumed Ctrl+hjkl for Neovim, scrollback via $EDITOR)
 - **Theme chain**: `ghostty_config` (theme=Sonokai) → `nvim/lua/config/options.lua` (sonokai_style) → `nvim/lua/plugins/colorscheme.lua` (sonokai plugin)
 - **OpenCode chain**: `.opencode/opencode.json` (plugin config) → `.opencode/oh-my-opencode.json` (agents, categories, concurrency, experimental features) → `.opencode/AGENTS.md` (global coding rules) → `.opencode/commands/` (custom slash commands)
@@ -186,3 +186,5 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **pnpm on PATH**: `~/.pnpm` added in fish_config
 - **Erlang build**: Docs enabled (`KERL_BUILD_DOCS=yes`), JIT disabled (`--disable-jit`)
 - **Python venvs**: In-project (`PIPENV_VENV_IN_PROJECT=1`)
+- **SSH commit signing**: `gpg.format = ssh` in global_gitconfig. Signing key path in ~/.gitconfig.local (per-machine). Works with git commit, tag, and merge.
+- **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection)

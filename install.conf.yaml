@@ -17,8 +17,6 @@
       force: true
     "~/.config/alacritty":
       force: true
-    "~/.gnupg":
-      force: true
 
 - link:
     "~/.gitignore_global": "global_gitignore"
@@ -28,8 +26,6 @@
     "~/.config/starship.toml": "starship.toml"
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
-    "~/.gnupg/gpg.conf": "gnupg_gpg.conf"
-    "~/.gnupg/gpg-agent.conf": "gnupg_gpg_agent.conf"
     "~/.tool-versions": ".tool-versions"
     "~/.config/opencode/opencode.json": ".opencode/opencode.json"
     "~/.config/opencode/oh-my-opencode.json": ".opencode/oh-my-opencode.json"
@@ -47,13 +43,16 @@
       description: Copy git config
 
     - command: sh scripts/setup_git_local.sh
-      description: Setup local git identity
+      description: Setup local git signing key
 
     - command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true'
       description: Bootstrap Homebrew if not present
 
     - command: brew bundle --file=Brewfile
       description: Install all Homebrew packages
+
+    - command: sh scripts/setup_ssh_agent.sh
+      description: Setup Homebrew SSH agent with FIDO2 support
 
     - command: mise install
       description: Install language runtimes via mise
@@ -70,5 +69,3 @@
     - command: git submodule sync --recursive
       description: Sync git submodules
 
-    - command: sh fix_gpg_home_permission.sh
-      description: Fix GPG directory permissions
