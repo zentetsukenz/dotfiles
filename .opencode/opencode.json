@@ -1,8 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "oh-my-opencode@latest"
+    "oh-my-opencode@latest",
+    "context-mode"
   ],
   "autoupdate": "notify",
-  "share": "manual"
+  "share": "manual",
+  "mcp": {
+    "context-mode": {
+      "type": "local",
+      "command": [
+        "context-mode"
+      ]
+    }
+  },
 }
