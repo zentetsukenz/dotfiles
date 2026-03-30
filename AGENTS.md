@@ -31,7 +31,7 @@ dotfiles/
 │
 ├── ghostty_config             # Ghostty terminal → ~/.config/ghostty/config
 ├── starship.toml              # Starship prompt → ~/.config/starship.toml
-├── .opencode/                 # OpenCode + OMO configuration
+├── opencode/                  # OpenCode + OMO configuration
 │   ├── opencode.json          # OpenCode plugin config → ~/.config/opencode/opencode.json
 │   ├── oh-my-opencode.json    # OMO agents, categories, concurrency, experimental → ~/.config/opencode/oh-my-opencode.json
 │   ├── AGENTS.md              # Global coding preferences → ~/.config/opencode/AGENTS.md
@@ -79,9 +79,9 @@ dotfiles/
 | Change git config | `global_gitconfig` | NOTE: COPIED by install script, not symlinked |
 | Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
 | Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
-| Change OpenCode agents/models | `.opencode/oh-my-opencode.json` | Symlinked — changes reflect immediately |
-| Add OpenCode command | `.opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
-| Change global AI preferences | `.opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
+| Change OpenCode agents/models | `opencode/oh-my-opencode.json` | Symlinked — changes reflect immediately |
+| Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
+| Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
 
 ## CONVENTIONS
 
@@ -136,7 +136,7 @@ dotfiles/
 ```
 ./install
   ├── Phase 1: Clean stale symlinks (~/  ~/.config  ~/.config/nvim)
-  ├── Phase 2: Create symlinks (all configs → home directory, including .opencode/ individual file symlinks)
+  ├── Phase 2: Create symlinks (all configs → home directory, including opencode/ individual file symlinks)
   └── Phase 3: Shell commands (sequential, stops on error)
        1. sh macos/apply.sh                    # macOS defaults (sudo, Full Disk Access)
        2. cp global_gitconfig ~/.gitconfig   # Copy git config (not symlink!)
@@ -157,7 +157,7 @@ dotfiles/
 - **Signing chain**: `global_gitconfig` (gpg.format=ssh, gpgsign=true) → `scripts/setup_git_local.sh` (SSH signing key setup) → `~/.gitconfig.local` (signingKey path)
 - **Editor chain**: `fish_config.fish` (EDITOR=nvim) → `global_gitconfig` (core.editor=nvim) → `ghostty_config` (unconsumed Ctrl+hjkl for Neovim, scrollback via $EDITOR)
 - **Theme chain**: `ghostty_config` (theme=Sonokai) → `nvim/lua/config/options.lua` (sonokai_style) → `nvim/lua/plugins/colorscheme.lua` (sonokai plugin)
-- **OpenCode chain**: `.opencode/opencode.json` (plugin config) → `.opencode/oh-my-opencode.json` (agents, categories, concurrency, experimental features) → `.opencode/AGENTS.md` (global coding rules) → `.opencode/commands/` (custom slash commands)
+- **OpenCode chain**: `opencode/opencode.json` (plugin config) → `opencode/oh-my-opencode.json` (agents, categories, concurrency, experimental features) → `opencode/AGENTS.md` (global coding rules) → `opencode/commands/` (custom slash commands)
 
 ## COMMANDS
 
@@ -179,9 +179,9 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Runtime versions**: Erlang latest, Elixir latest, Node 24.12.0, Python 3.12.11, Ruby 3.1.3
 - **Modern CLI aliases**: `ls`→eza, `cat`→bat, `top`→btop, `lg`→lazygit (conditional on install in fish_config)
 - **Fisher plugins**: fisher (manager), sponge (clean history of failed commands), fzf (fuzzy finder)
-- **OpenCode config**: All OpenCode + OMO configuration in `.opencode/` — symlinked individually to `~/.config/opencode/`. Agents: sisyphus/prometheus/metis/oracle use opus/gpt-5.4, explore/quick use haiku, visual/artistry use gemini
-- **Global AGENTS.md**: `.opencode/AGENTS.md` — universal coding preferences (Communication, Conventions, Git, Anti-patterns). Project-level AGENTS.md overrides global.
-- **Custom OpenCode commands**: `.opencode/commands/` — `/release-notes` (user-impact changelog), `/explain-plan` (Mermaid plan visualization with wave grouping and status indicators)
+- **OpenCode config**: All OpenCode + OMO configuration in `opencode/` — symlinked individually to `~/.config/opencode/`. Agents: sisyphus/prometheus/metis/oracle use opus/gpt-5.4, explore/quick use haiku, visual/artistry use gemini
+- **Global AGENTS.md**: `opencode/AGENTS.md` — universal coding preferences (Communication, Conventions, Git, Anti-patterns). Project-level AGENTS.md overrides global.
+- **Custom OpenCode commands**: `opencode/commands/` — `/release-notes` (user-impact changelog), `/explain-plan` (Mermaid plan visualization with wave grouping and status indicators)
 - **Podman uses libkrun**: Set via `CONTAINERS_MACHINE_PROVIDER` in fish_config
 - **pnpm on PATH**: `~/.pnpm` added in fish_config
 - **Erlang build**: Docs enabled (`KERL_BUILD_DOCS=yes`), JIT disabled (`--disable-jit`)

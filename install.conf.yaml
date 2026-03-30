@@ -27,11 +27,11 @@
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
     "~/.config/mise/config.toml": "mise_config.toml"
-    "~/.config/opencode/opencode.json": ".opencode/opencode.json"
-    "~/.config/opencode/oh-my-opencode.json": ".opencode/oh-my-opencode.json"
-    "~/.config/opencode/AGENTS.md": ".opencode/AGENTS.md"
+    "~/.config/opencode/opencode.json": "opencode/opencode.json"
+    "~/.config/opencode/oh-my-opencode.json": "opencode/oh-my-opencode.json"
+    "~/.config/opencode/AGENTS.md": "opencode/AGENTS.md"
     "~/.config/opencode/commands":
-      path: ".opencode/commands"
+      path: "opencode/commands"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
