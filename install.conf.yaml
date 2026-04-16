@@ -28,7 +28,7 @@
     "~/.config/fish/fish_plugins": "fish_plugins"
     "~/.config/mise/config.toml": "mise_config.toml"
     "~/.config/opencode/opencode.json": "opencode/opencode.json"
-    "~/.config/opencode/oh-my-opencode.json": "opencode/oh-my-opencode.json"
+    "~/.config/opencode/oh-my-openagent.json": "opencode/oh-my-openagent.json"
     "~/.config/opencode/AGENTS.md": "opencode/AGENTS.md"
     "~/.config/opencode/commands":
       path: "opencode/commands"
