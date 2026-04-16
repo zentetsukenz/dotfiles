@@ -13,5 +13,55 @@
         "context-mode"
       ]
     }
+  },
+  "provider": {
+    "github-copilot": {
+      "models": {
+        "claude-opus-4.6": {
+          "variants": {
+            "max": { "disabled": true }
+          }
+        },
+        "claude-sonnet-4.6": {
+          "variants": {
+            "max": { "disabled": true }
+          }
+        },
+        "claude-haiku-4.5": {
+          "variants": {
+            "high": { "disabled": true },
+            "max": { "disabled": true }
+          }
+        },
+        "gpt-5.4": {
+          "variants": {
+            "none": { "disabled": true },
+            "minimal": { "disabled": true },
+            "low": { "disabled": true }
+          }
+        },
+        "gpt-5.3-codex": {
+          "variants": {
+            "none": { "disabled": true },
+            "minimal": { "disabled": true },
+            "low": { "disabled": true },
+            "medium": { "disabled": true },
+            "high": { "disabled": true },
+            "xhigh": { "disabled": true }
+          }
+        },
+        "gemini-3-flash-preview": {
+          "variants": {
+            "low": { "disabled": true },
+            "high": { "disabled": true }
+          }
+        },
+        "gemini-3.1-pro-preview": {
+          "variants": {
+            "low": { "disabled": true }
+          }
+        }
+      }
+    }
   }
 }
