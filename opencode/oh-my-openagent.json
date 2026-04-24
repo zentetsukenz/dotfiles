@@ -15,7 +15,7 @@
       "google": 5
     },
     "modelConcurrency": {
-      "github-copilot/claude-opus-4.6": 2
+      "github-copilot/claude-opus-4.7": 2
     }
   },
   "experimental": {
@@ -41,7 +41,7 @@
   },
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
@@ -58,7 +58,7 @@
     "oracle": {
       "model": "github-copilot/gpt-5.4",
       "variant": "high",
-      "fallback_models": ["github-copilot/claude-opus-4.6", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/claude-opus-4.7", "github-copilot/claude-sonnet-4.6"]
     },
     "librarian": {
       "model": "github-copilot/gemini-3-flash-preview",
@@ -74,19 +74,19 @@
       "fallback_models": ["github-copilot/gemini-3-flash-preview", "github-copilot/claude-haiku-4.5"]
     },
     "prometheus": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
     "metis": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
     },
     "momus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "xhigh",
-      "fallback_models": ["github-copilot/claude-opus-4.6", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/claude-opus-4.7", "github-copilot/claude-sonnet-4.6"]
     },
     "atlas": {
       "model": "github-copilot/claude-sonnet-4.6",
@@ -123,7 +123,7 @@
       "description": "Low effort tasks that don't fit other categories"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "github-copilot/claude-opus-4.7",
       "description": "High effort tasks that don't fit other categories"
     },
     "writing": {
