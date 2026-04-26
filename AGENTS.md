@@ -79,6 +79,7 @@ dotfiles/
 | Change git config | `global_gitconfig` | NOTE: COPIED by install script, not symlinked |
 | Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
 | Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
+| Diagnose SSH agent | `scripts/check_ssh_agent.sh` | Read-only health check; exit 0=healthy, 1=broken, 2=binary missing |
 | Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
@@ -154,6 +155,9 @@ dotfiles/
 ## CROSS-REFERENCES
 
 - **SSH agent chain**: `fish_config.fish` (SSH_AUTH_SOCK) → `scripts/setup_ssh_agent.sh` (LaunchAgent + Homebrew openssh) → `~/Library/LaunchAgents/dev.dotfiles.ssh-agent.plist` (persistent agent)
+  - **Failure mode**: stale `~/.ssh/agent.sock` causes `ssh-agent -a` to refuse start; `KeepAlive=true` without `ThrottleInterval` causes tight restart loop. Plist now wraps in `bash -c 'rm -f $sock; exec ...'` to clean before launch.
+  - **Recovery**: run `bash scripts/check_ssh_agent.sh` for diagnosis; then `launchctl kickstart -k gui/$(id -u)/dev.dotfiles.ssh-agent` or re-run `bash scripts/setup_ssh_agent.sh`.
+  - **Idempotency**: re-running setup preserves loaded keys IF agent is already healthy (early-exit). If agent was broken, restart drops cached keys — re-touch required.
 - **Signing chain**: `global_gitconfig` (gpg.format=ssh, gpgsign=true) → `scripts/setup_git_local.sh` (SSH signing key setup) → `~/.gitconfig.local` (signingKey path)
 - **Editor chain**: `fish_config.fish` (EDITOR=nvim) → `global_gitconfig` (core.editor=nvim) → `ghostty_config` (unconsumed Ctrl+hjkl for Neovim, scrollback via $EDITOR)
 - **Theme chain**: `ghostty_config` (theme=Sonokai) → `nvim/lua/config/options.lua` (sonokai_style) → `nvim/lua/plugins/colorscheme.lua` (sonokai plugin)
@@ -187,7 +191,7 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Erlang build**: Docs enabled (`KERL_BUILD_DOCS=yes`), JIT disabled (`--disable-jit`)
 - **Python venvs**: In-project (`PIPENV_VENV_IN_PROJECT=1`)
 - **SSH commit signing**: `gpg.format = ssh` in global_gitconfig. Signing key path in ~/.gitconfig.local (per-machine). Works with git commit, tag, and merge.
-- **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection)
+- **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection). Run `bash scripts/check_ssh_agent.sh` to diagnose; stale socket recovery: `launchctl kickstart -k gui/$(id -u)/dev.dotfiles.ssh-agent`.
 
 # context-mode — MANDATORY routing rules
 

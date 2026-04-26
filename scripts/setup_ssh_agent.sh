@@ -49,15 +49,16 @@ cat <<EOF > "$PLIST_PATH"
 	<string>$AGENT_LABEL</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>$SSH_AGENT_BIN</string>
-		<string>-D</string>
-		<string>-a</string>
-		<string>$SOCKET_PATH</string>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>rm -f "$SOCKET_PATH"; exec "$SSH_AGENT_BIN" -D -a "$SOCKET_PATH"</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>KeepAlive</key>
 	<true/>
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
 </dict>
 </plist>
 EOF
@@ -65,7 +66,51 @@ EOF
 echo "✓ LaunchAgent plist written"
 echo ""
 
-# === Load the agent ===
+# === Early-exit-if-healthy ===
+if [ -S "$SOCKET_PATH" ]; then
+    _ssh_rc=0
+    SSH_AUTH_SOCK="$SOCKET_PATH" ssh-add -l >/dev/null 2>&1 || _ssh_rc=$?
+    if [ "$_ssh_rc" -eq 0 ] || [ "$_ssh_rc" -eq 1 ]; then
+        # Write expected plist to tempfile
+        _tmpfile=$(mktemp)
+        cat <<EOF > "$_tmpfile"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>$AGENT_LABEL</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>rm -f "$SOCKET_PATH"; exec "$SSH_AGENT_BIN" -D -a "$SOCKET_PATH"</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
+</dict>
+</plist>
+EOF
+        if diff -q "$PLIST_PATH" "$_tmpfile" >/dev/null 2>&1; then
+            rm -f "$_tmpfile"
+            echo "✓ SSH agent already healthy — skipping setup"
+            exit 0
+        fi
+        rm -f "$_tmpfile"
+    fi
+fi
+echo ""
+# === Guard: socket path is not a directory ===
+if [ -d "$SOCKET_PATH" ]; then
+    echo "✗ $SOCKET_PATH is a directory — cannot safely remove. Aborting." >&2
+    exit 1
+fi
+rm -f "$SOCKET_PATH"
+echo ""
 echo "Loading SSH agent into launchd..."
 launchctl bootout "gui/$(id -u)/${AGENT_LABEL}" 2>/dev/null || true
 launchctl bootstrap "gui/$(id -u)" "$PLIST_PATH"
