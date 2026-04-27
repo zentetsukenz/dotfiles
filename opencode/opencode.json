@@ -12,26 +12,50 @@
         "typescript-language-server",
         "--stdio"
       ],
-      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"]
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx",
+        ".mjs",
+        ".cjs",
+        ".mts",
+        ".cts"
+      ]
     },
     "pyright": {
       "command": [
         "pyright-langserver",
         "--stdio"
       ],
-      "extensions": [".py", ".pyi"]
+      "extensions": [
+        ".py",
+        ".pyi"
+      ]
     },
     "ruby-lsp": {
       "command": [
         "ruby-lsp"
       ],
-      "extensions": [".rb", ".rake", ".gemspec", ".ru"]
+      "extensions": [
+        ".rb",
+        ".rake",
+        ".gemspec",
+        ".ru"
+      ]
     },
     "elixir-ls": {
       "command": [
         "elixir-ls"
       ],
-      "extensions": [".ex", ".exs", ".eex", ".heex", ".leex", ".sface"]
+      "extensions": [
+        ".ex",
+        ".exs",
+        ".eex",
+        ".heex",
+        ".leex",
+        ".sface"
+      ]
     }
   },
   "plugin": [
