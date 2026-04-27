@@ -39,6 +39,11 @@ brew "readline"
 brew "git"
 brew "git-lfs"
 brew "tree"
+brew "gh"
+brew "bun"
+brew "typescript-language-server"
+brew "pyright"
+# opencode CLI: install manually via: curl -fsSL https://opencode.ai/install | bash
 
 # === Erlang/Elixir Build Dependencies ===
 # (Keep these for building erlang & elixir via kerl)

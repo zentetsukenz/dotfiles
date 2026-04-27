@@ -1,13 +1,34 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "new_task_system_enabled": true,
+  "sisyphus": {
+    "tasks": {
+      "storage_path": ".sisyphus/tasks",
+      "claude_code_compat": false
+    }
+  },
+  "skills": {
+    "sources": ["~/.config/opencode/skills"]
+  },
+  "notification": {
+    "force_enable": true
+  },
+  "model_capabilities": {
+    "enabled": true,
+    "auto_refresh_on_start": true,
+    "refresh_timeout_ms": 5000
+  },
+  "disabled_hooks": ["startup-toast", "claude-code-hooks"],
   "runtime_fallback": {
     "enabled": true,
     "retry_on_errors": [400, 429, 503, 529],
     "max_fallback_attempts": 3,
     "cooldown_seconds": 60,
+    "timeout_seconds": 45,
     "notify_on_fallback": true
   },
   "background_task": {
+    "defaultConcurrency": 8,
     "providerConcurrency": {
       "anthropic": 3,
       "openai": 3,
@@ -21,6 +42,7 @@
   "experimental": {
     "aggressive_truncation": true,
     "task_system": true,
+    "auto_resume": true,
     "dynamic_context_pruning": {
       "enabled": true,
       "notification": "detailed",
@@ -43,7 +65,11 @@
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
-      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"],
+      "ultrawork": {
+        "model": "github-copilot/gpt-5.4",
+        "variant": "xhigh"
+      }
     },
     "sisyphus-junior": {
       "model": "github-copilot/claude-sonnet-4.6",

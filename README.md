@@ -117,6 +117,15 @@ mise install
 - **Machine Overrides**: `fish_config.fish` automatically sources `~/.config/fish/config-extension.fish` if it exists. Use this for environment variables or paths that shouldn't be committed.
 - **Submodules**: The `dotbot/` directory is a git submodule. Do not edit it directly. Update it using `git submodule update --remote dotbot`.
 
+## OpenCode + OMO Notes
+
+- **Default agent is `prometheus`**: Every TUI session and CLI invocation starts in planning mode. Use `opencode --agent build` or `opencode --agent quick` for one-shot tasks that don't need a plan.
+- **GitHub Copilot precondition**: Run `gh auth login` once per machine before using opencode. `gh` is installed via Brewfile.
+- **OpenCode CLI install**: No canonical Homebrew formula exists at time of writing. Install manually: `curl -fsSL https://opencode.ai/install | bash`. Run this before `./install`.
+- **Theme inheritance**: TUI uses `theme: system` in `opencode/tui.json` — colors are inherited from your terminal palette. Ghostty with the Sonokai theme produces Sonokai-aligned colors automatically; different terminals will show their own palette.
+- **Permissions**: `edit` is auto-approved. `bash` and `webfetch` require explicit approval per call.
+
+
 ## Maintenance
 
 ### Adding a new Dotfile

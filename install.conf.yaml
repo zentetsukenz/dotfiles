@@ -18,6 +18,9 @@
     "~/.config/alacritty":
       force: true
 
+- shell:
+    - command: "cp -a ~/.config/opencode ~/.config/opencode.bak.$(date +%s) 2>/dev/null || true"
+      description: Backup existing opencode config before relink
 - link:
     "~/.gitignore_global": "global_gitignore"
     "~/.config/ghostty/config": "ghostty_config"
@@ -32,6 +35,7 @@
     "~/.config/opencode/AGENTS.md": "opencode/AGENTS.md"
     "~/.config/opencode/commands":
       path: "opencode/commands"
+    "~/.config/opencode/tui.json": "opencode/tui.json"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"

@@ -1,6 +1,6 @@
 ---
 description: Generate user-facing release notes from git history
-agent: sisyphus
+agent: quick
 ---
 
 Generate release notes for the following version range: $ARGUMENTS
