@@ -39,6 +39,7 @@
     "~/.config/opencode/skills":
       path: "opencode/skills"
     "~/.config/opencode/MEMORY-POLICY.md": "opencode/MEMORY-POLICY.md"
+    "~/.config/opencode/harness-journal": "opencode/harness-journal"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
