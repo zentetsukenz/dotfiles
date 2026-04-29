@@ -66,6 +66,7 @@
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.",
       "ultrawork": {
         "model": "github-copilot/gpt-5.4",
         "variant": "xhigh"
@@ -74,18 +75,21 @@
     "sisyphus-junior": {
       "model": "github-copilot/claude-sonnet-4.6",
       "variant": "high",
-      "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
+      "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "medium",
       "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.3-codex"],
-      "skills": ["improve-codebase-architecture"]
+      "skills": ["improve-codebase-architecture"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "oracle": {
       "model": "github-copilot/gpt-5.4",
       "variant": "high",
-      "fallback_models": ["github-copilot/claude-opus-4.7", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/claude-opus-4.7", "github-copilot/claude-sonnet-4.6"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "librarian": {
       "model": "github-copilot/gemini-3-flash-preview",
@@ -104,12 +108,14 @@
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"],
-      "skills": ["domain-model"]
+      "skills": ["domain-model"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
-      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"],
+      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "momus": {
       "model": "github-copilot/gpt-5.4",
