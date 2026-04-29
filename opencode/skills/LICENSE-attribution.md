@@ -19,6 +19,7 @@
 | edit-article | f71bb975bfae2dc0d31c529c7dd4a8479ecc3748 | 2026-04-29 | none |
 | github-triage | 179a14e721034706ffce7abae75b877c922b4ae8 | 2026-04-29 | none |
 | grill-me | 383b6a06d59c4ce0ffcb14112bfd91265a86cf91 | 2026-04-29 | added disable-model-invocation: true |
+| improve-codebase-architecture | 383b6a06d59c4ce0ffcb14112bfd91265a86cf91 | 2026-04-29 | added disable-model-invocation: true |
 **Note**: Commit SHAs will be filled in by individual skill vendoring tasks (7–13).
 
 ## Full License Text
