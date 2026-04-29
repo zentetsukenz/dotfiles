@@ -117,6 +117,10 @@
     "atlas": {
       "model": "github-copilot/claude-sonnet-4.6",
       "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
+    },
+    "mnemosyne": {
+      "model": "github-copilot/claude-opus-4-5",
+      "fallback_models": ["github-copilot/claude-sonnet-4-5", "github-copilot/gpt-4.1"]
     }
   },
   "categories": {
