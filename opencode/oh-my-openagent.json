@@ -120,7 +120,25 @@
     },
     "mnemosyne": {
       "model": "github-copilot/claude-opus-4-5",
-      "fallback_models": ["github-copilot/claude-sonnet-4-5", "github-copilot/gpt-4.1"]
+      "fallback_models": ["github-copilot/claude-sonnet-4-5", "github-copilot/gpt-4.1"],
+      "tools": {
+        "session_list": true,
+        "session_read": true,
+        "session_search": true,
+        "session_info": true,
+        "read": true,
+        "write": true,
+        "bash": true,
+        "task": true,
+        "memory_read_graph": true,
+        "memory_create_entities": true,
+        "memory_create_relations": true,
+        "memory_add_observations": true,
+        "memory_delete_entities": true,
+        "memory_delete_observations": true,
+        "memory_delete_relations": true
+      },
+      "skills": ["grill-me"]
     }
   },
   "categories": {
