@@ -36,6 +36,9 @@
     "~/.config/opencode/commands":
       path: "opencode/commands"
     "~/.config/opencode/tui.json": "opencode/tui.json"
+    "~/.config/opencode/skills":
+      path: "opencode/skills"
+    "~/.config/opencode/MEMORY-POLICY.md": "opencode/MEMORY-POLICY.md"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
