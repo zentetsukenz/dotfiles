@@ -34,3 +34,32 @@
 - console.log in production code
 - Commented-out code — delete it, git remembers
 - Generic variable names (data, result, item, temp, info)
+
+## Mnemosyne — Retro Agent
+
+**Role**: Harness retrospective, memory curation, journal authoring.
+**When to use**: After significant work sessions to capture learnings, patterns, and hypothesized improvements.
+**How to invoke**: `/retro` (slash command) or `opencode --agent mnemosyne`.
+**Write access**: `harness-journal/` and memory MCP only. No source edits, ever.
+**Memory ACL**: Mnemosyne and Prometheus are the only agents authorized to write to memory. All others read-only.
+
+## MCPs
+
+### serena
+Semantic code search and symbol navigation. Auto-loaded. Use for "find all usages of X", "what calls Y", cross-file symbol queries.
+
+### memory
+Long-term knowledge graph. Governed by `MEMORY-POLICY.md`. High curation bar — only durable, agent-shaping knowledge is admitted.
+Write access: Prometheus + Mnemosyne only. All other agents: read-only (convention-enforced).
+
+## Harness Journal
+
+Location: `~/.config/opencode/harness-journal/` (symlinked from `opencode/harness-journal/`).
+Purpose: Persistent retro reports and harness changelog. Written by Mnemosyne during `/retro`.
+Manual updates: Allowed for harness changelog entries. Do not manually edit retro reports.
+
+## Memory Policy
+
+See `MEMORY-POLICY.md` for the full curation bar, admit/reject examples, and ACL convention.
+Summary: Only durable, generalizable, agent-shaping knowledge is admitted. Transient context, project-specific facts, and sensitive data are rejected.
+
