@@ -1,3 +1,5 @@
 node_modules
 package.json
 bun.lock
+# Anthropic memory MCP store — local only, do not commit
+memory.json
