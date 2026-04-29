@@ -84,6 +84,13 @@
         "--project-from-cwd"
       ],
       "environment": {}
+    },
+    "memory": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "environment": {
+        "MEMORY_FILE_PATH": "/Users/zentetsuken/.config/opencode/memory.json"
+      }
     }
   },
   "provider": {
