@@ -12,6 +12,7 @@
 | Skill | Upstream Commit SHA | Retrieval Date | Modifications |
 |-------|-------------------|----------------|----------------|
 | caveman | 383b6a06d59c4ce0ffcb14112bfd91265a86cf91 | 2026-04-29 | none |
+| design-an-interface | 383b6a06d59c4ce0ffcb14112bfd91265a86cf91 | 2026-04-29 | none |
 
 **Note**: Commit SHAs will be filled in by individual skill vendoring tasks (7–13).
 
