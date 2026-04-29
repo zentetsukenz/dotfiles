@@ -79,7 +79,8 @@
     "hephaestus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "medium",
-      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.3-codex"]
+      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.3-codex"],
+      "skills": ["improve-codebase-architecture"]
     },
     "oracle": {
       "model": "github-copilot/gpt-5.4",
@@ -102,7 +103,8 @@
     "prometheus": {
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
-      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"]
+      "fallback_models": ["github-copilot/gpt-5.4", "github-copilot/claude-sonnet-4.6"],
+      "skills": ["domain-model"]
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.7",
@@ -164,7 +166,8 @@
     },
     "quick": {
       "model": "github-copilot/claude-haiku-4.5",
-      "description": "Trivial tasks — single file changes, typo fixes, simple modifications"
+      "description": "Trivial tasks — single file changes, typo fixes, simple modifications",
+      "prompt_append": "\n\nFor terse, signal-only responses, invoke the `caveman` skill (no preamble, no fluff, just the answer)."
     },
     "unspecified-low": {
       "model": "github-copilot/claude-sonnet-4.6",
@@ -176,7 +179,8 @@
     },
     "writing": {
       "model": "github-copilot/gemini-3-flash-preview",
-      "description": "Documentation, prose, technical writing"
+      "description": "Documentation, prose, technical writing",
+      "prompt_append": "\n\nFor prose editing, invoke the `edit-article` skill to apply structural and stylistic improvements."
     }
   }
 }
