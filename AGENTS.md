@@ -1,6 +1,6 @@
 # PROJECT KNOWLEDGE BASE
 
-**Generated:** 2026-03-11
+**Generated:** 2026-04-30
 **Commit:** 2067e09
 **Branch:** master
 
@@ -35,6 +35,11 @@ dotfiles/
 │   ├── opencode.json          # OpenCode plugin config → ~/.config/opencode/opencode.json
 │   ├── oh-my-openagent.json   # OMO agents, categories, concurrency, experimental → ~/.config/opencode/oh-my-openagent.json
 │   ├── AGENTS.md              # Global coding preferences → ~/.config/opencode/AGENTS.md
+│   ├── MEMORY-POLICY.md       # Memory curation policy → ~/.config/opencode/MEMORY-POLICY.md
+39#??|│   ├── skills/                # Vendored OMO skills (7 skills) → ~/.config/opencode/skills/
+40#??|│   ├── harness-journal/       # Retro journal store → ~/.config/opencode/harness-journal/
+41#??|│   ├── agents/                # Custom agent prompts
+42#??|│   │   └── mnemosyne.md      # Mnemosyne system prompt
 │   └── commands/              # Custom command templates (auto-discovered by OpenCode)
 │       ├── release-notes.md   # /release-notes — user-facing changelog from git history
 │       └── explain-plan.md    # /explain-plan — Mermaid flowchart of active Sisyphus plan
@@ -83,6 +88,9 @@ dotfiles/
 | Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
+| Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; update LICENSE-attribution.md |
+| Run retro / view journal | `opencode/harness-journal/` | Written by Mnemosyne via /retro |
+| Change memory policy | `opencode/MEMORY-POLICY.md` | Curation bar, ACL convention |
 
 ## CONVENTIONS
 
@@ -162,6 +170,7 @@ dotfiles/
 - **Editor chain**: `fish_config.fish` (EDITOR=nvim) → `global_gitconfig` (core.editor=nvim) → `ghostty_config` (unconsumed Ctrl+hjkl for Neovim, scrollback via $EDITOR)
 - **Theme chain**: `ghostty_config` (theme=Sonokai) → `nvim/lua/config/options.lua` (sonokai_style) → `nvim/lua/plugins/colorscheme.lua` (sonokai plugin)
 - **OpenCode chain**: `opencode/opencode.json` (plugin config) → `opencode/oh-my-openagent.json` (agents, categories, concurrency, experimental features) → `opencode/AGENTS.md` (global coding rules) → `opencode/commands/` (custom slash commands)
+- **memory chain**: `opencode/AGENTS.md` → `MEMORY-POLICY.md` → mnemosyne agent → memory MCP
 
 ## COMMANDS
 
