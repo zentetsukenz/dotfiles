@@ -123,7 +123,7 @@ mise install
 - **GitHub Copilot precondition**: Run `gh auth login` once per machine before using opencode. `gh` is installed via Brewfile.
 - **OpenCode CLI install**: No canonical Homebrew formula exists at time of writing. Install manually: `curl -fsSL https://opencode.ai/install | bash`. Run this before `./install`.
 - **Theme inheritance**: TUI uses `theme: system` in `opencode/tui.json` — colors are inherited from your terminal palette. Ghostty with the Sonokai theme produces Sonokai-aligned colors automatically; different terminals will show their own palette.
-- **Permissions**: `edit` is auto-approved. `bash` and `webfetch` require explicit approval per call.
+- **Permissions**: `edit` is auto-approved. `bash` allows a curated set of read-only commands without prompting (ls, cat, grep, git status/diff/log, package list queries, modern viewers, read-only filters); all other bash commands require approval. `webfetch` requires explicit approval per call. See `opencode/opencode.json` `permission.bash` for the full allowlist.
 - **serena MCP**: Semantic code search, auto-loaded. Use for symbol navigation across files.
 - **memory MCP**: Long-term knowledge graph at `~/.config/opencode/memory.json`. Governed by `MEMORY-POLICY.md`. Write access: Prometheus + Mnemosyne only.
 - **Mnemosyne agent**: Retro agent. Invoke via `/retro` or `opencode --agent mnemosyne`. Writes to `harness-journal/` only.
