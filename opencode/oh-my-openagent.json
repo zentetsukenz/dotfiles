@@ -81,7 +81,7 @@
     "hephaestus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "medium",
-      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/gpt-5.3-codex"],
+      "fallback_models": ["github-copilot/claude-sonnet-4.6", "github-copilot/claude-opus-4.6"],
       "skills": ["improve-codebase-architecture"],
       "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
@@ -127,8 +127,8 @@
       "fallback_models": ["github-copilot/claude-haiku-4.5", "github-copilot/gemini-3-flash-preview"]
     },
     "mnemosyne": {
-      "model": "github-copilot/claude-opus-4-5",
-      "fallback_models": ["github-copilot/claude-sonnet-4-5", "github-copilot/gpt-4.1"],
+      "model": "github-copilot/claude-opus-4.7",
+      "fallback_models": ["github-copilot/claude-opus-4.6", "github-copilot/gpt-5.4"],
       "tools": {
         "session_list": true,
         "session_read": true,
