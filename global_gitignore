@@ -36,6 +36,7 @@ Thumbs.db
 # AI / LLM tools
 .cursor/
 .sisyphus/
+.serena/
 .opencode
 
 # Editors / IDEs
