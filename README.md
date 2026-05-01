@@ -126,8 +126,8 @@ mise install
 - **Permissions**: `edit` is auto-approved. `bash` allows a curated set of read-only commands without prompting (ls, cat, grep, git status/diff/log, package list queries, modern viewers, read-only filters); all other bash commands require approval. `webfetch` requires explicit approval per call. See `opencode/opencode.json` `permission.bash` for the full allowlist.
 - **serena MCP**: Semantic code search, auto-loaded. Use for symbol navigation across files.
 - **memory MCP**: Long-term knowledge graph at `~/.config/opencode/memory.json`. Governed by `MEMORY-POLICY.md`. Write access: Prometheus + Mnemosyne only.
-- **Mnemosyne agent**: Retro agent. Invoke via `/retro` or `opencode --agent mnemosyne`. Writes to `harness-journal/` only.
-- **/retro command**: Runs a harness retrospective. Produces `harness-journal/retro-{date}.md`.
+- **Mnemosyne agent**: Retro agent. Invoke via `/retro` or `opencode --agent mnemosyne`. Writes to project-local `.mnemosyne/` (retros, notes, proposals) and global `harness-journal/`.
+- **/retro command**: Runs a harness retrospective with opening question, 5-whys grilling on selected evidence, and triple-gate `.sisyphus/` cleanup (proposals reviewed → decisions made → deletions authorized). Produces retro report in `.mnemosyne/retros/` or `harness-journal/`.
 
 
 ## Maintenance

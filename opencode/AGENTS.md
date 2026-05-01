@@ -40,7 +40,11 @@
 **Role**: Harness retrospective, memory curation, journal authoring.
 **When to use**: After significant work sessions to capture learnings, patterns, and hypothesized improvements.
 **How to invoke**: `/retro` (slash command) or `opencode --agent mnemosyne`.
-**Write access**: `harness-journal/` and memory MCP only. No source edits, ever.
+**Working directory**: Project-local `.mnemosyne/` (created lazily, gitignored) for project retros; `~/.config/opencode/harness-journal/` for global retros.
+**Opening question**: Asks one freeform question before context gathering — "Before I dig in — anything I should know about this session?"
+**5-whys grilling**: Presents shortlist of evidences; user selects 2 to drill; Mnemosyne asks ≥5 sequential why questions per evidence.
+**Sisyphus consumption**: Reads `.sisyphus/plans/`, `.sisyphus/tasks/`, `.sisyphus/drafts/`, `.sisyphus/notepads/` to detect gaps, stalls, and churn; runs triple-gate cleanup (report approval → proposal decisions → deletion authorization) before removing `.sisyphus/`.
+**Write access**: `.mnemosyne/`, `harness-journal/`, and memory MCP only. No source edits, ever.
 **Memory ACL**: Mnemosyne and Prometheus are the only agents authorized to write to memory. All others read-only.
 
 ## MCPs
@@ -54,9 +58,10 @@ Write access: Prometheus + Mnemosyne only. All other agents: read-only (conventi
 
 ## Harness Journal
 
-Location: `~/.config/opencode/harness-journal/` (symlinked from `opencode/harness-journal/`).
-Purpose: Persistent retro reports and harness changelog. Written by Mnemosyne during `/retro`.
-Manual updates: Allowed for harness changelog entries. Do not manually edit retro reports.
+**Dual-journal model**: Project retros write to `.mnemosyne/` (project-local, in cwd); global retros write to `~/.config/opencode/harness-journal/` (global, in home config).
+**Location**: `~/.config/opencode/harness-journal/` (symlinked from `opencode/harness-journal/`) for global retros; `.mnemosyne/retros/` for project retros.
+**Purpose**: Persistent retro reports and harness changelog. Written by Mnemosyne during `/retro`.
+**Manual updates**: Allowed for harness changelog entries. Do not manually edit retro reports.
 
 ## Memory Policy
 

@@ -44,6 +44,11 @@ dotfiles/
 │       ├── release-notes.md   # /release-notes — user-facing changelog from git history
 │       └── explain-plan.md    # /explain-plan — Mermaid flowchart of active Sisyphus plan
 │
+├── .mnemosyne/                # Project-local retro journal (gitignored, lazy-created)
+│   ├── retros/                # Retro reports from /retro sessions
+│   ├── notes/                 # Freeform notes from grilling sessions
+│   └── proposals/             # Proposals under review (archived after decision)
+│
 ├── global_gitconfig           # Git config (COPIED, not linked) → ~/.gitconfig
 ├── global_gitignore           # Git ignore → ~/.gitignore_global
 │
@@ -89,7 +94,7 @@ dotfiles/
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
 | Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; update LICENSE-attribution.md |
-| Run retro / view journal | `opencode/harness-journal/` | Written by Mnemosyne via /retro |
+| Run retro / view journal | `.mnemosyne/retros/` (project) + `~/.config/opencode/harness-journal/` (global) | Dual-journal: project retros in `.mnemosyne/`, global retros in `harness-journal/`. Written by Mnemosyne via `/retro` |
 | Change memory policy | `opencode/MEMORY-POLICY.md` | Curation bar, ACL convention |
 
 ## CONVENTIONS
@@ -107,6 +112,7 @@ dotfiles/
 - **Sonokai everywhere**: Ghostty theme, Neovim colorscheme — consistent visual identity
 - **Rebase-pull by default**: `pull.rebase = true`, `rebase.autoStash = true` in git config
 - **Delta for diffs**: Syntax-highlighted diffs in git, with navigate and line numbers
+- **`.mnemosyne/` is project-local and gitignored**: Created lazily by Mnemosyne during `/retro`. Mirrors `.sisyphus/` philosophy — local working state, not committed. Contains `retros/` (reports), `notes/` (grilling), `proposals/` (decisions).
 
 ## ANTI-PATTERNS
 
@@ -171,6 +177,7 @@ dotfiles/
 - **Theme chain**: `ghostty_config` (theme=Sonokai) → `nvim/lua/config/options.lua` (sonokai_style) → `nvim/lua/plugins/colorscheme.lua` (sonokai plugin)
 - **OpenCode chain**: `opencode/opencode.json` (plugin config) → `opencode/oh-my-openagent.json` (agents, categories, concurrency, experimental features) → `opencode/AGENTS.md` (global coding rules) → `opencode/commands/` (custom slash commands)
 - **memory chain**: `opencode/AGENTS.md` → `MEMORY-POLICY.md` → mnemosyne agent → memory MCP
+- **mnemosyne chain**: `.mnemosyne/` (project-local) ← Mnemosyne agent ← `/retro` command. Proposals in `.mnemosyne/proposals/` reviewed individually, archived after decision. Dual-journal: project mode → `.mnemosyne/`, global mode → `harness-journal/`.
 
 ## COMMANDS
 
@@ -201,6 +208,7 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Python venvs**: In-project (`PIPENV_VENV_IN_PROJECT=1`)
 - **SSH commit signing**: `gpg.format = ssh` in global_gitconfig. Signing key path in ~/.gitconfig.local (per-machine). Works with git commit, tag, and merge.
 - **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection). Run `bash scripts/check_ssh_agent.sh` to diagnose; stale socket recovery: `launchctl kickstart -k gui/$(id -u)/dev.dotfiles.ssh-agent`.
+- **Mnemosyne retro flow**: `/retro` command opens with freeform question, then runs 5-whys grilling on selected evidence, then triple-gate cleanup of `.sisyphus/` (proposals reviewed → decisions made → deletions authorized). Produces retro report in `.mnemosyne/retros/` (project) or `harness-journal/` (global).
 
 # context-mode — MANDATORY routing rules
 
