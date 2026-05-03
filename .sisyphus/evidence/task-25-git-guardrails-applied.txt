@@ -1,2 +1,0 @@
-Path implemented: a
-Artifact: opencode/oh-my-openagent.json
