@@ -144,7 +144,8 @@
         "memory_add_observations": true,
         "memory_delete_entities": true,
         "memory_delete_observations": true,
-        "memory_delete_relations": true
+        "memory_delete_relations": true,
+        "question": true
       },
       "skills": ["grill-me"]
     }
