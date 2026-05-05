@@ -20,11 +20,13 @@
 
 ## Git Behavior
 
-- Only commit and signed commit with no AI attribution is allowed
-- If AI cannot sign commit, STOP and ask human to correctly setup the signing key
-- Pull/push requiring authentication: ask human, do NOT attempt to authenticate with GitHub or any remote server
-- Conventional commit format with strict 50/72 rule (50 char subject, 72 char body wrap)
-- No AI attribution markers in commits (no co-authored-by, no commit footers)
+- Only signed commits are allowed (SSH signing per `~/.gitconfig.local`)
+- If signing fails, STOP and ask the human to set up the signing key correctly
+- Pull/push requiring authentication: ask the human; do NOT attempt to authenticate with GitHub or any remote server
+- Follow Conventional Commits v1.0.0 with header ≤50 chars, body wrapped at 72 chars, imperative subject, lowercase first letter (proper nouns/acronyms/filenames keep natural casing), no trailing period — see `COMMIT-CONVENTION.md` for the full spec, type list, footer rules, and examples
+- No AI-attribution footers (no `Co-authored-by: Claude/Copilot/AI/...`, no `🤖 Generated with...` markers). Human `Co-authored-by:`, issue refs (`Refs:`/`Fixes:`/`Closes:`), human attribution trailers (`Reported-by:`/`Reviewed-by:`/`Tested-by:`), and `BREAKING CHANGE:` footers ARE allowed — see `COMMIT-CONVENTION.md`
+- Strong default, not absolute: deviations require an in-message justification (e.g., merge commits, fixup/autosquash during in-progress work)
+- Never force-push to `main` or `master`; never use `--no-verify`
 
 ## Anti-patterns to Avoid
 

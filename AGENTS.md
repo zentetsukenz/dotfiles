@@ -209,6 +209,7 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **SSH commit signing**: `gpg.format = ssh` in global_gitconfig. Signing key path in ~/.gitconfig.local (per-machine). Works with git commit, tag, and merge.
 - **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection). Run `bash scripts/check_ssh_agent.sh` to diagnose; stale socket recovery: `launchctl kickstart -k gui/$(id -u)/dev.dotfiles.ssh-agent`.
 - **Mnemosyne retro flow**: `/retro` command opens with freeform question, then runs 5-whys grilling on selected evidence, then triple-gate cleanup of `.sisyphus/` (proposals reviewed → decisions made → deletions authorized). Produces retro report in `.mnemosyne/retros/` (project) or `harness-journal/` (global).
+- **Commit convention**: AI agents and humans follow Conventional Commits v1.0.0. Full spec, type list, footer rules, AI-attribution denylist, and alternatives table live in `opencode/COMMIT-CONVENTION.md` (symlinked to `~/.config/opencode/COMMIT-CONVENTION.md`). Optional advisory linter at repo root: `commitlint.config.cjs` — invoke manually with `npx --yes --package=@commitlint/cli commitlint --edit .git/COMMIT_EDITMSG`. No pre-commit hook is wired by design.
 
 # context-mode — MANDATORY routing rules
 
