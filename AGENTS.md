@@ -40,6 +40,7 @@ dotfiles/
 40#??|│   ├── harness-journal/       # Retro journal store → ~/.config/opencode/harness-journal/
 41#??|│   ├── agents/                # Custom agent prompts
 42#??|│   │   └── mnemosyne.md      # Mnemosyne system prompt
+│   ├── bin/                   # Memory maintenance scripts (extensionless executables)
 │   └── commands/              # Custom command templates (auto-discovered by OpenCode)
 │       ├── release-notes.md   # /release-notes — user-facing changelog from git history
 │       └── explain-plan.md    # /explain-plan — Mermaid flowchart of active Sisyphus plan
@@ -96,6 +97,9 @@ dotfiles/
 | Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; update LICENSE-attribution.md |
 | Run retro / view journal | `.mnemosyne/retros/` (project) + `~/.config/opencode/harness-journal/` (global) | Dual-journal: project retros in `.mnemosyne/`, global retros in `harness-journal/`. Written by Mnemosyne via `/retro` |
 | Change memory policy | `opencode/MEMORY-POLICY.md` | Curation bar, ACL convention |
+| Add memory-maintenance script | `opencode/bin/memory-*` | Extensionless executables, symlinked to ~/.config/opencode/bin/, on PATH via fish_config; bare-name invocation |
+| Add/update memory maintenance scripts | `opencode/bin/` | Extensionless bash scripts, symlinked to `~/.config/opencode/bin/` |
+| Add/update memory skills | `opencode/skills/memory-{rot-detect,promote,demote}/` | SKILL.md files for Mnemosyne |
 
 ## CONVENTIONS
 
@@ -210,6 +214,8 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **FIDO2/YubiKey SSH**: Homebrew openssh ssh-agent via LaunchAgent (dev.dotfiles.ssh-agent) — supports ed25519-sk keys. macOS built-in SSH agent disabled. Run `ssh-add -t 86400` to cache key identity for 24h (touch still required per-connection). Run `bash scripts/check_ssh_agent.sh` to diagnose; stale socket recovery: `launchctl kickstart -k gui/$(id -u)/dev.dotfiles.ssh-agent`.
 - **Mnemosyne retro flow**: `/retro` command opens with freeform question, then runs 5-whys grilling on selected evidence, then triple-gate cleanup of `.sisyphus/` (proposals reviewed → decisions made → deletions authorized). Produces retro report in `.mnemosyne/retros/` (project) or `harness-journal/` (global).
 - **Commit convention**: AI agents and humans follow Conventional Commits v1.0.0. Full spec, type list, footer rules, AI-attribution denylist, and alternatives table live in `opencode/COMMIT-CONVENTION.md` (symlinked to `~/.config/opencode/COMMIT-CONVENTION.md`). Optional advisory linter at repo root: `commitlint.config.cjs` — invoke manually with `npx --yes --package=@commitlint/cli commitlint --edit .git/COMMIT_EDITMSG`. No pre-commit hook is wired by design.
+- **Memory maintenance scripts**: `memory-stats`, `memory-serena-stats`, `memory-snapshot`, `memory-restore`, `memory-prune-snapshots`, `memory-proposal-hash` — in `opencode/bin/`, symlinked to `~/.config/opencode/bin/`, on PATH via fish_config. Invoked bare-name.
+- **Memory skills**: `memory-rot-detect`, `memory-promote`, `memory-demote` — in `opencode/skills/`, auto-loaded by Mnemosyne during retro memory-health phase.
 
 # context-mode — MANDATORY routing rules
 

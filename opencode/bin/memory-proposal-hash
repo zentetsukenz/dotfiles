@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  echo "Usage: memory-proposal-hash compute <file>" >&2
+  echo "       memory-proposal-hash verify <file> <expected-hash>" >&2
+  exit 1
+}
+
+hash_file() {
+  local file="$1"
+  if [[ ! -f "$file" ]]; then
+    echo "error: file not found: $file" >&2
+    exit 1
+  fi
+  shasum -a 256 "$file" | awk '{print $1}'
+}
+
+if [[ $# -lt 2 ]]; then
+  usage
+fi
+
+subcommand="$1"
+file="$2"
+
+case "$subcommand" in
+  compute)
+    if [[ $# -ne 2 ]]; then
+      usage
+    fi
+    hash_file "$file"
+    ;;
+  verify)
+    if [[ $# -ne 3 ]]; then
+      usage
+    fi
+    expected="$3"
+    actual=$(hash_file "$file")
+    if [[ "$actual" == "$expected" ]]; then
+      echo "OK"
+    else
+      echo "MISMATCH: expected $expected got $actual"
+      exit 1
+    fi
+    ;;
+  *)
+    usage
+    ;;
+esac

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ALLOWED_PREFIXES="manual pre-restore pre-prune pre-load-bearing-migration"
+
+usage() {
+  echo "Usage: memory-snapshot <prefix>" >&2
+  echo "  prefix: one of: ${ALLOWED_PREFIXES}" >&2
+  exit 1
+}
+
+if [[ $# -ne 1 ]]; then
+  usage
+fi
+
+prefix="$1"
+
+# Validate prefix
+valid=0
+for allowed in $ALLOWED_PREFIXES; do
+  if [[ "$prefix" == "$allowed" ]]; then
+    valid=1
+    break
+  fi
+done
+
+if [[ $valid -eq 0 ]]; then
+  echo "Error: invalid prefix '${prefix}'" >&2
+  usage
+fi
+
+memory_file="${MEMORY_FILE:-$HOME/.config/opencode/memory.json}"
+snapshots_dir="${MEMORY_SNAPSHOTS_DIR:-$HOME/.config/opencode/memory-snapshots-local}"
+
+if [[ ! -f "$memory_file" ]]; then
+  echo "Error: source file not found: ${memory_file}" >&2
+  exit 1
+fi
+
+mkdir -p "$snapshots_dir"
+
+timestamp="$(date +%Y%m%dT%H%M%S)"
+snapshot_path="${snapshots_dir}/${prefix}-${timestamp}.json"
+
+cp "$memory_file" "$snapshot_path"
+
+echo "Snapshot created: ${snapshot_path}"

@@ -57,3 +57,36 @@ We enforce memory access control via convention. Technical enforcement is not cu
 - **Write access:** Restricted to prometheus and mnemosyne agents only. These agents are responsible for distilling session experiences into durable memories.
 - **Read access:** Available to all agents. Every agent should benefit from the collective wisdom stored in memory.
 - **Enforcement:** These rules are documented in AGENTS.md and embedded in the core instructions for each agent to ensure compliance.
+
+## Two-Tier Memory Architecture
+
+### Stores
+- **server-memory (Global):** Stored at `~/.config/opencode/memory.json` (JSONL). Holds high-level, durable knowledge shared across all projects.
+- **Serena (Project):** Stored at `.serena/memories/*.md`. Holds project-specific conventions, architecture decisions, and local patterns.
+
+### Cap Policy
+- **Cap:** 4,000 tokens per store.
+- **Warning Threshold:** 2,800 tokens (70%).
+- **Calculation:** Estimated at a 3:1 bytes-to-token ratio (approx. 12KB limit).
+- **Enforcement:** Warn-only; writes are not blocked, but pruning is strongly encouraged once the threshold is crossed.
+
+### Snapshot Policy
+- **Retention:** 30 days.
+- **Storage:** `~/.config/opencode/memory-snapshots-local/`.
+- **Naming Prefixes:**
+  - `manual-`: User-initiated snapshots.
+  - `pre-restore-`: Automatic before a restore operation.
+  - `pre-prune-`: Automatic before bulk deletion/archival.
+  - `pre-load-bearing-migration-`: Automatic before schema or structural changes.
+
+### Promote / Demote
+- **Promote (Serena → Global):** Moving project-proven patterns that have demonstrated general utility to the global store.
+- **Demote (Global → Serena):** Moving overly specific or project-bound information out of the global store into a project-specific one.
+- **Approval Gate:** All mutations (promotion, demotion, prune) require explicit human approval.
+- **Hash-Pin Protocol:** SHA-256 hashes are calculated before and after writes to Serena memories; the operation aborts on mismatch to prevent race conditions.
+
+### Machine-Local Invariant
+- Memory files (both global and project-local) are **NEVER** committed to git.
+- They are machine-local by design.
+- Cross-machine sharing of critical knowledge is handled via `AGENTS.md` (which is committed), not via raw memory files.
+

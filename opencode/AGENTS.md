@@ -48,6 +48,10 @@
 **Sisyphus consumption**: Reads `.sisyphus/plans/`, `.sisyphus/tasks/`, `.sisyphus/drafts/`, `.sisyphus/notepads/` to detect gaps, stalls, and churn; runs triple-gate cleanup (report approval → proposal decisions → deletion authorization) before removing `.sisyphus/`.
 **Write access**: `.mnemosyne/`, `harness-journal/`, and memory MCP only. No source edits, ever.
 **Memory ACL**: Mnemosyne and Prometheus are the only agents authorized to write to memory. All others read-only.
+- **Memory-maintainer role**: Mnemosyne also curates both server-memory (global) and Serena (project) memories
+- **Skills available**: `memory-rot-detect`, `memory-promote`, `memory-demote` (auto-loaded or invocable standalone)
+- **Scripts on PATH**: `memory-stats`, `memory-serena-stats`, `memory-snapshot`, `memory-restore`, `memory-prune-snapshots`, `memory-proposal-hash` (in `~/.config/opencode/bin/`)
+- **Memory health**: runs `memory-rot-detect` automatically during `/retro` memory-health phase
 
 ## MCPs
 
