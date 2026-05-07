@@ -145,9 +145,18 @@
         "memory_delete_entities": true,
         "memory_delete_observations": true,
         "memory_delete_relations": true,
+        "serena_read_memory": true,
+        "serena_list_memories": true,
+        "serena_write_memory": true,
+        "serena_edit_memory": true,
+        "serena_delete_memory": true,
+        "memory_open_nodes": true,
+        "memory_search_nodes": true,
+        "serena_find_symbol": true,
+        "serena_get_symbols_overview": true,
         "question": true
       },
-      "skills": ["grill-me"]
+      "skills": ["grill-me", "memory-rot-detect", "memory-promote", "memory-demote"]
     }
   },
   "categories": {

@@ -79,7 +79,4 @@ end
 if [ -f $HOME/.config/fish/config-extension.fish ]; if type source > /dev/null; source $HOME/.config/fish/config-extension.fish; end; end
 
 # === PATH: OpenCode ===
-fish_add_path $HOME/.opencode/bin
-
-# === PATH: Antigravity ===
-fish_add_path $HOME/.antigravity/antigravity/bin
+fish_add_path $HOME/.config/opencode/bin

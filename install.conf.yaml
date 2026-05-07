@@ -43,6 +43,7 @@
     "~/.config/opencode/harness-journal": "opencode/harness-journal"
     "~/.config/opencode/agents":
       path: "opencode/agents"
+    "~/.config/opencode/bin": "opencode/bin"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"

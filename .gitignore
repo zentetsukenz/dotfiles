@@ -14,3 +14,5 @@ Thumbs.db
 .sisyphus
 .serena
 .mnemosyne/
+.mnemosyne/proposals/
+.mnemosyne/memory-snapshots-local/
