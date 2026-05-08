@@ -217,6 +217,16 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Memory maintenance scripts**: `memory-stats`, `memory-serena-stats`, `memory-snapshot`, `memory-restore`, `memory-prune-snapshots`, `memory-proposal-hash` — in `opencode/bin/`, symlinked to `~/.config/opencode/bin/`, on PATH via fish_config. Invoked bare-name.
 - **Memory skills**: `memory-rot-detect`, `memory-promote`, `memory-demote` — in `opencode/skills/`, auto-loaded by Mnemosyne during retro memory-health phase.
 
+## OMO v4.0.0 (released 2026-05-07)
+
+- **Team Mode**: enabled via `experimental.team_mode.enabled: true`. tmux visualization on, 4 parallel members max. Powers `hyperplan` command and `security-research` agent (auto-activates).
+- **Browser engine**: switched to `dev-browser` (stateful, auth-friendly sessions). Config: `browser_automation_engine.provider: "dev-browser"`.
+- **New experimental flags**: `preemptive_compaction: true` (proactive context compaction), `truncate_all_tool_outputs: true` (long-session ergonomics).
+- **MCP env hardening**: `mcp_env_allowlist: ["PATH", "HOME", "MEMORY_FILE_PATH", "USER"]`. Only these 4 vars passed to MCP servers.
+- **Model variants re-enabled**: `github-copilot/gpt-5.2` and `github-copilot/gpt-5.3-codex` `high` variants re-enabled for v4 model-tuned prompt overlays (Oracle, Momus, `deep` category).
+- **Provider allowlist**: `opencode.json` uses `enabled_providers: ["github-copilot"]` — replaces granular model disablement.
+- **BREAKING (follow-up needed)**: `delegate_task` (deep category) enforces one-goal-per-call. Multi-goal requires parallel calls. Affects Prometheus/Sisyphus prompts.
+
 # context-mode — MANDATORY routing rules
 
 You have context-mode MCP tools available. These rules are NOT optional — they protect your context window from flooding. A single unrouted command can dump 56 KB into context and waste the entire session.

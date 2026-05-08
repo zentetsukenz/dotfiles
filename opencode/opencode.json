@@ -1,6 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "prometheus",
+  "enabled_providers": ["github-copilot"],
   "permission": {
     "edit": "allow",
     "webfetch": "ask",
@@ -251,9 +252,7 @@
             "medium": {
               "disabled": true
             },
-            "high": {
-              "disabled": true
-            },
+            "high": {},
             "xhigh": {
               "disabled": true
             }
@@ -291,9 +290,7 @@
         "claude-sonnet-4.5": {
           "disabled": true
         },
-        "gpt-5.2": {
-          "disabled": true
-        },
+        "gpt-5.2": {},
         "gpt-5.2-codex": {
           "disabled": true
         },

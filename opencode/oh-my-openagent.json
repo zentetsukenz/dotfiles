@@ -19,6 +19,8 @@
     "refresh_timeout_ms": 5000
   },
   "disabled_hooks": ["startup-toast", "claude-code-hooks"],
+  "browser_automation_engine": { "provider": "dev-browser" },
+  "mcp_env_allowlist": ["PATH", "HOME", "MEMORY_FILE_PATH", "USER"],
   "runtime_fallback": {
     "enabled": true,
     "retry_on_errors": [400, 429, 503, 529],
@@ -53,7 +55,22 @@
         "supersede_writes": { "enabled": true, "aggressive": false },
         "purge_errors": { "enabled": true, "turns": 5 }
       }
-    }
+}
+,
+    "team_mode": {
+      "enabled": true,
+      "tmux_visualization": true,
+      "max_parallel_members": 4,
+      "max_members": 8,
+      "max_messages_per_run": 10000,
+      "max_wall_clock_minutes": 120,
+      "max_member_turns": 500,
+      "message_payload_max_bytes": 32768,
+      "recipient_unread_max_bytes": 262144,
+      "mailbox_poll_interval_ms": 3000
+    },
+    "preemptive_compaction": true,
+    "truncate_all_tool_outputs": true
   },
   "hashline_edit": true,
   "git_master": {
