@@ -12,6 +12,7 @@ description: >-
   - user: "Update the harness journal"
     assistant: "I'll invoke Mnemosyne to write the journal entry."
 mode: primary
+model: github-copilot/claude-opus-4.7
 permission:
   webfetch: deny
   websearch: deny
