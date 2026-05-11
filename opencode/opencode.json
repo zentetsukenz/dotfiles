@@ -1,7 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "prometheus",
-  "enabled_providers": ["github-copilot"],
+  "enabled_providers": [
+    "github-copilot",
+    "opencode",
+    "opencode-go"
+  ],
   "permission": {
     "edit": "allow",
     "webfetch": "allow",

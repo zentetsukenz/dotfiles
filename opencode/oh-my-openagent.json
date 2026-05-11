@@ -58,6 +58,28 @@
       "github-copilot/claude-opus-4.7": 2
     }
   },
+  "team_mode": {
+    "enabled": true,
+    "tmux_visualization": true,
+    "max_parallel_members": 4,
+    "max_members": 8,
+    "max_messages_per_run": 10000,
+    "max_wall_clock_minutes": 120,
+    "max_member_turns": 500,
+    "message_payload_max_bytes": 32768,
+    "recipient_unread_max_bytes": 262144,
+    "mailbox_poll_interval_ms": 3000
+  },
+  "auto_update": true,
+  "model_fallback": true,
+  "tmux": {
+    "enabled": false,
+    "layout": "main-vertical",
+    "main_pane_size": 60,
+    "main_pane_min_width": 120,
+    "agent_pane_min_width": 40,
+    "isolation": "inline"
+  },
   "experimental": {
     "aggressive_truncation": true,
     "task_system": true,
@@ -86,18 +108,6 @@
           "turns": 5
         }
       }
-    },
-    "team_mode": {
-      "enabled": true,
-      "tmux_visualization": true,
-      "max_parallel_members": 4,
-      "max_members": 8,
-      "max_messages_per_run": 10000,
-      "max_wall_clock_minutes": 120,
-      "max_member_turns": 500,
-      "message_payload_max_bytes": 32768,
-      "recipient_unread_max_bytes": 262144,
-      "mailbox_poll_interval_ms": 3000
     },
     "preemptive_compaction": true,
     "truncate_all_tool_outputs": true
