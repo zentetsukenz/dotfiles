@@ -44,6 +44,7 @@
     "~/.config/opencode/agents":
       path: "opencode/agents"
     "~/.config/opencode/bin": "opencode/bin"
+    "~/.omo/teams": "opencode/omo-teams"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
@@ -71,19 +72,6 @@
     - command: mise install
       description: Install language runtimes via mise
 
-    - command: |
-        mkdir -p ~/.omo/teams
-        for dir in opencode/omo-teams/*/; do
-          name=$(basename "$dir")
-          target="$HOME/.omo/teams/$name"
-          if [ ! -e "$target" ]; then
-            cp -R "$dir" "$target"
-            echo "Seeded ~/.omo/teams/$name"
-          else
-            echo "Skipped ~/.omo/teams/$name (exists)"
-          fi
-        done
-      description: Seed ~/.omo/teams from repo templates (copy-on-absent)
 
     - command: 'fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || true'
       description: Bootstrap Fisher

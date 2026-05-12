@@ -37,7 +37,7 @@ dotfiles/
 │   ├── AGENTS.md              # Global coding preferences → ~/.config/opencode/AGENTS.md
 │   ├── MEMORY-POLICY.md       # Memory curation policy → ~/.config/opencode/MEMORY-POLICY.md
 │   ├── skills/                # Vendored OMO skills (7 skills) → ~/.config/opencode/skills/
-│   ├── omo-teams/             # Vendored team specs (3 templates) → ~/.omo/teams/ (copy-on-absent)
+│   ├── omo-teams/             # Vendored team specs → ~/.omo/teams/ (directory symlink)
 40#??|│   ├── harness-journal/       # Retro journal store → ~/.config/opencode/harness-journal/
 41#??|│   ├── agents/                # Custom agent prompts
 42#??|│   │   └── mnemosyne.md      # Mnemosyne system prompt
@@ -101,7 +101,7 @@ dotfiles/
 | Add memory-maintenance script | `opencode/bin/memory-*` | Extensionless executables, symlinked to ~/.config/opencode/bin/, on PATH via fish_config; bare-name invocation |
 | Add/update memory maintenance scripts | `opencode/bin/` | Extensionless bash scripts, symlinked to `~/.config/opencode/bin/` |
 | Add/update memory skills | `opencode/skills/memory-{rot-detect,promote,demote}/` | SKILL.md files for Mnemosyne |
-| Add/update OMO team spec | `opencode/omo-teams/{name}/config.json` | Edit canonical template; re-run install to seed `~/.omo/teams/`. User edits in `~/.omo/teams/` are preserved. |
+| Add/update OMO team spec | `opencode/omo-teams/{name}/config.json` | Symlinked — edits in the repo reflect immediately. Per-project teams should be defined in the project itself, not here. |
 
 ## CONVENTIONS
 
@@ -231,7 +231,7 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 
 ### Named Teams
 
-Reusable team specs are committed at `opencode/omo-teams/{name}/config.json` and seeded into `~/.omo/teams/` by the install step (copy-on-absent; user edits preserved). Invoke via `team_create(teamName: "<name>", ...)`.
+Reusable team specs live at `opencode/omo-teams/{name}/config.json` and are exposed to OMO via a directory symlink (`~/.omo/teams` → `opencode/omo-teams`) created by Dotbot. Edits in the repo reflect immediately; commit them. Per-project / one-off teams should be declared inside the project that needs them, not in this global directory. Invoke via `team_create(teamName: "<name>", ...)`.
 
 | Team | Lead | Members | Use case |
 |---|---|---|---|

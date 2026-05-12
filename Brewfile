@@ -19,6 +19,7 @@ brew "zoxide"
 brew "neovim"
 brew "ripgrep"
 brew "fzf"
+brew "tmux"
 
 # === Modern CLI Tools ===
 brew "mise"
