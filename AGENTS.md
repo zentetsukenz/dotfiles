@@ -36,7 +36,8 @@ dotfiles/
 │   ├── oh-my-openagent.json   # OMO agents, categories, concurrency, experimental → ~/.config/opencode/oh-my-openagent.json
 │   ├── AGENTS.md              # Global coding preferences → ~/.config/opencode/AGENTS.md
 │   ├── MEMORY-POLICY.md       # Memory curation policy → ~/.config/opencode/MEMORY-POLICY.md
-39#??|│   ├── skills/                # Vendored OMO skills (7 skills) → ~/.config/opencode/skills/
+│   ├── skills/                # Vendored OMO skills (7 skills) → ~/.config/opencode/skills/
+│   ├── omo-teams/             # Vendored team specs (3 templates) → ~/.omo/teams/ (copy-on-absent)
 40#??|│   ├── harness-journal/       # Retro journal store → ~/.config/opencode/harness-journal/
 41#??|│   ├── agents/                # Custom agent prompts
 42#??|│   │   └── mnemosyne.md      # Mnemosyne system prompt
@@ -100,6 +101,7 @@ dotfiles/
 | Add memory-maintenance script | `opencode/bin/memory-*` | Extensionless executables, symlinked to ~/.config/opencode/bin/, on PATH via fish_config; bare-name invocation |
 | Add/update memory maintenance scripts | `opencode/bin/` | Extensionless bash scripts, symlinked to `~/.config/opencode/bin/` |
 | Add/update memory skills | `opencode/skills/memory-{rot-detect,promote,demote}/` | SKILL.md files for Mnemosyne |
+| Add/update OMO team spec | `opencode/omo-teams/{name}/config.json` | Edit canonical template; re-run install to seed `~/.omo/teams/`. User edits in `~/.omo/teams/` are preserved. |
 
 ## CONVENTIONS
 
@@ -219,13 +221,25 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 
 ## OMO v4.0.0 (released 2026-05-07)
 
-- **Team Mode**: enabled via `experimental.team_mode.enabled: true`. tmux visualization on, 4 parallel members max. Powers `hyperplan` command and `security-research` agent (auto-activates).
+- **Team Mode**: enabled via `experimental.team_mode.enabled: true`. tmux visualization on, 4 parallel members (matches github-copilot providerConcurrency=5 with 1 slot for background tasks). `max_wall_clock_minutes: 240` and `max_member_turns: 800` give refactor pipelines headroom. Powers `hyperplan` command and `security-research` agent (auto-activates).
 - **Browser engine**: switched to `dev-browser` (stateful, auth-friendly sessions). Config: `browser_automation_engine.provider: "dev-browser"`.
 - **New experimental flags**: `preemptive_compaction: true` (proactive context compaction), `truncate_all_tool_outputs: true` (long-session ergonomics).
 - **MCP env hardening**: `mcp_env_allowlist: ["PATH", "HOME", "MEMORY_FILE_PATH", "USER"]`. Only these 4 vars passed to MCP servers.
 - **Model variants re-enabled**: `github-copilot/gpt-5.2` and `github-copilot/gpt-5.3-codex` `high` variants re-enabled for v4 model-tuned prompt overlays (Oracle, Momus, `deep` category).
 - **Provider allowlist**: `opencode.json` uses `enabled_providers: ["github-copilot"]` — replaces granular model disablement.
 - **BREAKING (follow-up needed)**: `delegate_task` (deep category) enforces one-goal-per-call. Multi-goal requires parallel calls. Affects Prometheus/Sisyphus prompts.
+
+### Named Teams
+
+Reusable team specs are committed at `opencode/omo-teams/{name}/config.json` and seeded into `~/.omo/teams/` by the install step (copy-on-absent; user edits preserved). Invoke via `team_create(teamName: "<name>", ...)`.
+
+| Team | Lead | Members | Use case |
+|---|---|---|---|
+| `explore-broad` | explore | 4 deep scouts + 2 quick verifiers | Broad parallel codebase exploration |
+| `refactor-pipeline` | sisyphus | analyzer + 2 implementers + reviewer | Multi-step coordinated refactor |
+| `research-deep` | oracle | 3 librarian + 1 oracle synth | Deep external research with synthesis |
+
+Replace `{{TASK}}` in member prompts at `team_create` time with the specific focus area.
 
 # context-mode — MANDATORY routing rules
 
