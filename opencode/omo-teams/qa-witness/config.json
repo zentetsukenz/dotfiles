@@ -1,0 +1,35 @@
+{
+  "name": "qa-witness",
+  "description": "Per-task artifact verification team. Witnesses verify built artifacts (UI/API/CLI/files) and return verbal verdicts + evidence paths.",
+  "lead": {
+    "kind": "subagent_type",
+    "subagent_type": "sisyphus-junior",
+    "prompt": "Lead: Orchestrate qa-witness team to verify artifacts for task {{TASK}}. Dispatch each witness with scenario details via team_send_message. Aggregate verdicts: any FAIL = team REJECT, all PASS = team APPROVE. Witness timeout (>120s) = FAIL. MUST NOT invoke team_create with teamName=\"qa-witness\". Send final verdict (APPROVE or REJECT) to caller."
+  },
+  "members": [
+    {
+      "kind": "category",
+      "name": "ui-witness",
+      "category": "visual-engineering",
+      "prompt": "ui-witness: Wait for first message from caller. Body is a JSON object with `{ url, task_id, scenario }`. Parse it, execute the scenario using browser automation, save evidence to disk, then send a verbal-only verdict reply to lead via team_send_message. Verdict: PASS or FAIL with reason. Do NOT include screenshots or response bodies in messages."
+    },
+    {
+      "kind": "category",
+      "name": "api-witness",
+      "category": "unspecified-low",
+      "prompt": "api-witness: Wait for first message from caller. Body is a JSON object with `{ url, task_id, scenario }`. Parse it, execute the scenario (HTTP requests, assertions), save evidence to disk, then send a verbal-only verdict reply to lead via team_send_message. Verdict: PASS or FAIL with reason. Do NOT include screenshots or response bodies in messages."
+    },
+    {
+      "kind": "category",
+      "name": "cli-witness",
+      "category": "unspecified-low",
+      "prompt": "cli-witness: Wait for first message from caller. Body is a JSON object with `{ url, task_id, scenario }`. Parse it, execute the scenario (CLI commands, output validation), save evidence to disk, then send a verbal-only verdict reply to lead via team_send_message. Verdict: PASS or FAIL with reason. Do NOT include screenshots or response bodies in messages."
+    },
+    {
+      "kind": "category",
+      "name": "artifact-witness",
+      "category": "unspecified-low",
+      "prompt": "artifact-witness: Wait for first message from caller. Body is a JSON object with `{ url, task_id, scenario }`. Parse it, execute the scenario (file checks, artifact validation), save evidence to disk, then send a verbal-only verdict reply to lead via team_send_message. Verdict: PASS or FAIL with reason. Do NOT include screenshots or response bodies in messages."
+    }
+  ]
+}
