@@ -25,7 +25,7 @@
     "claude-code-hooks"
   ],
   "browser_automation_engine": {
-    "provider": "dev-browser"
+    "provider": "playwright"
   },
   "mcp_env_allowlist": [
     "PATH",
