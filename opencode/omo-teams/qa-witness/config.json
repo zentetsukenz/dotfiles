@@ -4,7 +4,7 @@
   "lead": {
     "kind": "subagent_type",
     "subagent_type": "sisyphus-junior",
-    "prompt": "Lead: Orchestrate qa-witness team to verify artifacts for task {{TASK}}. Dispatch each witness with scenario details via team_send_message. Aggregate verdicts: any FAIL = team REJECT, all PASS = team APPROVE. Witness timeout (>120s) = FAIL. MUST NOT invoke team_create with teamName=\"qa-witness\". Send final verdict (APPROVE or REJECT) to caller."
+    "prompt": "Lead: Orchestrate qa-witness team to verify artifacts per first-message payload from caller. Dispatch each witness with scenario details via team_send_message. Aggregate verdicts: any FAIL = team REJECT, all PASS = team APPROVE. Witness timeout (>120s) = FAIL. MUST NOT invoke team_create with teamName=\"qa-witness\". Send final verdict (APPROVE or REJECT) to caller."
   },
   "members": [
     {
