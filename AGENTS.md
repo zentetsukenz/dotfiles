@@ -133,6 +133,9 @@ dotfiles/
 - **`groad` rewrites git history** — `rebase --exec` resetting commit dates. Dangerous in shared repos
 - **`gdgb` force-deletes branches** — `git branch -D` via pipeline, irreversible without reflog
 - **`gphf` ignores arguments** — Hardcoded `push --force-with-lease` with no `$argv` passthrough
+- **DO NOT use `gdgb` in shared repos** — `git branch -D` pipeline force-deletes gone branches; irreversible without reflog
+- **DO NOT rely on `gphf` for targeted pushes** — hardcodes `git push --force-with-lease` with no `$argv` passthrough; cannot specify remote or branch
+- **DO NOT run `groad` on shared branches** — `rebase --exec` rewrites commit dates, rewriting history; dangerous in shared repos
 - **DO NOT use macOS built-in ssh-agent for FIDO2** — Apple disabled libfido2 support. Use Homebrew openssh only.
 
 ## FISH FUNCTIONS REFERENCE
