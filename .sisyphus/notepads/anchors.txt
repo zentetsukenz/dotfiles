@@ -1,0 +1,86 @@
+DO NOT edit `dotbot/`
+DO NOT manually symlink
+DO NOT add secrets
+DO NOT use `git` directly in fish functions
+`groad` rewrites git history
+`gdgb` force-deletes branches
+`gphf` ignores arguments
+DO NOT use macOS built-in ssh-agent for FIDO2
+Flat file naming
+Dotbot manages all symlinks
+Git config is COPIED not linked
+Fish functions use `command git`
+Fish functions follow 3-line pattern
+Fish is the only interactive shell
+SSH signs all commits
+SSH agent is Homebrew openssh
+vim always means nvim
+Extension point
+Sonokai everywhere
+Rebase-pull by default
+Delta for diffs
+`.mnemosyne/` is project-local and gitignored
+QA Witness Workflow Doc
+⚠️ Force deletes gone branches
+⚠️ No $argv — can't specify remote/branch
+⚠️ Rewrites history — dangerous
+SSH agent chain
+Signing chain
+Editor chain
+Theme chain
+OpenCode chain
+memory chain
+mnemosyne chain
+install.conf.yaml
+fish_functions/*.fish
+Brewfile
+mise_config.toml
+fish_config.fish
+ghostty_config
+starship.toml
+nvim/lua/config/options.lua
+nvim/lua/plugins/*.lua
+nvim/lua/config/lazy.lua
+nvim/lua/config/keymaps.lua
+global_gitconfig
+~/.gitconfig.local
+scripts/setup_ssh_agent.sh
+scripts/check_ssh_agent.sh
+opencode/oh-my-openagent.json
+opencode/commands/*.md
+opencode/AGENTS.md
+opencode/skills/
+opencode/MEMORY-POLICY.md
+opencode/bin/memory-*
+opencode/bin/
+opencode/skills/memory-{rot-detect,promote,demote}/
+opencode/omo-teams/{name}/config.json
+/init-qa-witness
+showing code with brief inline comments
+keep it to 2-3 sentences max
+bullet points for options/trade-offs
+For errors: show the fix first
+humble, direct, and always be a trustworthy partner
+Follow the project's existing indentation
+Prefer explicit over implicit
+descriptive variable names
+Prefer functional patterns where natural
+Handle errors at the appropriate level
+Prefer strict typing
+Follow DDD principles
+Only signed commits are allowed
+If signing fails, STOP and ask
+Pull/push requiring authentication: ask the human
+Follow Conventional Commits v1.0.0
+No AI-attribution footers
+Strong default, not absolute
+Never force-push to `main` or `master`
+Don't over-comment
+Adding excessive error handling for impossible cases
+Premature abstraction
+console.log in production code
+Commented-out code
+Generic variable names (data, result, item, temp, info)
+Write access: Prometheus + Mnemosyne only
+### serena
+### memory
