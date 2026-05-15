@@ -2,6 +2,33 @@
 
 Version history for Oh-My-OpenCode (OMO) releases.
 
+## OMO v4.1.2 (released 2026-05-15)
+
+- **Why**: doctor failure + shadow regeneration root cause.
+- **Changes**: 4 items (plugin pin to 4.1.2, auto_update false, disabled_hooks extended with auto-update-checker, default_run_agent opt-in).
+- **Per-key schema audit (19 new top-level keys)**: markdown table with columns `| Key | Decision | Rationale |`.
+
+| Key | Decision | Rationale |
+| :--- | :--- | :--- |
+| `default_run_agent` | opt-in | mirrors `default_agent: prometheus` in opencode.json; ensures consistent agent routing |
+| `agent_definitions` | decline | we define agents in oh-my-openagent.json already; no new definitions needed |
+| `agent_order` | decline | UI ordering not relevant to our workflow |
+| `babysitting` | defer | specialized feature; no concrete benefit identified yet |
+| `claude_code` | decline | no claude-code workflow on this machine |
+| `comment_checker` | defer | no concrete benefit identified |
+| `disabled_agents` | defer | no agents to disable at this time |
+| `disabled_commands` | defer | no commands to disable at this time |
+| `disabled_mcps` | defer | no mcps to disable at this time |
+| `disabled_skills` | defer | no skills to disable at this time |
+| `disabled_tools` | defer | no tools to disable at this time |
+| `keyword_detector` | defer | no concrete benefit identified |
+| `openclaw` | defer | no concrete benefit identified |
+| `ralph_loop` | defer | not using ralph loop workflow |
+| `sisyphus_agent` | defer | sisyphus config managed via opencode.json |
+| `start_work` | defer | start-work behavior managed via opencode.json |
+| `websearch` | defer | websearch config managed via opencode.json |
+| `_migrations` | decline | OMO-managed internal key; never touch manually |
+| `auto_update` | decline | applied in this upgrade (set to false); not a new opt-in, listed for completeness |
 ## OMO v4.1.1 (released 2026-05-13)
 
 - **Team Mode**: enabled via `experimental.team_mode.enabled: true`. tmux visualization on, 4 parallel members (matches github-copilot providerConcurrency=5 with 1 slot for background tasks). `max_wall_clock_minutes: 240` and `max_member_turns: 800` give refactor pipelines headroom. Powers `hyperplan` command and `security-research` agent (auto-activates).
@@ -11,6 +38,11 @@ Version history for Oh-My-OpenCode (OMO) releases.
 - **Model variants re-enabled**: `github-copilot/gpt-5.2` and `github-copilot/gpt-5.3-codex` `high` variants re-enabled for v4 model-tuned prompt overlays (Oracle, Momus, `deep` category).
 - **Provider allowlist**: `opencode.json` uses `enabled_providers: ["github-copilot"]` — replaces granular model disablement.
 - **BREAKING (follow-up needed)**: `delegate_task` (deep category) enforces one-goal-per-call. Multi-goal requires parallel calls. Affects Prometheus/Sisyphus prompts.
+
+### Out of scope
+
+- `MEMORY_FILE_PATH` username fix flagged for separate plan.
+
 
 ### v4.1.0 → v4.1.1 changes
 

@@ -22,7 +22,8 @@
   },
   "disabled_hooks": [
     "startup-toast",
-    "claude-code-hooks"
+    "claude-code-hooks",
+    "auto-update-checker"
   ],
   "browser_automation_engine": {
     "provider": "playwright"
@@ -70,7 +71,8 @@
     "recipient_unread_max_bytes": 262144,
     "mailbox_poll_interval_ms": 3000
   },
-  "auto_update": true,
+  "auto_update": false,
+  "default_run_agent": "prometheus",
   "model_fallback": true,
   "tmux": {
     "enabled": false,
