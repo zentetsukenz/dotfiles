@@ -83,3 +83,6 @@ fish_add_path $HOME/.config/opencode/bin
 
 # === PATH: Terragrunt ===
 fish_add_path $HOME/.terragrunt/bin
+
+# opencode
+fish_add_path /Users/zentetsuken/.opencode/bin
