@@ -11,8 +11,9 @@ Thumbs.db
 .Trashes
 
 .config/fisherman
-.sisyphus
+
+# Agent
+.mnemosyne
+.omo
 .serena
-.mnemosyne/
-.mnemosyne/proposals/
-.mnemosyne/memory-snapshots-local/
+.sisyphus

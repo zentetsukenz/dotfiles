@@ -108,7 +108,7 @@
     }
   },
   "plugin": [
-    "oh-my-openagent@4.1.2",
+    "oh-my-openagent@4.2.2",
     "context-mode"
   ],
   "autoupdate": "notify",
