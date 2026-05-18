@@ -4,7 +4,8 @@
   "enabled_providers": [
     "github-copilot",
     "opencode",
-    "opencode-go"
+    "opencode-go",
+    "openrouter"
   ],
   "permission": {
     "edit": "allow",
