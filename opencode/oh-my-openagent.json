@@ -172,9 +172,8 @@
       ]
     },
     "explore": {
-      "model": "github-copilot/grok-code-fast-1",
+      "model": "github-copilot/claude-haiku-4.5",
       "fallback_models": [
-        "github-copilot/claude-haiku-4.5",
         "github-copilot/gemini-3-flash-preview"
       ]
     },
