@@ -114,12 +114,6 @@
   "autoupdate": "notify",
   "share": "manual",
   "mcp": {
-    "context-mode": {
-      "type": "local",
-      "command": [
-        "context-mode"
-      ]
-    },
     "serena": {
       "type": "local",
       "command": [
