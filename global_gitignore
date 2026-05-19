@@ -35,9 +35,11 @@ Thumbs.db
 
 # AI / LLM tools
 .cursor/
-.sisyphus/
+.mnemosyne/
+.omo/
+.opencode/
 .serena/
-.opencode
+.sisyphus/
 
 # Editors / IDEs
 .vscode/
