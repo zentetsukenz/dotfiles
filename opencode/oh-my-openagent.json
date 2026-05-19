@@ -125,12 +125,12 @@
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": [
-        "github-copilot/gpt-5.4",
+        "github-copilot/gpt-5.5",
         "github-copilot/claude-sonnet-4.6"
       ],
       "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.\n\n\n**Per-Task QA Witness Workflow** (mandatory when current task has `Visual Verification: YES`)\n1. Read the plan's `QA Witness Setup` section + `QA-WITNESS.md` at repo root.\n2. Run start command from QA-WITNESS.md. Wait for ready signal (per workflow doc).\n3. Run seed command from plan's QA Witness Setup section (or skip if 'none').\n4. Build per-scenario message payload per qa-witness-protocol skill schema: `{ url, task_id, scenario }`. Read scenarios from this task's QA Scenarios section.\n5. Call `team_create(teamName: \"qa-witness\")`. Capture `teamRunId`.\n6. For each `(witness_name, scenario)` pair: `team_send_message(teamRunId, to: witness_name, body: JSON.stringify({ url, task_id, scenario }))`. (OMO does NOT auto-substitute `{{TASK}}` — first-message handoff is the documented mechanism.)\n7. Poll `team_status(teamRunId)` until lead aggregates and emits a verdict message, or wait for explicit verdict broadcast from lead.\n8. Run teardown command from QA-WITNESS.md.\n9. If verdict is APPROVE → mark task complete. If REJECT → do NOT mark complete; surface failure to user with witness verdicts attached.\nRecursion-context note: You are Sisyphus. The qa-witness team's lead (sisyphus-junior) is FORBIDDEN from invoking qa-witness recursively. You are the only invoker.\nFor tasks with `Visual Verification: NO` → skip this workflow entirely.\nCost mitigation: Witness verdicts are verbal-only. Evidence files are on disk. Do NOT ask witnesses to relay screenshots or response bodies inline.",
       "ultrawork": {
-        "model": "github-copilot/gpt-5.4",
+        "model": "github-copilot/gpt-5.5",
         "variant": "xhigh"
       }
     },
@@ -144,7 +144,7 @@
       "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "medium",
       "fallback_models": [
         "github-copilot/claude-sonnet-4.6",
@@ -156,7 +156,7 @@
       "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "high",
       "fallback_models": [
         "github-copilot/claude-opus-4.7",
@@ -178,7 +178,7 @@
       ]
     },
     "multimodal-looker": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "medium",
       "fallback_models": [
         "github-copilot/gemini-3-flash-preview",
@@ -189,7 +189,7 @@
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": [
-        "github-copilot/gpt-5.4",
+        "github-copilot/gpt-5.5",
         "github-copilot/claude-sonnet-4.6"
       ],
       "skills": [
@@ -201,13 +201,13 @@
       "model": "github-copilot/claude-opus-4.7",
       "variant": "high",
       "fallback_models": [
-        "github-copilot/gpt-5.4",
+        "github-copilot/gpt-5.5",
         "github-copilot/claude-sonnet-4.6"
       ],
       "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
     },
     "momus": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "xhigh",
       "fallback_models": [
         "github-copilot/claude-opus-4.7",
@@ -229,12 +229,12 @@
       "description": "Frontend, UI/UX, design, styling, animation, CSS, layout"
     },
     "ultrabrain": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "xhigh",
       "description": "Genuinely hard, logic-heavy tasks requiring deep reasoning"
     },
     "deep": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.5",
       "variant": "medium",
       "description": "Goal-oriented autonomous problem-solving with thorough research"
     },
