@@ -74,12 +74,18 @@
   "default_run_agent": "prometheus",
   "model_fallback": true,
   "tmux": {
-    "enabled": false,
+    "enabled": true,
     "layout": "main-vertical",
     "main_pane_size": 60,
     "main_pane_min_width": 120,
     "agent_pane_min_width": 40,
     "isolation": "inline"
+  },
+  "start_work": {
+    "auto_commit": true
+  },
+  "babysitting": {
+    "timeout_ms": 300000
   },
   "experimental": {
     "aggressive_truncation": true,
