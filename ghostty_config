@@ -25,6 +25,9 @@ shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo
 
 # Clipboard
 copy-on-select = clipboard
+# OSC 52 for tmux/vim clipboard integration
+clipboard-read = allow
+clipboard-write = allow
 
 # Quick Terminal (Cmd+` from anywhere — replaces macOS window cycling)
 keybind = global:cmd+grave_accent=toggle_quick_terminal
