@@ -11,6 +11,7 @@
   "instructions": [],
   "permission": {
     "edit": "allow",
+    "external_directory": "allow",
     "webfetch": "allow",
     "bash": {
       "*": "allow",
