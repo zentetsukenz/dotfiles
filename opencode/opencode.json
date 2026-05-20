@@ -7,6 +7,8 @@
     "opencode-go",
     "openrouter"
   ],
+  "small_model": "github-copilot/claude-haiku-4.5",
+  "instructions": [],
   "permission": {
     "edit": "allow",
     "webfetch": "allow",
