@@ -72,4 +72,13 @@ Write access: Prometheus + Mnemosyne only. All other agents: read-only (conventi
 
 See `MEMORY-POLICY.md` for the full curation bar, admit/reject examples, and ACL convention.
 Summary: Only durable, generalizable, agent-shaping knowledge is admitted. See `MEMORY-POLICY.md` for curation bar, admit/reject examples, and ACL convention.
+## OpenCode + OMO Configuration
 
+- **small_model**: `github-copilot/claude-haiku-4.5` — used for lightweight tasks like title generation
+- **instructions**: empty array — placeholder for future instruction files; avoids double-injection with AGENTS.md
+- **external_directory** (permission key): set to `"allow"` — permits access to external dirs like `~/.config/tmux/`, `~/.mnemosyne/`
+- **doom_loop** (permission key): set to `"allow"` — permits doom_loop tool usage without prompting
+- **start_work**: `{ auto_commit: true }` — auto-commits at start of work sessions
+- **babysitting**: `{ timeout_ms: 300000 }` — 5-minute heartbeat timeout before intervention
+- **tmux**: enabled with OSC 52 clipboard passthrough; `tmux.conf` at repo root, symlinked to `~/.config/tmux/tmux.conf`; Ghostty configured with `clipboard-read/write = allow`
+- **QA Witness redesign**: `qa-witness-protocol` skill is now the source of truth for the 9-step workflow; both Sisyphus and Prometheus load it; `/init-qa-witness` template points at the skill
