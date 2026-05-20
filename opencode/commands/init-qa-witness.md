@@ -2,6 +2,8 @@
 description: Initialize QA Witness Workflow Doc for current project. Scans project, grills user on dev-server setup, writes QA-WITNESS.md at repo root. May fail with setup-recommendation if project has no reliable dev server.
 ---
 
+For per-task deliverable verification, load the `qa-witness-protocol` skill. This command initializes the QA Witness workflow doc for a project.
+
 ### Scan phase
 Detect these files/patterns to identify potential dev server commands:
 - `package.json`: Read scripts, look for keys containing `dev`, `start`, `serve`, or `preview`.

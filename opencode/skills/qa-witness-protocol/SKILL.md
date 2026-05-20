@@ -3,6 +3,25 @@ name: qa-witness-protocol
 description: Protocol for declaring and invoking the qa-witness team. Loaded explicitly by Prometheus when a plan involves behavioral verification (UI/API/CLI/file artifacts). Defines the args schema, plan template section, and per-task workflow contract.
 ---
 
+## Execution Workflow
+
+This workflow applies when the task has `Visual Verification: YES`. For tasks with `Visual Verification: NO`, skip entirely.
+
+**Per-Task QA Witness Workflow** (mandatory when current task has `Visual Verification: YES`)
+1. Read the plan's `QA Witness Setup` section + `QA-WITNESS.md` at repo root.
+2. Run start command from QA-WITNESS.md. Wait for ready signal (per workflow doc).
+3. Run seed command from plan's QA Witness Setup section (or skip if 'none').
+4. Build per-scenario message payload per qa-witness-protocol skill schema: `{ url, task_id, scenario }`. Read scenarios from this task's QA Scenarios section.
+5. Call `team_create(teamName: "qa-witness")`. Capture `teamRunId`.
+6. For each `(witness_name, scenario)` pair: `team_send_message(teamRunId, to: witness_name, body: JSON.stringify({ url, task_id, scenario }))`. (OMO does NOT auto-substitute `{{TASK}}` — first-message handoff is the documented mechanism.)
+7. Poll `team_status(teamRunId)` until lead aggregates and emits a verdict message, or wait for explicit verdict broadcast from lead.
+8. Run teardown command from QA-WITNESS.md.
+9. If verdict is APPROVE → mark task complete. If REJECT → do NOT mark complete; surface failure to user with witness verdicts attached.
+
+Recursion-context note: The invoking agent is the only invoker. The qa-witness team lead is FORBIDDEN from invoking qa-witness recursively.
+
+Cost mitigation: Witness verdicts are verbal-only. Evidence files are on disk. Do NOT ask witnesses to relay screenshots or response bodies inline.
+
 ## 1. When to load this skill
 Prometheus explicit decision — 'Does this plan produce or modify a behavioral artifact (rendered UI, HTTP endpoint, CLI tool, generated file)? If YES, load this skill. If NO (pure refactor of internals, prompt/config edits, doc-only), skip.'
 
