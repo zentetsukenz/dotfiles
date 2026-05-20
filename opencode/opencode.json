@@ -12,6 +12,7 @@
   "permission": {
     "edit": "allow",
     "external_directory": "allow",
+    "doom_loop": "allow",
     "webfetch": "allow",
     "bash": {
       "*": "allow",
