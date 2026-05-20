@@ -22,8 +22,7 @@
   },
   "disabled_hooks": [
     "startup-toast",
-    "claude-code-hooks",
-    "auto-update-checker"
+    "claude-code-hooks"
   ],
   "browser_automation_engine": {
     "provider": "playwright"
@@ -193,7 +192,9 @@
         "github-copilot/claude-sonnet-4.6"
       ],
       "skills": [
-        "domain-model"
+        "domain-model",
+        "design-an-interface",
+        "triage"
       ],
       "prompt_append": "\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.\n\n**Behavioral Verification Decision** (MANDATORY for Build/Refactor intents)\nAfter completing Test Infrastructure Assessment (already in your built-in workflow) and BEFORE generating the plan, evaluate: 'Does this plan produce or modify a behavioral artifact (rendered UI, HTTP endpoint, CLI tool, generated file)?'\n- If YES → explicitly load `qa-witness-protocol` skill via the skill tool. The skill provides: invocation contract, plan template's QA Witness Setup section, per-task `Visual Verification: YES|NO` flag.\n- If NO (pure-internal refactor, prompt/config edits, doc-only) → skip skill load. Note in plan: 'No behavioral verification needed.'\n**DO NOT load this skill on keyword match.** Evaluate the actual plan output.\nWhen the skill is loaded, ensure your generated plan includes:\n1. A `## QA Witness Setup` section after `## Verification Strategy`.\n2. A `**Visual Verification**: YES | NO` flag on every TODO entry.\n\n**F3 Override when qa-witness is in use**: When the loaded `qa-witness-protocol` skill is active for this plan, override the generated F3 entry in the Final Verification Wave to read:\n**F3. Integration & Regression Sanity Sweep** — `unspecified-high`\nPer-task qa-witness already verified individual scenarios with fast feedback. F3 focuses on:\n- Cross-task integration: features working together (not isolation)\n- Edge cases not covered by per-task scenarios: empty state, rapid actions, race conditions\n- Sanity re-run of 1-2 critical happy-path scenarios end-to-end (regression check)\nSave to `.sisyphus/evidence/final-qa/`. Do NOT re-run every scenario qa-witness already verified — trust the per-task verdicts.\nOutput: `Integration [N/N] | Edge Cases [N tested] | Critical Regression [N/N] | VERDICT`"
     },
