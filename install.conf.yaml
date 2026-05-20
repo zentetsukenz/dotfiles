@@ -44,6 +44,7 @@
     "~/.config/opencode/agents":
       path: "opencode/agents"
     "~/.config/opencode/bin": "opencode/bin"
+    "~/.config/tmux/tmux.conf": "tmux.conf"
     "~/.omo/teams": "opencode/omo-teams"
     "~/.config/fish/functions/":
       glob: true
