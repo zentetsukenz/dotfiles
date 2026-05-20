@@ -22,6 +22,7 @@ dotfiles/
 ├── fish_functions/              # Git aliases + vim→nvim redirect (see fish_functions/README.md)
 ├── nvim/                        # LazyVim config (init.lua, lua/config/*, lua/plugins/*)
 ├── ghostty_config               # Terminal config (Sonokai, Hack Nerd Font)
+├── tmux.conf                        # tmux config (OSC 52, mouse, vi-mode)
 ├── starship.toml                # Prompt
 ├── opencode/                    # OpenCode + OMO: opencode.json, oh-my-openagent.json, AGENTS.md,
 │                                #   MEMORY-POLICY.md, skills/, omo-teams/, harness-journal/,
@@ -49,6 +50,9 @@ dotfiles/
 | Add install step | `install.conf.yaml` → `shell:` section | Runs sequentially during `./install` |
 | Change terminal look | `ghostty_config` | Sonokai theme, Hack Nerd Font 16pt, fullscreen |
 | Change prompt | `starship.toml` | Minimal config, many modules disabled |
+| Change tmux config | tmux.conf | Symlinked to ~/.config/tmux/tmux.conf via dotbot |
+| Change Ghostty clipboard | ghostty_config | OSC 52: clipboard-read/write = allow |
+| Change OpenCode/OMO keys | opencode/AGENTS.md | See new keys section for small_model, babysitting, etc. |
 | Change editor config | `nvim/lua/config/options.lua` | LazyVim options |
 | Add editor plugin | `nvim/lua/plugins/*.lua` | Return plugin spec table |
 | Add editor language | `nvim/lua/config/lazy.lua` | `{ import = "lazyvim.plugins.extras.lang.<name>" }` |
@@ -128,6 +132,7 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Sonokai everywhere**: Ghostty theme, Neovim colorscheme — consistent visual identity
 - **Rebase-pull by default**: `pull.rebase = true`, `rebase.autoStash = true` in git config
 - **Delta for diffs**: Syntax-highlighted diffs in git, with navigate and line numbers
+- **tmux**: OSC 52 clipboard passthrough enabled; tmux.conf at repo root, symlinked to ~/.config/tmux/tmux.conf
 - **Fisher plugins**: fisher (manager), sponge (clean history of failed commands), fzf (fuzzy finder)
 - **OpenCode config**: All OpenCode + OMO configuration in `opencode/` — symlinked individually to `~/.config/opencode/`. Agents: sisyphus/prometheus/metis/oracle use opus/gpt-5.4, explore uses grok-code-fast-1, quick uses haiku, visual/artistry use gemini
 - **Global AGENTS.md**: `opencode/AGENTS.md` — universal coding preferences (Communication, Conventions, Git, Anti-patterns). Project-level AGENTS.md overrides global.
