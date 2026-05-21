@@ -3,7 +3,7 @@
   "new_task_system_enabled": true,
   "sisyphus": {
     "tasks": {
-      "storage_path": ".sisyphus/tasks",
+      "storage_path": ".omo/tasks",
       "claude_code_compat": false
     }
   },
@@ -71,6 +71,10 @@
     "mailbox_poll_interval_ms": 3000
   },
   "auto_update": false,
+  "default_mode": {
+    "ultrawork": true,
+    "ralph_loop": true
+  },
   "default_run_agent": "prometheus",
   "model_fallback": true,
   "tmux": {
