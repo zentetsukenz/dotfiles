@@ -9,6 +9,14 @@
   ],
   "small_model": "github-copilot/claude-haiku-4.5",
   "instructions": [],
+  "experimental": {
+    "batch_tool": true,
+    "background_subagents": true,
+    "continue_loop_on_deny": true,
+    "compaction": {
+      "auto": false
+    }
+  },
   "permission": {
     "edit": "allow",
     "external_directory": "allow",
@@ -112,7 +120,7 @@
     }
   },
   "plugin": [
-    "oh-my-openagent@4.2.3",
+    "oh-my-openagent@4.3.0",
     "context-mode"
   ],
   "autoupdate": "notify",
