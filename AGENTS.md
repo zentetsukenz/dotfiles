@@ -61,7 +61,7 @@ dotfiles/
 | Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
 | Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
 | Diagnose SSH agent | `scripts/check_ssh_agent.sh` | Read-only health check; exit 0=healthy, 1=broken, 2=binary missing |
-| Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO version history in `opencode/OMO-CHANGELOG.md` |
+| Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO releases at https://github.com/code-yeongyu/oh-my-openagent/releases |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
 | Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; update LICENSE-attribution.md |
@@ -144,6 +144,8 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 - **Memory maintenance scripts**: `memory-stats`, `memory-serena-stats`, `memory-snapshot`, `memory-restore`, `memory-prune-snapshots`, `memory-proposal-hash` — in `opencode/bin/`, symlinked to `~/.config/opencode/bin/`, on PATH via fish_config. Invoked bare-name.
 - **Memory skills**: `memory-rot-detect`, `memory-promote`, `memory-demote` — in `opencode/skills/`, auto-loaded by Mnemosyne during retro memory-health phase.
 
-See [`opencode/OMO-CHANGELOG.md`](opencode/OMO-CHANGELOG.md) for OMO version history and [`opencode/omo-teams/README.md`](opencode/omo-teams/README.md) for named teams.
+See [`opencode/omo-teams/README.md`](opencode/omo-teams/README.md) for named teams.
+
+**Note**: Use `/stop-continuation` to kill active ralph_loop or ultrawork sessions.
 
 > **context-mode routing rules**: see system-injected `<context_window_protection>` block in every agent session.
