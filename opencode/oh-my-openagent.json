@@ -72,8 +72,8 @@
   },
   "auto_update": false,
   "default_mode": {
-    "ultrawork": true,
-    "ralph_loop": true
+    "ultrawork": false,
+    "ralph_loop": false
   },
   "default_run_agent": "prometheus",
   "model_fallback": true,
