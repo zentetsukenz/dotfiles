@@ -11,11 +11,7 @@
   "instructions": [],
   "experimental": {
     "batch_tool": true,
-    "background_subagents": true,
-    "continue_loop_on_deny": true,
-    "compaction": {
-      "auto": false
-    }
+    "continue_loop_on_deny": true
   },
   "permission": {
     "edit": "allow",
@@ -123,7 +119,7 @@
     "oh-my-openagent@4.3.1",
     "context-mode"
   ],
-  "autoupdate": "notify",
+  "autoupdate": false,
   "share": "manual",
   "mcp": {
     "serena": {
@@ -154,6 +150,14 @@
   },
   "provider": {
     "github-copilot": {
+      "blacklist": [
+        "gpt-4.1",
+        "gpt-4o",
+        "gpt-5-mini",
+        "claude-opus-4.5",
+        "claude-sonnet-4.5",
+        "gpt-5.2-codex"
+      ],
       "models": {
         "claude-opus-4.6": {
           "variants": {
@@ -229,25 +233,7 @@
             }
           }
         },
-        "gpt-4.1": {
-          "disabled": true
-        },
-        "gpt-4o": {
-          "disabled": true
-        },
-        "gpt-5-mini": {
-          "disabled": true
-        },
-        "claude-opus-4.5": {
-          "disabled": true
-        },
-        "claude-sonnet-4.5": {
-          "disabled": true
-        },
         "gpt-5.2": {},
-        "gpt-5.2-codex": {
-          "disabled": true
-        },
         "claude-opus-4.7": {
           "variants": {
             "max": {

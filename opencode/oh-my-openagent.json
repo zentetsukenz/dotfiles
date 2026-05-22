@@ -70,11 +70,12 @@
     "recipient_unread_max_bytes": 262144,
     "mailbox_poll_interval_ms": 3000
   },
-  "auto_update": false,
-  "default_mode": {
-    "ultrawork": false,
-    "ralph_loop": false
+  "ralph_loop": {
+    "enabled": false,
+    "default_max_iterations": 100,
+    "default_strategy": "continue"
   },
+  "auto_update": false,
   "default_run_agent": "prometheus",
   "model_fallback": true,
   "tmux": {
