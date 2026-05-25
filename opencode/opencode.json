@@ -116,7 +116,7 @@
     }
   },
   "plugin": [
-    "oh-my-openagent@4.3.1",
+    "oh-my-openagent@4.4.0",
     "context-mode"
   ],
   "autoupdate": false,
