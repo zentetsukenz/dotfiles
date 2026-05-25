@@ -116,4 +116,3 @@ Required before declaring done:
 - [ ] The hypothesis that turned out correct is stated in the commit / PR message — so the next debugger learns
 
 **Then ask: what would have prevented this bug?** If the answer involves architectural change (no good test seam, tangled callers, hidden coupling) hand off to the `/improve-codebase-architecture` skill with the specifics. Make the recommendation **after** the fix is in, not before — you have more information now than when you started.
-<!-- Vendored from https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/diagnose/SKILL.md at sha256:28886402bbfa0470248086eab9106a103b964b76ae9496e63ff0c8a6761b6d13. Wired to agents: sisyphus, sisyphus-junior. -->

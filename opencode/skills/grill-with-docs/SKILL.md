@@ -87,4 +87,3 @@ Only offer to create an ADR when all three are true:
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
 
 </supporting-info>
-<!-- Vendored from https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/grill-with-docs/SKILL.md at sha256:3e35025119ba03efe7983dfdec3c8b96918142e3978512f3c2bf66d428310c7e. Wired to agents: metis, momus. -->

@@ -82,4 +82,3 @@ Or "None - can start immediately" if no blockers.
 </issue-template>
 
 Do NOT close or modify any parent issue.
-<!-- Vendored from https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/to-issues/SKILL.md at sha256:0e6a2973fa5bdf32570227c578f7e474d945dd9281615d31439664c3ef016fce. Wired to agents: prometheus, sisyphus. -->

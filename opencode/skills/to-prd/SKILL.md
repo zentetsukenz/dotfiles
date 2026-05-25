@@ -75,4 +75,3 @@ A description of the things that are out of scope for this PRD.
 Any further notes about the feature.
 
 </prd-template>
-<!-- Vendored from https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/to-prd/SKILL.md at sha256:b60e3805e361e4eabc6f3df48d305299e0fde64cb24b6e95443c01de907a2e7d. Wired to agents: prometheus, sisyphus. -->

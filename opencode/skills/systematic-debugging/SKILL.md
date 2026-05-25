@@ -302,4 +302,3 @@ From debugging sessions:
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-<!-- Vendored from https://raw.githubusercontent.com/sickn33/antigravity-awesome-skills/main/skills/systematic-debugging/SKILL.md at sha256:13ae90c5533afb2e78c78b4b4d77b81950b74486d56d8a9e3ce467740efbde67. Wired to agents: sisyphus, sisyphus-junior. -->

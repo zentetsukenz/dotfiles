@@ -108,4 +108,3 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 [ ] Code is minimal for this test
 [ ] No speculative features added
 ```
-<!-- Vendored from https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/tdd/SKILL.md at sha256:af059705061156fd4845ddbb736fe92b564118ac5f03551e09ef9e8f6d970638. Wired to agents: sisyphus, sisyphus-junior. -->

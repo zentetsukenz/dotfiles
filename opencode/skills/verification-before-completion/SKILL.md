@@ -148,4 +148,3 @@ This skill is applicable to execute the workflow or actions described in the ove
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
-<!-- Vendored from https://raw.githubusercontent.com/sickn33/antigravity-awesome-skills/main/skills/verification-before-completion/SKILL.md at sha256:feea013b053e24e28435654e219d458669ff2b952f3ef784eaf28898174ab755. Wired to agents: sisyphus, sisyphus-junior. -->
