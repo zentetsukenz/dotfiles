@@ -85,4 +85,4 @@ fish_add_path $HOME/.config/opencode/bin
 fish_add_path $HOME/.terragrunt/bin
 
 # opencode
-fish_add_path /Users/zentetsuken/.opencode/bin
+fish_add_path $HOME/.opencode/bin

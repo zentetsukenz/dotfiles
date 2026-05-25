@@ -139,13 +139,11 @@
     "memory": {
       "type": "local",
       "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-memory"
+        "sh",
+        "-c",
+        "exec env MEMORY_FILE_PATH=\"$HOME/.config/opencode/memory.json\" npx -y @modelcontextprotocol/server-memory"
       ],
-      "environment": {
-        "MEMORY_FILE_PATH": "/Users/zentetsuken/.config/opencode/memory.json"
-      }
+      "environment": {}
     }
   },
   "provider": {
