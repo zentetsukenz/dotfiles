@@ -60,6 +60,7 @@ Semantic code search and symbol navigation. Auto-loaded. Use for "find all usage
 ### memory
 Long-term knowledge graph. Governed by `MEMORY-POLICY.md`. High curation bar — only durable, agent-shaping knowledge is admitted.
 Write access: Prometheus + Mnemosyne only. All other agents: read-only (convention-enforced).
+- **Agent → Skill map**: see `opencode/skills/README.md` for the canonical per-agent skill allowlist and the disable-model-invocation policy.
 
 ## Harness Journal
 
