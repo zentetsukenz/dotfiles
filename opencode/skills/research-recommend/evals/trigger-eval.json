@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Compare PostgreSQL vs MySQL vs SQLite for a high-traffic SaaS app. Evaluate on write throughput, replication, operational complexity, and cost. Recommend one with rationale.",
+    "should_trigger": true
+  },
+  {
+    "query": "which state management library should i use for my react app? compare redux, zustand, jotai, recoil. we're a 5 person team, mostly mid-level, and the app has a lot of cross-cutting concerns (auth, feature flags, server cache)",
+    "should_trigger": true
+  },
+  {
+    "query": "reccomend a css framework for my team — we're building an internal admin tool in next.js, need good docs and a solid component library. tailwind, chakra, mantine, mui — which one and why?",
+    "should_trigger": true
+  },
+  {
+    "query": "I need to pick a logging library for our Go microservices (about 12 services on EKS). What are my options and which is best? We care about structured logging, low allocation, and OpenTelemetry integration.",
+    "should_trigger": true
+  },
+  {
+    "query": "We're choosing between Kafka, RabbitMQ, and NATS for our event bus. Evaluate on throughput, ordering guarantees, operational overhead, and cloud-native support on GKE. Write a recommendation report to share with the platform team.",
+    "should_trigger": true
+  },
+  {
+    "query": "Research the best vector database for a RAG pipeline over ~50M chunks. Compare pgvector, Pinecone, Weaviate, Qdrant, and Milvus. Save findings to .omo/research-recommended/vector-db/",
+    "should_trigger": true
+  },
+  {
+    "query": "what's the best ORM for Python these days? working on a django-to-fastapi migration so something async-friendly. need to decide by end of sprint",
+    "should_trigger": true
+  },
+  {
+    "query": "Help me decide between Terraform and Pulumi for our infrastructure. I care about team learning curve, state management, and how well each plays with our existing CI on GitHub Actions.",
+    "should_trigger": true
+  },
+  {
+    "query": "shortlist 3-5 feature flag platforms for a 200-engineer org with strict SOC2 requirements. LaunchDarkly is the obvious one but i want to see the field — flagsmith, unleash, posthog, statsig. write up a comparison.",
+    "should_trigger": true
+  },
+  {
+    "query": "How does React's useEffect cleanup function work? Specifically when the dependency array changes between renders.",
+    "should_trigger": false
+  },
+  {
+    "query": "can you research how stripe's node sdk handles authentication and idempotency keys? need to understand it before i wire up the webhook handler",
+    "should_trigger": false
+  },
+  {
+    "query": "research agents",
+    "should_trigger": false
+  },
+  {
+    "query": "diagnose why my pytest suite is failing intermittently on CI but always passing locally. i suspect a fixture ordering issue but i'm not sure",
+    "should_trigger": false
+  },
+  {
+    "query": "review my system architecture for the order processing service and tell me if it's good. i'll paste the diagram and the main service file",
+    "should_trigger": false
+  },
+  {
+    "query": "implement rate limiting in my Express app using the existing redis client. 100 requests per minute per IP, with a sliding window.",
+    "should_trigger": false
+  },
+  {
+    "query": "what are the options for the --format flag in prettier? specifically can i get json output for a CI check?",
+    "should_trigger": false
+  },
+  {
+    "query": "tell me everything about Kubernetes networking — CNI plugins, services, ingress, network policies. i want a deep dive, not a comparison, just teach me the model",
+    "should_trigger": false
+  },
+  {
+    "query": "is Redis single-threaded? and if so how does it handle the new IO threads config in 6.x",
+    "should_trigger": false
+  },
+  {
+    "query": "write a Python script to parse CSV files from s3 and load them into a pandas dataframe with type inference",
+    "should_trigger": false
+  },
+  {
+    "query": "need to choose an APM/observability stack for our k8s platform. comparing datadog, new relic, grafana cloud, and self-hosted prometheus+grafana+tempo+loki. budget is ~$80k/year. score them on cost predictability, ease of onboarding for app teams, and trace quality.",
+    "should_trigger": true
+  }
+]
