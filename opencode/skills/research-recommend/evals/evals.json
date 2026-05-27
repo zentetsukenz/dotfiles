@@ -1,0 +1,26 @@
+{
+  "skill_name": "research-recommend",
+  "evals": [
+    {
+      "id": 1,
+      "name": "happy-path-with-params",
+      "prompt": "I'm picking a static site generator for a technical blog. Compare options across build speed, plugin ecosystem, theming flexibility, and learning curve. Recommend one for a solo dev who values fast iteration. Save the report to .omo/research-recommended/ssg-pick/.",
+      "expected_output": "shortlist of ≥5 SSGs, matrix on the 4 stated params, recommendation with confidence, all 4 output files written",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "no-params-inference-gate",
+      "prompt": "Research the best embedding model for code search in a RAG pipeline. I don't have specific evaluation criteria in mind — figure out what matters.",
+      "expected_output": "skill infers parameters (e.g., dimension, latency, code-specificity, cost, license), presents them to user for refinement BEFORE searching",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "vague-topic-clarification",
+      "prompt": "research agents",
+      "expected_output": "skill asks at least one clarifying question (what domain, what decision) before searching",
+      "files": []
+    }
+  ]
+}
