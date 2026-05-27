@@ -208,11 +208,11 @@
       ]
     },
     "multimodal-looker": {
-      "model": "github-copilot/gpt-5.5",
-      "variant": "medium",
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "variant": "high",
       "fallback_models": [
-        "github-copilot/gemini-3-flash-preview",
-        "github-copilot/claude-haiku-4.5"
+        "github-copilot/gpt-5.5",
+        "github-copilot/gemini-3-flash-preview"
       ]
     },
     "prometheus": {
@@ -264,7 +264,11 @@
       "fallback_models": [
         "github-copilot/claude-haiku-4.5",
         "github-copilot/gemini-3-flash-preview"
-      ]
+      ],
+      "skills": [
+        "zoom-out"
+      ],
+      "prompt_append": "\n\nYou are Atlas, the codebase cartographer. Your focus is cross-file mapping and dependency tracing: understanding how modules connect, what calls what, and how data flows across boundaries. Prefer structural analysis over implementation detail."
     }
   },
   "categories": {
@@ -286,7 +290,8 @@
     "artistry": {
       "model": "github-copilot/gemini-3.1-pro-preview",
       "variant": "high",
-      "description": "Complex problems requiring unconventional, creative approaches"
+      "description": "Complex problems requiring unconventional, creative approaches",
+      "prompt_append": "\n\nFavor divergent thinking. Generate 3 radically different approaches before converging. Prefer the unconventional choice when tradeoffs are even."
     },
     "quick": {
       "model": "github-copilot/claude-haiku-4.5",

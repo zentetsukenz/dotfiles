@@ -15,7 +15,18 @@
   },
   "permission": {
     "edit": "allow",
-    "external_directory": "allow",
+    "external_directory": {
+      "~/.ssh/**": "deny",
+      "~/.gnupg/**": "deny",
+      "~/.password-store/**": "deny",
+      "~/Library/Keychains/**": "deny",
+      "~/.aws/credentials": "deny",
+      "~/.kube/config": "ask",
+      "~/.config/tmux/**": "allow",
+      "~/.config/opencode/**": "allow",
+      "~/.mnemosyne/**": "allow",
+      "*": "ask"
+    },
     "doom_loop": "allow",
     "webfetch": "allow",
     "bash": {
@@ -61,7 +72,8 @@
       "npm uninstall *": "ask",
       "pip uninstall *": "ask",
       "mise uninstall *": "ask"
-    }
+    },
+    "websearch": "ask"
   },
   "lsp": {
     "typescript-language-server": {
@@ -154,7 +166,8 @@
         "gpt-5-mini",
         "claude-opus-4.5",
         "claude-sonnet-4.5",
-        "gpt-5.2-codex"
+        "gpt-5.2-codex",
+        "gpt-5.3-codex"
       ],
       "models": {
         "claude-opus-4.6": {
@@ -190,26 +203,6 @@
               "disabled": true
             },
             "low": {
-              "disabled": true
-            }
-          }
-        },
-        "gpt-5.3-codex": {
-          "variants": {
-            "none": {
-              "disabled": true
-            },
-            "minimal": {
-              "disabled": true
-            },
-            "low": {
-              "disabled": true
-            },
-            "medium": {
-              "disabled": true
-            },
-            "high": {},
-            "xhigh": {
               "disabled": true
             }
           }

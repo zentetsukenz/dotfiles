@@ -77,9 +77,14 @@ Summary: Only durable, generalizable, agent-shaping knowledge is admitted. See `
 
 - **small_model**: `github-copilot/claude-haiku-4.5` — used for lightweight tasks like title generation
 - **instructions**: empty array — placeholder for future instruction files; avoids double-injection with AGENTS.md
-- **external_directory** (permission key): set to `"allow"` — permits access to external dirs like `~/.config/tmux/`, `~/.mnemosyne/`
+- **external_directory** (permission key): path-gated map — `~/.ssh/**`, `~/.gnupg/**`, `~/.password-store/**`, `~/Library/Keychains/**`, `~/.aws/credentials` → deny; `~/.kube/config` → ask; `~/.config/tmux/**`, `~/.config/opencode/**`, `~/.mnemosyne/**` → allow; `*` → ask
+- **websearch** (permission key): set to `"ask"` — prompts before each web search
 - **doom_loop** (permission key): set to `"allow"` — permits doom_loop tool usage without prompting
 - **start_work**: `{ auto_commit: true }` — auto-commits at start of work sessions
 - **babysitting**: `{ timeout_ms: 300000 }` — 5-minute heartbeat timeout before intervention
 - **tmux**: enabled with OSC 52 clipboard passthrough; `tmux.conf` at repo root, symlinked to `~/.config/tmux/tmux.conf`; Ghostty configured with `clipboard-read/write = allow`
 - **QA Witness redesign**: `qa-witness-protocol` skill is now the source of truth for the 9-step workflow; both Sisyphus and Prometheus load it; `/init-qa-witness` template points at the skill
+- **atlas agent**: configured as codebase cartographer — cross-file mapping and dependency tracing; skills: `zoom-out`
+- **multimodal-looker agent**: primary model `github-copilot/gemini-3.1-pro-preview` (variant high); fallbacks `gpt-5.5`, `gemini-3-flash-preview`
+- **artistry category**: prompt-appended with divergent-thinking directive — 3 radically different approaches before converging
+- **experimental.task_system**: remains `true` — canonical task system for OMO v4.5.1; `new_task_system_enabled` also true
