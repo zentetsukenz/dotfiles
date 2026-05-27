@@ -1,6 +1,6 @@
 ---
 name: research-recommend
-description: Use ONLY for comparative research that informs a concrete decision through multi-candidate comparison, literature review, and a multi-file paper-style report. NOT for single-source lookups (use librarian), quick fact-checks, or library docs queries.
+description: Use when a user needs decision-informed comparative research: multi-candidate comparison, option scoring, shortlist creation, literature review, and a recommendation report. Trigger on genuine comparison requests even if phrased casually, such as choosing between tools, platforms, libraries, vendors, or stacks. NOT for single-source lookups or quick fact-checks (use librarian), library docs queries (use librarian), code implementation, debugging, or architecture judgement (use architect-review).
 disable-model-invocation: true
 ---
 

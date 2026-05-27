@@ -1,0 +1,580 @@
+{
+  "skill_name": "research-recommend",
+  "run_date": "2026-05-27",
+  "split": {
+    "train_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "test_indices": [12, 13, 14, 15, 16, 17, 18, 19]
+  },
+  "descriptions": [
+    {
+      "id": "baseline",
+      "description": "Use ONLY for comparative research that informs a concrete decision through multi-candidate comparison, literature review, and a multi-file paper-style report. NOT for single-source lookups (use librarian), quick fact-checks, or library docs queries.",
+      "train_score": 1.0,
+      "test_score": 1.0
+    },
+    {
+      "id": "candidate-1",
+      "description": "Use for comparative research that helps the user choose among multiple candidates, shortlist options, or produce a recommendation using explicit criteria and a paper-style findings package. Lean toward triggering when the prompt asks to compare, evaluate options, pick a tool/platform/library/vendor, or recommend one path from several viable alternatives. NOT for single-source lookups or quick fact-checks (use librarian), library docs queries (use librarian), implementation tasks, diagnosis, or architecture judgement (use architect-review).",
+      "train_score": 1.0,
+      "test_score": 1.0
+    },
+    {
+      "id": "candidate-2",
+      "description": "Use when a user needs decision-informed comparative research: multi-candidate comparison, option scoring, shortlist creation, literature review, and a recommendation report. Trigger on genuine comparison requests even if phrased casually, such as choosing between tools, platforms, libraries, vendors, or stacks. NOT for single-source lookups or quick fact-checks (use librarian), library docs queries (use librarian), code implementation, debugging, or architecture judgement (use architect-review).",
+      "train_score": 1.0,
+      "test_score": 1.0
+    },
+    {
+      "id": "candidate-3",
+      "description": "Use for multi-candidate comparison that must inform a concrete recommendation, especially when the user asks for a shortlist, evaluation matrix, tradeoff analysis, or paper-style report. Prefer triggering for substantial choose-between-options prompts with criteria, constraints, or stakeholders; the skill can help structure the comparative research before recommending. NOT for single-source lookups or quick fact-checks (use librarian), library docs queries (use librarian), implementation tasks, diagnosis, teaching-only deep dives, or architecture judgement (use architect-review).",
+      "train_score": 1.0,
+      "test_score": 1.0
+    }
+  ],
+  "items": [
+    {
+      "index": 0,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Explicit multi-candidate comparison, evaluation criteria, and recommendation request match the decision-informed comparative research trigger."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Asks to compare database candidates and recommend one from several alternatives."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Genuine comparison request for choosing among database tools with criteria."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Substantial choose-between-options prompt with constraints and a recommendation target."
+        }
+      }
+    },
+    {
+      "index": 1,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Names four candidates and asks which library to use for a concrete team decision."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Casual wording still asks to pick a library from multiple candidates."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Pushy comparison language covers casual choose-between-libraries prompts."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Multi-candidate state-library decision with team constraints."
+        }
+      }
+    },
+    {
+      "index": 2,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "CSS framework recommendation among named candidates for a concrete admin-tool decision."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Explicitly asks which framework and why from several alternatives."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Casual recommendation request between tools fits the trigger examples."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Decision prompt has multiple candidates, constraints, and a recommendation ask."
+        }
+      }
+    },
+    {
+      "index": 3,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Asks for options and the best logging library with concrete evaluation criteria."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Tool-selection prompt with implicit multi-candidate search and recommendation."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Choosing a library for production services is a genuine comparison request."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Criteria and operational constraints make this a substantial recommendation task."
+        }
+      }
+    },
+    {
+      "index": 4,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Kafka/RabbitMQ/NATS comparison plus platform-team report request strongly matches."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Named candidates, evaluation criteria, and recommendation report align exactly."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Multi-candidate platform choice with report output."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Asks for an evaluation matrix-like comparison and recommendation report."
+        }
+      }
+    },
+    {
+      "index": 5,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Explicit comparative research over vector DB candidates with output folder."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Directly requests comparative findings for several vector databases."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Multi-candidate comparison and recommendation package are explicit."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Prompt asks for comparative research with saved findings."
+        }
+      }
+    },
+    {
+      "index": 6,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Best ORM decision for a migration implies options comparison before sprint deadline."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Although candidates are implicit, the prompt asks to pick a library under constraints."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Pushy language covers casual tool-choice prompts even without named candidates."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Concrete choose-an-ORM decision with constraints and deadline."
+        }
+      }
+    },
+    {
+      "index": 7,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Terraform versus Pulumi decision with comparison dimensions."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Explicitly choosing between infrastructure tools using criteria."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Clear choose-between-tools request with criteria."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Two-candidate tradeoff analysis for a concrete recommendation."
+        }
+      }
+    },
+    {
+      "index": 8,
+      "split": "train",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Shortlist request with named platforms and comparison write-up."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Shortlist and comparison are explicit trigger phrases."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Shortlist creation and platform comparison align exactly."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Direct shortlist/evaluation prompt with organizational constraints."
+        }
+      }
+    },
+    {
+      "index": 9,
+      "split": "train",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Single React concept explanation, not a decision or multi-candidate comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "No comparison, shortlist, or recommendation request."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Single-topic docs-style explanation should be handled outside this skill."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Teaching/debugging a React hook behavior is an anti-trigger."
+        }
+      }
+    },
+    {
+      "index": 10,
+      "split": "train",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Single-source Stripe SDK lookup, explicitly deferred to librarian by baseline."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Single-source lookup about one SDK, not multi-candidate comparison."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Single-source lookup should go to librarian despite the word research."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Understanding one SDK before implementation is a librarian lookup."
+        }
+      }
+    },
+    {
+      "index": 11,
+      "split": "train",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Too vague; lacks concrete decision, candidates, or report need."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Bare phrase lacks decision context and multi-candidate request."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "No genuine comparison request is present."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Prompt is vague and not a substantial choose-between-options task."
+        }
+      }
+    },
+    {
+      "index": 12,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "CI flake diagnosis is debugging, not comparative research."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Diagnosis is explicitly excluded."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Debugging is explicitly excluded."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Diagnosis is explicitly excluded."
+        }
+      }
+    },
+    {
+      "index": 13,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Architecture review asks for judgement on one design, not multi-candidate comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Architecture judgement is explicitly deferred to architect-review."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Architecture judgement is explicitly deferred to architect-review."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Architecture judgement is explicitly deferred to architect-review."
+        }
+      }
+    },
+    {
+      "index": 14,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Implementation task with fixed technology, no candidate comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Implementation task is explicitly excluded."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Code implementation is explicitly excluded."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Implementation task is explicitly excluded."
+        }
+      }
+    },
+    {
+      "index": 15,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Prettier flag question is a library/tool docs lookup."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Library docs query is explicitly deferred to librarian."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Library docs query is explicitly deferred to librarian."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Library docs query is explicitly deferred to librarian."
+        }
+      }
+    },
+    {
+      "index": 16,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Explicitly asks for a teaching deep dive, not comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "No tool choice, candidate set, or recommendation target."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Teaching-only deep dive is not a decision-informed comparison."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Teaching-only deep dives are explicitly excluded."
+        }
+      }
+    },
+    {
+      "index": 17,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Quick Redis fact-check/explanation, not comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Quick fact-check is explicitly excluded."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Quick fact-check is explicitly excluded."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Quick fact-check is explicitly excluded."
+        }
+      }
+    },
+    {
+      "index": 18,
+      "split": "test",
+      "should_trigger": false,
+      "scores": {
+        "baseline": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Code generation task with no candidate comparison."
+        },
+        "candidate-1": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Implementation task is explicitly excluded."
+        },
+        "candidate-2": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Code implementation is explicitly excluded."
+        },
+        "candidate-3": {
+          "prediction": "NO-TRIGGER",
+          "correct": true,
+          "reasoning": "Implementation task is explicitly excluded."
+        }
+      }
+    },
+    {
+      "index": 19,
+      "split": "test",
+      "should_trigger": true,
+      "scores": {
+        "baseline": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "APM/observability stack selection with named candidates, budget, and scoring criteria."
+        },
+        "candidate-1": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Stack/platform choice among multiple candidates with scoring criteria."
+        },
+        "candidate-2": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Genuine comparison request for choosing among stacks with budget constraints."
+        },
+        "candidate-3": {
+          "prediction": "TRIGGER",
+          "correct": true,
+          "reasoning": "Substantial multi-candidate comparison with criteria and recommendation implied."
+        }
+      }
+    }
+  ],
+  "selection": {
+    "best_description_id": "candidate-2",
+    "tie_breaker": "All candidates tied on test_score and train_score; candidate-2 is the shortest description."
+  }
+}
