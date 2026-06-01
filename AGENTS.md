@@ -64,7 +64,7 @@ dotfiles/
 | Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO releases at https://github.com/code-yeongyu/oh-my-openagent/releases |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
-| Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; update LICENSE-attribution.md |
+| Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; wire to agent in `opencode/oh-my-openagent.json` |
 | Run retro / view journal | `.mnemosyne/retros/` (project) + `~/.config/opencode/harness-journal/` (global) | Dual-journal: project retros in `.mnemosyne/`, global retros in `harness-journal/`. Written by Mnemosyne via `/retro` |
 | Change memory policy | `opencode/MEMORY-POLICY.md` | Curation bar, ACL convention |
 | Add memory-maintenance script | `opencode/bin/` | Extensionless bash scripts (`opencode/bin/memory-*`), symlinked to `~/.config/opencode/bin/`, on PATH via fish_config; bare-name invocation |
