@@ -5,7 +5,10 @@
     "github-copilot",
     "opencode",
     "opencode-go",
-    "openrouter"
+    "openrouter",
+    "minimax",
+    "zai",
+    "commandcode"
   ],
   "small_model": "github-copilot/claude-haiku-4.5",
   "instructions": [],
