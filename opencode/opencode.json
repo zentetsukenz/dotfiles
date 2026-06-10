@@ -7,7 +7,7 @@
     "opencode-go",
     "openrouter",
     "minimax",
-    "zai",
+    "zai-coding-plan",
     "commandcode"
   ],
   "small_model": "github-copilot/claude-haiku-4.5",
@@ -162,81 +162,7 @@
     }
   },
   "provider": {
-    "github-copilot": {
-      "blacklist": [
-        "gpt-4.1",
-        "gpt-4o",
-        "gpt-5-mini",
-        "claude-opus-4.5",
-        "claude-sonnet-4.5",
-        "gpt-5.2-codex",
-        "gpt-5.3-codex"
-      ],
-      "models": {
-        "claude-opus-4.6": {
-          "variants": {
-            "max": {
-              "disabled": true
-            }
-          }
-        },
-        "claude-sonnet-4.6": {
-          "variants": {
-            "max": {
-              "disabled": true
-            }
-          }
-        },
-        "claude-haiku-4.5": {
-          "variants": {
-            "high": {
-              "disabled": true
-            },
-            "max": {
-              "disabled": true
-            }
-          }
-        },
-        "gpt-5.4": {
-          "variants": {
-            "none": {
-              "disabled": true
-            },
-            "minimal": {
-              "disabled": true
-            },
-            "low": {
-              "disabled": true
-            }
-          }
-        },
-        "gemini-3-flash-preview": {
-          "variants": {
-            "low": {
-              "disabled": true
-            },
-            "high": {
-              "disabled": true
-            }
-          }
-        },
-        "gemini-3.1-pro-preview": {
-          "variants": {
-            "low": {
-              "disabled": true
-            }
-          }
-        },
-        "gpt-5.2": {},
-        "claude-opus-4.7": {
-          "variants": {
-            "max": {
-              "disabled": true
-            }
-          }
-        }
-      }
-    },
+    "github-copilot": {},
     "opencode": {},
     "opencode-go": {},
     "openrouter": {}

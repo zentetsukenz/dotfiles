@@ -1,9 +1,6 @@
 ---
 name: triage
 description: Triage issues through a state machine driven by triage roles. Use when user wants to create an issue, triage issues, review incoming bugs or feature requests, prepare issues for an AFK agent, or manage issue workflow.
-upstream-source: "https://github.com/mattpocock/skills/tree/179a14e721034706ffce7abae75b877c922b4ae8/skills/engineering/triage"
-upstream-commit: "179a14e721034706ffce7abae75b877c922b4ae8"
-harness-modifications: "none"
 ---
 
 # Triage

@@ -58,18 +58,6 @@
       "github-copilot/claude-opus-4.7": 2
     }
   },
-  "team_mode": {
-    "enabled": true,
-    "tmux_visualization": true,
-    "max_parallel_members": 4,
-    "max_members": 8,
-    "max_messages_per_run": 10000,
-    "max_wall_clock_minutes": 240,
-    "max_member_turns": 800,
-    "message_payload_max_bytes": 32768,
-    "recipient_unread_max_bytes": 262144,
-    "mailbox_poll_interval_ms": 3000
-  },
   "ralph_loop": {
     "enabled": false,
     "default_max_iterations": 100,
@@ -139,6 +127,7 @@
         "github-copilot/claude-sonnet-4.6"
       ],
       "skills": [
+        "caveman",
         "qa-witness-protocol",
         "to-prd",
         "to-issues",
@@ -148,7 +137,6 @@
         "verification-before-completion",
         "systematic-debugging"
       ],
-      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.\n\nFor deliverable verification, load the `qa-witness-protocol` skill.",
       "ultrawork": {
         "model": "github-copilot/gpt-5.5",
         "variant": "xhigh"
@@ -161,8 +149,8 @@
         "github-copilot/claude-haiku-4.5",
         "github-copilot/gemini-3-flash-preview"
       ],
-      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.",
       "skills": [
+        "caveman",
         "tdd",
         "diagnose",
         "verification-before-completion",
@@ -177,10 +165,10 @@
         "github-copilot/claude-opus-4.6"
       ],
       "skills": [
+        "caveman",
         "improve-codebase-architecture",
         "prototype"
-      ],
-      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human."
+      ]
     },
     "oracle": {
       "model": "github-copilot/gpt-5.5",
@@ -189,8 +177,8 @@
         "github-copilot/claude-opus-4.7",
         "github-copilot/claude-sonnet-4.6"
       ],
-      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.",
       "skills": [
+        "caveman",
         "architect-review"
       ]
     },
@@ -199,12 +187,18 @@
       "fallback_models": [
         "github-copilot/claude-haiku-4.5",
         "github-copilot/gemini-3-flash-preview"
+      ],
+      "skills": [
+        "caveman"
       ]
     },
     "explore": {
       "model": "github-copilot/claude-haiku-4.5",
       "fallback_models": [
         "github-copilot/gemini-3-flash-preview"
+      ],
+      "skills": [
+        "caveman"
       ]
     },
     "multimodal-looker": {
@@ -213,6 +207,9 @@
       "fallback_models": [
         "github-copilot/gpt-5.5",
         "github-copilot/gemini-3-flash-preview"
+      ],
+      "skills": [
+        "caveman"
       ]
     },
     "prometheus": {
@@ -223,6 +220,7 @@
         "github-copilot/claude-sonnet-4.6"
       ],
       "skills": [
+        "caveman",
         "domain-model",
         "design-an-interface",
         "triage",
@@ -232,8 +230,7 @@
         "zoom-out",
         "skill-creator",
         "architect-review"
-      ],
-      "prompt_append": "\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.\n\n**Behavioral Verification Decision** (MANDATORY for Build/Refactor intents)\nAfter completing Test Infrastructure Assessment (already in your built-in workflow) and BEFORE generating the plan, evaluate: 'Does this plan produce or modify a behavioral artifact (rendered UI, HTTP endpoint, CLI tool, generated file)?'\n- If YES \u2192 explicitly load `qa-witness-protocol` skill via the skill tool. The skill provides: invocation contract, plan template's QA Witness Setup section, per-task `Visual Verification: YES|NO` flag.\n- If NO (pure-internal refactor, prompt/config edits, doc-only) \u2192 skip skill load. Note in plan: 'No behavioral verification needed.'\n**DO NOT load this skill on keyword match.** Evaluate the actual plan output.\nWhen the skill is loaded, ensure your generated plan includes:\n1. A `## QA Witness Setup` section after `## Verification Strategy`.\n2. A `**Visual Verification**: YES | NO` flag on every TODO entry.\n\n**F3 Override when qa-witness is in use**: When the loaded `qa-witness-protocol` skill is active for this plan, override the generated F3 entry in the Final Verification Wave to read:\n**F3. Integration & Regression Sanity Sweep** \u2014 `unspecified-high`\nPer-task qa-witness already verified individual scenarios with fast feedback. F3 focuses on:\n- Cross-task integration: features working together (not isolation)\n- Edge cases not covered by per-task scenarios: empty state, rapid actions, race conditions\n- Sanity re-run of 1-2 critical happy-path scenarios end-to-end (regression check)\nSave to `.sisyphus/evidence/final-qa/`. Do NOT re-run every scenario qa-witness already verified \u2014 trust the per-task verdicts.\nOutput: `Integration [N/N] | Edge Cases [N tested] | Critical Regression [N/N] | VERDICT`"
+      ]
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.7",
@@ -242,8 +239,8 @@
         "github-copilot/gpt-5.5",
         "github-copilot/claude-sonnet-4.6"
       ],
-      "prompt_append": "\n\nGit guardrails: create signed commits only. Use conventional commit format with strict 50/72 wrapping. Never add AI attribution markers, co-authored-by footers, or commit footers. Never force-push to main or master. Never use --no-verify. If pull or push requires authentication, stop and ask the human.",
       "skills": [
+        "caveman",
         "zoom-out",
         "grill-with-docs"
       ]
@@ -256,6 +253,7 @@
         "github-copilot/claude-sonnet-4.6"
       ],
       "skills": [
+        "caveman",
         "grill-with-docs"
       ]
     },
@@ -266,9 +264,9 @@
         "github-copilot/gemini-3-flash-preview"
       ],
       "skills": [
+        "caveman",
         "zoom-out"
-      ],
-      "prompt_append": "\n\nYou are Atlas, the codebase cartographer. Your focus is cross-file mapping and dependency tracing: understanding how modules connect, what calls what, and how data flows across boundaries. Prefer structural analysis over implementation detail."
+      ]
     }
   },
   "categories": {
@@ -295,8 +293,7 @@
     },
     "quick": {
       "model": "github-copilot/claude-haiku-4.5",
-      "description": "Trivial tasks \u2014 single file changes, typo fixes, simple modifications",
-      "prompt_append": "\n\nFor terse, signal-only responses, invoke the `caveman` skill (no preamble, no fluff, just the answer)."
+      "description": "Trivial tasks \u2014 single file changes, typo fixes, simple modifications"
     },
     "unspecified-low": {
       "model": "github-copilot/claude-sonnet-4.6",

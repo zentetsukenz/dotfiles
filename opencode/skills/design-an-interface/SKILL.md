@@ -1,9 +1,6 @@
 ---
 name: design-an-interface
 description: Generate multiple radically different interface designs for a module using parallel sub-agents. Use when user wants to design an API, explore interface options, compare module shapes, or mentions "design it twice".
-upstream-source: "https://github.com/mattpocock/skills/tree/383b6a06d59c4ce0ffcb14112bfd91265a86cf91/design-an-interface"
-upstream-commit: "383b6a06d59c4ce0ffcb14112bfd91265a86cf91"
-harness-modifications: "none"
 ---
 
 # Design an Interface

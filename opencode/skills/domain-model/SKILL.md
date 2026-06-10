@@ -2,9 +2,6 @@
 name: domain-model
 description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
 disable-model-invocation: true
-upstream-source: "https://github.com/mattpocock/skills/tree/383b6a06d59c4ce0ffcb14112bfd91265a86cf91/skills/domain-model"
-upstream-commit: "383b6a06d59c4ce0ffcb14112bfd91265a86cf91"
-harness-modifications: "none"
 ---
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.

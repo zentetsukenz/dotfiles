@@ -12,7 +12,7 @@ This is the strong default; deviation requires explicit justification.
 
 ## Format
 
-```
+```text
 <header>
 <BLANK LINE>
 <body?>
@@ -31,7 +31,7 @@ This is the strong default; deviation requires explicit justification.
 ## Types
 
 | Type | When to use | Example subject |
-|---|---|---|
+| --- | --- | --- |
 | feat | A new user-visible feature or capability | `feat(fish): add gco function for git checkout` |
 | fix | A bug fix | `fix(nvim): correct sonokai colorscheme load order` |
 | docs | Documentation only | `docs: clarify ssh agent recovery in AGENTS.md` |
@@ -84,7 +84,7 @@ Conventions:
 
 - **Order**: refs/fixes first, then human attribution, then `BREAKING CHANGE` last.
 - **Casing**: keep the capitalised key exactly as shown — `git interpret-trailers`
-  is case-sensitive. The separator is `: ` (colon + space).
+  is case-sensitive. The separator is `:` (colon + space).
 - **Multiple Refs**: prefer separate lines over comma-joined values.
 
 ## Denylist (AI attribution forbidden)
@@ -104,7 +104,7 @@ This is non-negotiable. AI agents do not get attribution.
 
 Use the `BREAKING CHANGE: <desc>` footer. Do **not** use the `!` suffix syntax.
 
-```
+```text
 feat(opencode): rename agent profile keys
 
 BREAKING CHANGE: agent config keys renamed; users must migrate
@@ -115,7 +115,7 @@ oh-my-openagent.json
 
 Use the Conventional Commits spec form, not git's default `Revert "<subject>"`:
 
-```
+```text
 revert: add experimental fish prompt theme
 
 This reverts commit abc123def.
@@ -133,30 +133,30 @@ This reverts commit abc123def.
 
 ## Examples (good)
 
-```
+```text
 feat(fish): add gco function for git checkout
 ```
 
-```
+```text
 fix(nvim): correct sonokai colorscheme load order
 ```
 
-```
+```text
 docs: clarify ssh agent recovery in AGENTS.md
 ```
 
-```
+```text
 refactor(macos): split apply.sh into per-domain modules
 ```
 
-```
+```text
 feat(opencode): rename agent profile keys
 
 BREAKING CHANGE: agent config keys renamed; users must migrate
 oh-my-openagent.json
 ```
 
-```
+```text
 revert: add experimental fish prompt theme
 
 This reverts commit abc123def.
@@ -165,7 +165,7 @@ This reverts commit abc123def.
 ## Examples (bad)
 
 | Commit | Why it is bad |
-|---|---|
+| --- | --- |
 | `Added new feature.` | Past tense, capitalised, trailing period, no type. |
 | `feat: Add new feature.` | Capitalised first letter, trailing period. |
 | `feat(opencode): refactored the entire agent dispatch pipeline to support concurrency` | Header exceeds 50 characters; verb is past tense. |
@@ -204,7 +204,7 @@ commitlint on demand; no `package.json` is committed to the repo.
 ## Alternatives considered
 
 | Convention | Summary | Why not chosen |
-|---|---|---|
+| --- | --- | --- |
 | Conventional Commits v1.0.0 | `type(scope): subject`; machine-readable grammar | **Chosen** — industry standard, drives tooling, AI-friendly grammar |
 | Angular | CC parent; 100-char limit, mandatory body | Too verbose for a personal repo |
 | Gitmoji | Emoji prefix (🐛 ✨) for commit type | Subjective; awkward to type; weak machine grammar |

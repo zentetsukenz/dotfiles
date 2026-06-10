@@ -12,7 +12,7 @@ For projects with dev servers, see `QA-WITNESS.md` (generate via `/init-qa-witne
 
 ## STRUCTURE
 
-```
+```text
 dotfiles/
 ├── install                      # Dotbot entrypoint
 ├── install.conf.yaml            # Symlink + shell command source of truth
@@ -40,7 +40,7 @@ dotfiles/
 ## WHERE TO LOOK
 
 | Task | Location | Notes |
-|------|----------|-------|
+| ------ | ---------- | ------- |
 | Add new dotfile | `install.conf.yaml` → `link:` section | Create file at root, add symlink mapping |
 | Add new shell function | `fish_functions/*.fish` + `fish_functions/README.md` | Pattern: `function name --description 'desc'` + `command <tool> $argv`; update alias table |
 | Add brew package | `Brewfile` | `brew "pkg"` or `cask "app"`, run `brew bundle` |
@@ -61,7 +61,7 @@ dotfiles/
 | Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
 | Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
 | Diagnose SSH agent | `scripts/check_ssh_agent.sh` | Read-only health check; exit 0=healthy, 1=broken, 2=binary missing |
-| Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO releases at https://github.com/code-yeongyu/oh-my-openagent/releases |
+| Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO releases at <https://github.com/code-yeongyu/oh-my-openagent/releases> |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
 | Change global AI preferences | `opencode/AGENTS.md` | Applies to all projects — project AGENTS.md overrides |
 | Add/update vendored skill | `opencode/skills/` | YAML frontmatter + body; wire to agent in `opencode/oh-my-openagent.json` |
@@ -147,5 +147,3 @@ git submodule update --remote dotbot   # Update Dotbot submodule
 See [`opencode/omo-teams/README.md`](opencode/omo-teams/README.md) for named teams.
 
 **Note**: Use `/stop-continuation` to kill active ralph_loop or ultrawork sessions.
-
-> **context-mode routing rules**: see system-injected `<context_window_protection>` block in every agent session.

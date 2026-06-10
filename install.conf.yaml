@@ -15,12 +15,11 @@
       force: true
     "~/.config/nvim":
       force: true
-    "~/.config/alacritty":
-      force: true
 
 - shell:
     - command: "cp -a ~/.config/opencode ~/.config/opencode.bak.$(date +%s) 2>/dev/null || true"
       description: Backup existing opencode config before relink
+
 - link:
     "~/.gitignore_global": "global_gitignore"
     "~/.config/ghostty/config": "ghostty_config"
@@ -45,7 +44,6 @@
       path: "opencode/agents"
     "~/.config/opencode/bin": "opencode/bin"
     "~/.config/tmux/tmux.conf": "tmux.conf"
-    "~/.omo/teams": "opencode/omo-teams"
     "~/.config/fish/functions/":
       glob: true
       path: "fish_functions/*.fish"
@@ -72,7 +70,6 @@
 
     - command: mise install
       description: Install language runtimes via mise
-
 
     - command: 'fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher" || true'
       description: Bootstrap Fisher

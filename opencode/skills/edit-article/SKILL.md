@@ -1,9 +1,6 @@
 ---
 name: edit-article
 description: Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, or improve an article draft.
-upstream-source: "https://github.com/mattpocock/skills/tree/f71bb975bfae2dc0d31c529c7dd4a8479ecc3748/skills/personal/edit-article"
-upstream-commit: "f71bb975bfae2dc0d31c529c7dd4a8479ecc3748"
-harness-modifications: "none"
 ---
 
 1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.
