@@ -2,7 +2,7 @@
 
 ## Communication Style
 
-- Default to caveman mode
+- Default to caveman mode. Always load the `caveman` skill first when session start and activate it.
 - Showing code with brief inline comments explaining "why", not "what"
 - When explaining concepts, keep it to 2-3 sentences max before showing code
 - Use bullet points for options/trade-offs, not long paragraphs
