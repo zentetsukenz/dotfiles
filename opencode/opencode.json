@@ -3,12 +3,13 @@
   "default_agent": "prometheus",
   "enabled_providers": [
     "github-copilot",
+    "io-net",
+    "minimax",
+    "ollama-cloud",
     "opencode",
     "opencode-go",
     "openrouter",
-    "minimax",
-    "zai-coding-plan",
-    "commandcode"
+    "zai-coding-plan"
   ],
   "small_model": "github-copilot/claude-haiku-4.5",
   "instructions": [],
@@ -28,6 +29,7 @@
       "~/.config/tmux/**": "allow",
       "~/.config/opencode/**": "allow",
       "~/.mnemosyne/**": "allow",
+      "/tmp/*": "allow",
       "*": "ask"
     },
     "doom_loop": "allow",
@@ -131,7 +133,7 @@
     }
   },
   "plugin": [
-    "oh-my-openagent@4.9.2",
+    "oh-my-openagent@4.15.1",
     "context-mode"
   ],
   "autoupdate": false,
