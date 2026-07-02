@@ -2,13 +2,11 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "prometheus",
   "enabled_providers": [
-    "github-copilot",
     "io-net",
     "minimax",
     "ollama-cloud",
     "opencode",
     "opencode-go",
-    "openrouter",
     "zai-coding-plan"
   ],
   "small_model": "github-copilot/claude-haiku-4.5",
