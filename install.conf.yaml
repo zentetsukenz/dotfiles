@@ -16,10 +16,6 @@
     "~/.config/nvim":
       force: true
 
-- shell:
-    - command: "cp -a ~/.config/opencode ~/.config/opencode.bak.$(date +%s) 2>/dev/null || true"
-      description: Backup existing opencode config before relink
-
 - link:
     "~/.gitignore_global": "global_gitignore"
     "~/.config/ghostty/config": "ghostty_config"
@@ -29,20 +25,6 @@
     "~/.config/fish/config.fish": "fish_config.fish"
     "~/.config/fish/fish_plugins": "fish_plugins"
     "~/.config/mise/config.toml": "mise_config.toml"
-    "~/.config/opencode/opencode.json": "opencode/opencode.json"
-    "~/.config/opencode/oh-my-openagent.json": "opencode/oh-my-openagent.json"
-    "~/.config/opencode/AGENTS.md": "opencode/AGENTS.md"
-    "~/.config/opencode/commands":
-      path: "opencode/commands"
-    "~/.config/opencode/tui.json": "opencode/tui.json"
-    "~/.config/opencode/skills":
-      path: "opencode/skills"
-    "~/.config/opencode/MEMORY-POLICY.md": "opencode/MEMORY-POLICY.md"
-    "~/.config/opencode/COMMIT-CONVENTION.md": "opencode/COMMIT-CONVENTION.md"
-    "~/.config/opencode/harness-journal": "opencode/harness-journal"
-    "~/.config/opencode/agents":
-      path: "opencode/agents"
-    "~/.config/opencode/bin": "opencode/bin"
     "~/.config/tmux/tmux.conf": "tmux.conf"
     "~/.config/fish/functions/":
       glob: true
