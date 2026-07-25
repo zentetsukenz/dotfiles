@@ -33,14 +33,6 @@ ehthumbs.db
 Thumbs.db
 .localized
 
-# AI / LLM tools
-.cursor/
-.mnemosyne/
-.omo/
-.opencode/
-.serena/
-.sisyphus/
-
 # Editors / IDEs
 .vscode/
 .idea/
