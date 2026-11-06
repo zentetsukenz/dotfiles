@@ -33,7 +33,7 @@ dotfiles/
 ├── Brewfile                     # Homebrew packages
 ├── macos/                       # Modular macOS defaults: apply.sh + 8 domain modules + _helpers.sh
 ├── mise_config.toml             # Language runtime versions
-├── scripts/                     # setup_ssh_agent.sh, setup_git_local.sh, check_ssh_agent.sh
+├── scripts/                     # setup_ssh_agent.sh, ssh_askpass_keychain.sh, setup_git_local.sh, check_ssh_agent.sh
 └── init_gcloud.sh               # GCP SDK + kubectl init
 ```
 
@@ -59,7 +59,7 @@ dotfiles/
 | Add editor keymap | `nvim/lua/config/keymaps.lua` | `vim.keymap.set(...)`, leader+l group for LSP |
 | Change git config | `global_gitconfig` | NOTE: COPIED by install script, not symlinked |
 | Machine-local git overrides | `~/.gitconfig.local` | Created by `scripts/setup_git_local.sh`, SSH signing key path — NOT in repo |
-| Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/ |
+| Change SSH agent config | `scripts/setup_ssh_agent.sh` + `fish_config.fish` | LaunchAgent plist at ~/Library/LaunchAgents/; each agent start reloads keys from Keychain items `ssh:<key file>` via `scripts/ssh_askpass_keychain.sh` |
 | Diagnose SSH agent | `scripts/check_ssh_agent.sh` | Read-only health check; exit 0=healthy, 1=broken, 2=binary missing |
 | Change OpenCode agents/models | `opencode/oh-my-openagent.json` | Symlinked — changes reflect immediately. OMO releases at <https://github.com/code-yeongyu/oh-my-openagent/releases> |
 | Add OpenCode command | `opencode/commands/*.md` | Markdown template with YAML frontmatter — auto-discovered |
